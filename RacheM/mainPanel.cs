@@ -12,7 +12,6 @@ namespace RacheM
 {
     public partial class mainPanel : UserControl
     {
-        public mainForm cp1 { get; set; }
         public mainPanel()
         {
             InitializeComponent();

@@ -63,6 +63,36 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back {
+            get {
+                object obj = ResourceManager.GetObject("back", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap commonCase {
+            get {
+                object obj = ResourceManager.GetObject("commonCase", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap if_Close_1891023 {
             get {
                 object obj = ResourceManager.GetObject("if_Close_1891023", resourceCulture);
@@ -73,9 +103,9 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Главная {
+        internal static System.Drawing.Bitmap main {
             get {
-                object obj = ResourceManager.GetObject("Главная", resourceCulture);
+                object obj = ResourceManager.GetObject("main", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +113,9 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ОбычныйКейс {
+        internal static System.Drawing.Bitmap roll {
             get {
-                object obj = ResourceManager.GetObject("ОбычныйКейс", resourceCulture);
+                object obj = ResourceManager.GetObject("roll", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

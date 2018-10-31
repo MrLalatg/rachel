@@ -46,17 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="commonOpening.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="commonOpening.Designer.cs">
+      <DependentUpon>commonOpening.cs</DependentUpon>
+    </Compile>
     <Compile Include="commonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="commonPanel.Designer.cs">
       <DependentUpon>commonPanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="controlPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="controlPanel.Designer.cs">
-      <DependentUpon>controlPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -70,16 +70,13 @@
     <Compile Include="mainPanel.Designer.cs">
       <DependentUpon>mainPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="myButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="commonOpening.resx">
+      <DependentUpon>commonOpening.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="commonPanel.resx">
       <DependentUpon>commonPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="controlPanel.resx">
-      <DependentUpon>controlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -118,6 +115,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\if_Close_1891023.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Прокрутка.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
