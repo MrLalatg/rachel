@@ -1,0 +1,12 @@
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\bin\Debug\RacheM.exe.config
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\bin\Debug\RacheM.exe
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\bin\Debug\RacheM.pdb
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.csprojResolveAssemblyReference.cache
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.mainForm.resources
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.Properties.Resources.resources
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.csproj.GenerateResource.Cache
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.exe
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.pdb
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.mainPanel.resources
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.commonPanel.resources
+c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.controlPanel.resources
