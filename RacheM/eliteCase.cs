@@ -28,6 +28,7 @@ namespace RacheM
             ((System.Windows.Forms.PictureBox)sender).Padding = new Padding(5);
             ((System.Windows.Forms.PictureBox)sender).BackColor = Color.Purple;
             ((System.Windows.Forms.PictureBox)sender).Image = (Image)((System.Windows.Forms.PictureBox)sender).Tag;
+            ((System.Windows.Forms.PictureBox)sender).Enabled = false;
             tempRes.Add(((PictureBox)sender).Image);
             counter++;
             if (counter == 3)
@@ -101,15 +102,20 @@ namespace RacheM
             foreach(PictureBox i in ((mainForm)Parent).eliteCards)
             {
                 i.Image = null;
-                tempRes = new ArrayList();
-                counter = 0;
-                setka = new int[3, 3];
+                i.BackColor = Color.Transparent;
+                i.Padding = new Padding(0);
+                i.Enabled = true;
             }
+            tempRes = new ArrayList();
+            continueBtn.Visible = false;
+            setka = new int[3, 3];
+            counter = 0;
         }
 
         private void home_Click(object sender, EventArgs e)
         {
             ((mainForm)Parent).onHome(this);
+            clear();
         }
 
         private void continueBtn_Click(object sender, EventArgs e)
@@ -117,10 +123,6 @@ namespace RacheM
             Visible = false;
             ((mainForm)Parent).getPrize1.setPrize(prize);
             ((mainForm)Parent).getPrize1.Visible = true;
-            foreach(PictureBox i in ((mainForm)Parent).eliteCards)
-            {
-                i.BackColor = Color.Transparent;
-            }
             clear();
         }
     }
