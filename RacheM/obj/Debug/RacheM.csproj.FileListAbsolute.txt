@@ -10,3 +10,5 @@ c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\R
 c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.mainPanel.resources
 c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.commonPanel.resources
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.commonOpening.resources
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.eliteCase.resources
+C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.getPrize.resources

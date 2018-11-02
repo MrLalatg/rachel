@@ -58,11 +58,23 @@
     <Compile Include="commonPanel.Designer.cs">
       <DependentUpon>commonPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="eliteCase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="eliteCase.Designer.cs">
+      <DependentUpon>eliteCase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="getPrize.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="getPrize.Designer.cs">
+      <DependentUpon>getPrize.cs</DependentUpon>
     </Compile>
     <Compile Include="mainPanel.cs">
       <SubType>UserControl</SubType>
@@ -78,8 +90,14 @@
     <EmbeddedResource Include="commonPanel.resx">
       <DependentUpon>commonPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="eliteCase.resx">
+      <DependentUpon>eliteCase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="getPrize.resx">
+      <DependentUpon>getPrize.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainPanel.resx">
       <DependentUpon>mainPanel.cs</DependentUpon>
@@ -111,9 +129,6 @@
     <None Include="Resources\Главная.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ОбычныйКейс.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\if_Close_1891023.png" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +139,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Блат.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ОбычныйКейс.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\chair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\llikes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nametag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spons.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\knife.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brelok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnet.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shirt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\znak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\getPrize.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

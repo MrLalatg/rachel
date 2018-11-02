@@ -19,7 +19,20 @@ namespace RacheM
 
         private void commonCase_Click(object sender, EventArgs e)
         {
-            ((mainForm)this.Parent).commonPanel1.Visible = true;
+            Visible = false;
+            ((mainForm)Parent).commonPanel1.Visible = true;
+        }
+
+        private void eliteBtn_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+            ((mainForm)Parent).eliteCase1.createPrize();
+            ((mainForm)Parent).eliteCase1.Visible = true;
+        }
+
+        private void nickName_TextChanged(object sender, EventArgs e)
+        {
+            ((mainForm)Parent).currentNick = nickName.Text;
         }
     }
 }

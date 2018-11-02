@@ -19,8 +19,7 @@ namespace RacheM
 
         private void home_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            ((mainForm)Parent).mainPanel1.Visible = true;
+            ((mainForm)Parent).onHome(this);
         }
     }
 }
