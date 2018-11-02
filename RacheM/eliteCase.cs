@@ -25,6 +25,8 @@ namespace RacheM
 
         public void clickHandler(object sender, EventArgs e)
         {
+            ((System.Windows.Forms.PictureBox)sender).Padding = new Padding(5);
+            ((System.Windows.Forms.PictureBox)sender).BackColor = Color.Purple;
             ((System.Windows.Forms.PictureBox)sender).Image = (Image)((System.Windows.Forms.PictureBox)sender).Tag;
             tempRes.Add(((PictureBox)sender).Image);
             counter++;
@@ -38,9 +40,11 @@ namespace RacheM
                 {
                     prize = ((mainForm)Parent).badPrizes[rnd.Next(1, 8)];
                 }
-                Visible = false;
-                ((mainForm)Parent).getPrize1.setPrize(prize);
-                ((mainForm)Parent).getPrize1.Visible = true;
+                foreach(PictureBox i in ((mainForm)Parent).eliteCards)
+                {
+                    i.Image = (Image)i.Tag;
+                }
+                continueBtn.Visible = true;
             }
         }
 
@@ -92,9 +96,32 @@ namespace RacheM
 
         }
 
+        public void clear()
+        {
+            foreach(PictureBox i in ((mainForm)Parent).eliteCards)
+            {
+                i.Image = null;
+                tempRes = new ArrayList();
+                counter = 0;
+                setka = new int[3, 3];
+            }
+        }
+
         private void home_Click(object sender, EventArgs e)
         {
             ((mainForm)Parent).onHome(this);
+        }
+
+        private void continueBtn_Click(object sender, EventArgs e)
+        {
+            Visible = false;
+            ((mainForm)Parent).getPrize1.setPrize(prize);
+            ((mainForm)Parent).getPrize1.Visible = true;
+            foreach(PictureBox i in ((mainForm)Parent).eliteCards)
+            {
+                i.BackColor = Color.Transparent;
+            }
+            clear();
         }
     }
 }

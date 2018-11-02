@@ -64,11 +64,11 @@
             // 
             this.nickName.BackColor = System.Drawing.Color.Black;
             this.nickName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nickName.Font = new System.Drawing.Font("PMingLiU-ExtB", 20F);
+            this.nickName.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nickName.ForeColor = System.Drawing.Color.White;
             this.nickName.Location = new System.Drawing.Point(281, 238);
             this.nickName.Name = "nickName";
-            this.nickName.Size = new System.Drawing.Size(400, 32);
+            this.nickName.Size = new System.Drawing.Size(400, 33);
             this.nickName.TabIndex = 2;
             this.nickName.TextChanged += new System.EventHandler(this.nickName_TextChanged);
             // 

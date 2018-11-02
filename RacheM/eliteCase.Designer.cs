@@ -39,6 +39,7 @@
             this.square3_1 = new System.Windows.Forms.PictureBox();
             this.home = new System.Windows.Forms.Button();
             this.back = new System.Windows.Forms.Button();
+            this.continueBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.square1_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.square2_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.square2_1)).BeginInit();
@@ -162,6 +163,23 @@
             this.back.TabIndex = 9;
             this.back.UseVisualStyleBackColor = false;
             // 
+            // continueBtn
+            // 
+            this.continueBtn.BackColor = System.Drawing.Color.Transparent;
+            this.continueBtn.BackgroundImage = global::RacheM.Properties.Resources._continue;
+            this.continueBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.continueBtn.FlatAppearance.BorderSize = 0;
+            this.continueBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.continueBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.continueBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.continueBtn.Location = new System.Drawing.Point(438, 598);
+            this.continueBtn.Name = "continueBtn";
+            this.continueBtn.Size = new System.Drawing.Size(405, 99);
+            this.continueBtn.TabIndex = 11;
+            this.continueBtn.UseVisualStyleBackColor = false;
+            this.continueBtn.Visible = false;
+            this.continueBtn.Click += new System.EventHandler(this.continueBtn_Click);
+            // 
             // eliteCase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,6 +187,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.eliteCase;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.continueBtn);
             this.Controls.Add(this.home);
             this.Controls.Add(this.back);
             this.Controls.Add(this.square3_1);
@@ -208,5 +227,6 @@
         private System.Windows.Forms.PictureBox square3_1;
         private System.Windows.Forms.Button home;
         private System.Windows.Forms.Button back;
+        private System.Windows.Forms.Button continueBtn;
     }
 }
