@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RacheM
@@ -17,10 +11,10 @@ namespace RacheM
             InitializeComponent();
         }
 
-        public void setPrize(Image img)
+        public void setPrize(int id)
         {
             prizeImg.SizeMode = PictureBoxSizeMode.StretchImage;
-            prizeImg.Image = img;
+            prizeImg.Image =  db.getPrizes()[id].Image;
         }
 
         private void home_Click(object sender, EventArgs e)
