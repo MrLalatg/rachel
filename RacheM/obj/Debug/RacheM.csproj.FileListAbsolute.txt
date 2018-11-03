@@ -12,3 +12,26 @@ c:\users\gotiktg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\R
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.commonOpening.resources
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.eliteCase.resources
 C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.getPrize.resources
+C:\projects\ilusha\RacheM\bin\Debug\RacheM.exe.config
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.exe
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.pdb
+C:\projects\ilusha\RacheM\bin\Debug\RacheM.exe
+C:\projects\ilusha\RacheM\bin\Debug\RacheM.pdb
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.csprojResolveAssemblyReference.cache
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.commonOpening.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.commonPanel.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.eliteCase.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.mainForm.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.getPrize.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.mainPanel.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.Properties.Resources.resources
+C:\projects\ilusha\RacheM\obj\Debug\RacheM.csproj.GenerateResource.Cache
+C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.dll
+C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.SqlServer.dll
+C:\projects\ilusha\RacheM\bin\Debug\System.Data.SQLite.dll
+C:\projects\ilusha\RacheM\bin\Debug\System.Data.SQLite.EF6.dll
+C:\projects\ilusha\RacheM\bin\Debug\System.Data.SQLite.Linq.dll
+C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.xml
+C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.SqlServer.xml
+C:\projects\ilusha\RacheM\bin\Debug\System.Data.SQLite.xml
+C:\projects\ilusha\RacheM\bin\Debug\myData
