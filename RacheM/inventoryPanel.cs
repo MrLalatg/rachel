@@ -13,6 +13,7 @@ namespace RacheM
     public partial class inventoryPanel : UserControl
     {
         private User curUsr;
+        Dictionary<int, PrizeItem> tempPrizes = db.getPrizes();
         public inventoryPanel()
         {
             InitializeComponent();
@@ -28,11 +29,25 @@ namespace RacheM
         public void setUser(User usr)
         {
             prizeItems.Items.Clear();
+            addPick.Items.Clear();
+            
             foreach (PrizeItem i in usr.prizes)
             {
                 ((mainForm)Parent).inventoryPanel1.prizeItems.Items.Add(i.Name);
             }
             curUsr = usr;
+
+            foreach(int i in tempPrizes.Keys)
+            {
+                addPick.Items.Add(new ComboboxItem(tempPrizes[i].Name, i));
+            }
+        }
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            curUsr.prizes.Add(tempPrizes[(int)((ComboboxItem)addPick.SelectedItem).Value]);
+            db.saveUser(curUsr);
+            setUser(curUsr);
         }
     }
 }

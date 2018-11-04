@@ -68,6 +68,7 @@ namespace RacheM
         private IEnumerable<int> getRandomForGroup(int isBad, int length)
         {
             return db.getPrizes()
+                .Where(p => p.Value.Type != 1)
                 .Where(p => p.Value.IsBad == isBad)
                 .Select(p => new {id = p.Key, ord = rnd.Next()})
                 .OrderBy(p => p.ord)
@@ -84,7 +85,7 @@ namespace RacheM
             List<int> prizes = getRandomForGroup(0, 3).ToList();
 
             prizes[0] = rnd.Next(1, 101) == 7 
-                ? db.getPrizes().Where(p=>p.Value.IsBad == 2).Select( p => p.Key).FirstOrDefault()
+                ? db.getPrizes().Where(p=>p.Value.IsBad == -1).Select( p => p.Key).FirstOrDefault()
                 : prizes[0];
 
 

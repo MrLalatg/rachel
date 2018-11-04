@@ -72,6 +72,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboboxItem.cs" />
     <Compile Include="commonOpening.cs">
       <SubType>UserControl</SubType>
     </Compile>
