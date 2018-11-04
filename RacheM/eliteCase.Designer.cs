@@ -166,7 +166,7 @@
             // continueBtn
             // 
             this.continueBtn.BackColor = System.Drawing.Color.Transparent;
-            this.continueBtn.BackgroundImage = global::RacheM.Properties.Resources._continue;
+            this.continueBtn.BackgroundImage = global::RacheM.Properties.Resources.continueBtn;
             this.continueBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.continueBtn.FlatAppearance.BorderSize = 0;
             this.continueBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

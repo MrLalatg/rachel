@@ -31,6 +31,8 @@
             this.commonCase = new System.Windows.Forms.Button();
             this.eliteBtn = new System.Windows.Forms.Button();
             this.nickName = new System.Windows.Forms.TextBox();
+            this.inventory = new System.Windows.Forms.Button();
+            this.error = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // commonCase
@@ -72,6 +74,31 @@
             this.nickName.TabIndex = 2;
             this.nickName.TextChanged += new System.EventHandler(this.nickName_TextChanged);
             // 
+            // inventory
+            // 
+            this.inventory.FlatAppearance.BorderSize = 0;
+            this.inventory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.inventory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.inventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.inventory.Location = new System.Drawing.Point(717, 226);
+            this.inventory.Name = "inventory";
+            this.inventory.Size = new System.Drawing.Size(229, 57);
+            this.inventory.TabIndex = 3;
+            this.inventory.UseVisualStyleBackColor = true;
+            this.inventory.Click += new System.EventHandler(this.inventory_Click);
+            // 
+            // error
+            // 
+            this.error.AutoSize = true;
+            this.error.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold);
+            this.error.ForeColor = System.Drawing.Color.Red;
+            this.error.Location = new System.Drawing.Point(398, 159);
+            this.error.Name = "error";
+            this.error.Size = new System.Drawing.Size(177, 33);
+            this.error.TabIndex = 4;
+            this.error.Text = "Введите ник!";
+            this.error.Visible = false;
+            // 
             // mainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -79,6 +106,8 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.main;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.error);
+            this.Controls.Add(this.inventory);
             this.Controls.Add(this.nickName);
             this.Controls.Add(this.eliteBtn);
             this.Controls.Add(this.commonCase);
@@ -90,9 +119,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button commonCase;
-        private System.Windows.Forms.Button eliteBtn;
-        private System.Windows.Forms.TextBox nickName;
+        private System.Windows.Forms.Button inventory;
+        public System.Windows.Forms.Button commonCase;
+        public System.Windows.Forms.Button eliteBtn;
+        public System.Windows.Forms.TextBox nickName;
+        public System.Windows.Forms.Label error;
     }
 }

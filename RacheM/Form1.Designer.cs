@@ -29,11 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.inventoryPanel1 = new RacheM.inventoryPanel();
+            this.getPrize1 = new RacheM.getPrize();
             this.eliteCase1 = new RacheM.eliteCase();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
-            this.getPrize1 = new RacheM.getPrize();
             this.SuspendLayout();
+            // 
+            // inventoryPanel1
+            // 
+            this.inventoryPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.inventoryPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventoryPanel1.BackgroundImage")));
+            this.inventoryPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.inventoryPanel1.Location = new System.Drawing.Point(927, 0);
+            this.inventoryPanel1.Name = "inventoryPanel1";
+            this.inventoryPanel1.Size = new System.Drawing.Size(353, 720);
+            this.inventoryPanel1.TabIndex = 4;
+            this.inventoryPanel1.Visible = false;
+            // 
+            // getPrize1
+            // 
+            this.getPrize1.BackColor = System.Drawing.Color.Transparent;
+            this.getPrize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getPrize1.BackgroundImage")));
+            this.getPrize1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.getPrize1.Location = new System.Drawing.Point(0, 0);
+            this.getPrize1.Name = "getPrize1";
+            this.getPrize1.Size = new System.Drawing.Size(1280, 720);
+            this.getPrize1.TabIndex = 3;
+            this.getPrize1.Visible = false;
             // 
             // eliteCase1
             // 
@@ -66,23 +89,14 @@
             this.mainPanel1.Name = "mainPanel1";
             this.mainPanel1.Size = new System.Drawing.Size(1280, 720);
             this.mainPanel1.TabIndex = 0;
-            // 
-            // getPrize1
-            // 
-            this.getPrize1.BackColor = System.Drawing.Color.Transparent;
-            this.getPrize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("getPrize1.BackgroundImage")));
-            this.getPrize1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.getPrize1.Location = new System.Drawing.Point(0, 0);
-            this.getPrize1.Name = "getPrize1";
-            this.getPrize1.Size = new System.Drawing.Size(1280, 720);
-            this.getPrize1.TabIndex = 3;
-            this.getPrize1.Visible = false;
+            this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.inventoryPanel1);
             this.Controls.Add(this.getPrize1);
             this.Controls.Add(this.eliteCase1);
             this.Controls.Add(this.commonPanel1);
@@ -101,6 +115,7 @@
         public commonPanel commonPanel1;
         public eliteCase eliteCase1;
         public getPrize getPrize1;
+        public inventoryPanel inventoryPanel1;
     }
 }
 

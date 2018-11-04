@@ -66,6 +66,10 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Transitions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\dot-net-transitions.1.2.1.0\lib\net40-full\Transitions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="commonOpening.cs">
@@ -99,6 +103,12 @@
     <Compile Include="getPrize.Designer.cs">
       <DependentUpon>getPrize.cs</DependentUpon>
     </Compile>
+    <Compile Include="inventoryPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="inventoryPanel.Designer.cs">
+      <DependentUpon>inventoryPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -123,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="getPrize.resx">
       <DependentUpon>getPrize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="inventoryPanel.resx">
+      <DependentUpon>inventoryPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainPanel.resx">
       <DependentUpon>mainPanel.cs</DependentUpon>
@@ -228,6 +241,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\continue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventory1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net451\System.Data.SQLite.Core.targets')" />

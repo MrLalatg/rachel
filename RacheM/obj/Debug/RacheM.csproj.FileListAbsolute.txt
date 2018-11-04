@@ -35,3 +35,15 @@ C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.xml
 C:\projects\ilusha\RacheM\bin\Debug\EntityFramework.SqlServer.xml
 C:\projects\ilusha\RacheM\bin\Debug\System.Data.SQLite.xml
 C:\projects\ilusha\RacheM\bin\Debug\myData
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\myData
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\EntityFramework.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\System.Data.SQLite.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\EntityFramework.xml
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\System.Data.SQLite.xml
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\Transitions.dll
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\Transitions.pdb
+C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.inventoryPanel.resources

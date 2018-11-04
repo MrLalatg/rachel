@@ -19,20 +19,55 @@ namespace RacheM
 
         private void commonCase_Click(object sender, EventArgs e)
         {
-            Visible = false;
-            ((mainForm)Parent).commonPanel1.Visible = true;
+            if (((mainForm)Parent).currentNick == null || ((mainForm)Parent).currentNick == "")
+            {
+                error.Visible = true;
+            } else
+            {
+                error.Visible = false;
+                Visible = false;
+                ((mainForm)Parent).commonPanel1.Visible = true;
+            }
         }
 
         private void eliteBtn_Click(object sender, EventArgs e)
         {
-            Visible = false;
-            ((mainForm)Parent).eliteCase1.createPrize();
-            ((mainForm)Parent).eliteCase1.Visible = true;
+            if (((mainForm)Parent).currentNick == null || ((mainForm)Parent).currentNick == "")
+            {
+                error.Visible = true;
+            } else
+            {
+                error.Visible = false;
+                Visible = false;
+                ((mainForm)Parent).eliteCase1.createPrize();
+                ((mainForm)Parent).eliteCase1.Visible = true;
+            }
         }
 
         private void nickName_TextChanged(object sender, EventArgs e)
         {
             ((mainForm)Parent).currentNick = nickName.Text;
+            error.Visible = false;
+        }
+
+        private void inventory_Click(object sender, EventArgs e)
+        {
+            if (((mainForm)Parent).currentNick == null || ((mainForm)Parent).currentNick == "")
+            {
+                error.Visible = true;
+            } else {
+                error.Visible = false;
+                User currentPlayer = db.getUserByName(((mainForm)Parent).currentNick);
+                ((mainForm)Parent).inventoryPanel1.setUser(currentPlayer);
+                ((mainForm)Parent).inventoryPanel1.Visible = !((mainForm)Parent).inventoryPanel1.Visible;
+                commonCase.Enabled = false;
+                eliteBtn.Enabled = false;
+                nickName.Enabled = false;
+                /*Transitions.Transition t = new Transitions.Transition(new Transitions.TransitionType_Linear(1000));
+                ((mainForm)Parent).inventoryPanel1.Visible = true;
+                t.add(((mainForm)Parent).inventoryPanel1, "Left", -353);
+                t.run();*/
+            }
         }
     }
 }
