@@ -33,6 +33,7 @@
             this.nickName = new System.Windows.Forms.TextBox();
             this.inventory = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.Label();
+            this.showPrizesBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // commonCase
@@ -99,6 +100,21 @@
             this.error.Text = "Введите ник!";
             this.error.Visible = false;
             // 
+            // showPrizesBtn
+            // 
+            this.showPrizesBtn.BackColor = System.Drawing.Color.Black;
+            this.showPrizesBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.showPrizesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPrizesBtn.Font = new System.Drawing.Font("Bahnschrift", 20.25F, System.Drawing.FontStyle.Bold);
+            this.showPrizesBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.showPrizesBtn.Location = new System.Drawing.Point(1109, 3);
+            this.showPrizesBtn.Name = "showPrizesBtn";
+            this.showPrizesBtn.Size = new System.Drawing.Size(171, 46);
+            this.showPrizesBtn.TabIndex = 5;
+            this.showPrizesBtn.Text = "Призы";
+            this.showPrizesBtn.UseVisualStyleBackColor = false;
+            this.showPrizesBtn.Click += new System.EventHandler(this.showPrizesBtn_Click);
+            // 
             // mainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,6 +122,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.main;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.showPrizesBtn);
             this.Controls.Add(this.error);
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.nickName);
@@ -124,5 +141,6 @@
         public System.Windows.Forms.Button eliteBtn;
         public System.Windows.Forms.TextBox nickName;
         public System.Windows.Forms.Label error;
+        private System.Windows.Forms.Button showPrizesBtn;
     }
 }

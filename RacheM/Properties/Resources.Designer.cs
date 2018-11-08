@@ -243,6 +243,16 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap prizePanel {
+            get {
+                object obj = ResourceManager.GetObject("prizePanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap roll {
             get {
                 object obj = ResourceManager.GetObject("roll", resourceCulture);
@@ -256,6 +266,16 @@ namespace RacheM.Properties {
         internal static System.Drawing.Bitmap room {
             get {
                 object obj = ResourceManager.GetObject("room", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap room1 {
+            get {
+                object obj = ResourceManager.GetObject("room1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

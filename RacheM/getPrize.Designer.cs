@@ -30,7 +30,6 @@
         {
             this.prizeImg = new System.Windows.Forms.PictureBox();
             this.home = new System.Windows.Forms.Button();
-            this.back = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.prizeImg)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,27 +51,12 @@
             this.home.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.home.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.home.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.home.Location = new System.Drawing.Point(78, 0);
+            this.home.Location = new System.Drawing.Point(0, 0);
             this.home.Name = "home";
             this.home.Size = new System.Drawing.Size(72, 72);
             this.home.TabIndex = 3;
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
-            // 
-            // back
-            // 
-            this.back.BackColor = System.Drawing.Color.Transparent;
-            this.back.BackgroundImage = global::RacheM.Properties.Resources.back;
-            this.back.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.back.FlatAppearance.BorderSize = 0;
-            this.back.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.back.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.back.Location = new System.Drawing.Point(0, 0);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(72, 72);
-            this.back.TabIndex = 2;
-            this.back.UseVisualStyleBackColor = false;
             // 
             // getPrize
             // 
@@ -82,7 +66,6 @@
             this.BackgroundImage = global::RacheM.Properties.Resources.getPrize;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.home);
-            this.Controls.Add(this.back);
             this.Controls.Add(this.prizeImg);
             this.Name = "getPrize";
             this.Size = new System.Drawing.Size(1280, 720);
@@ -95,6 +78,5 @@
 
         private System.Windows.Forms.PictureBox prizeImg;
         private System.Windows.Forms.Button home;
-        private System.Windows.Forms.Button back;
     }
 }

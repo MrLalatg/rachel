@@ -29,12 +29,34 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.room1 = new RacheM.room();
+            this.prizesPanel1 = new RacheM.prizesPanel();
             this.inventoryPanel1 = new RacheM.inventoryPanel();
             this.getPrize1 = new RacheM.getPrize();
             this.eliteCase1 = new RacheM.eliteCase();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
             this.SuspendLayout();
+            // 
+            // room1
+            // 
+            this.room1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("room1.BackgroundImage")));
+            this.room1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.room1.Location = new System.Drawing.Point(0, 0);
+            this.room1.Name = "room1";
+            this.room1.Size = new System.Drawing.Size(1280, 720);
+            this.room1.TabIndex = 6;
+            this.room1.Visible = false;
+            // 
+            // prizesPanel1
+            // 
+            this.prizesPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("prizesPanel1.BackgroundImage")));
+            this.prizesPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.prizesPanel1.Location = new System.Drawing.Point(0, 0);
+            this.prizesPanel1.Name = "prizesPanel1";
+            this.prizesPanel1.Size = new System.Drawing.Size(1280, 720);
+            this.prizesPanel1.TabIndex = 5;
+            this.prizesPanel1.Visible = false;
             // 
             // inventoryPanel1
             // 
@@ -96,6 +118,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.room1);
+            this.Controls.Add(this.prizesPanel1);
             this.Controls.Add(this.inventoryPanel1);
             this.Controls.Add(this.getPrize1);
             this.Controls.Add(this.eliteCase1);
@@ -116,6 +140,8 @@
         public eliteCase eliteCase1;
         public getPrize getPrize1;
         public inventoryPanel inventoryPanel1;
+        public prizesPanel prizesPanel1;
+        public room room1;
     }
 }
 

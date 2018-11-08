@@ -7,16 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace RacheM
 {
     public partial class inventoryPanel : UserControl
     {
         private User curUsr;
-        Dictionary<int, PrizeItem> tempPrizes = db.getPrizes();
+        Dictionary<int, PrizeItem> tempPrizes;
         public inventoryPanel()
         {
             InitializeComponent();
+            if(LicenseManager.UsageMode != LicenseUsageMode.Designtime)
+            {
+                tempPrizes = db.getPrizes();
+            }
         }
 
         private void completeBtn_Click(object sender, EventArgs e)
@@ -41,6 +46,8 @@ namespace RacheM
             {
                 addPick.Items.Add(new ComboboxItem(tempPrizes[i].Name, i));
             }
+
+            addPick.SelectedItem = addPick.Items[0];
         }
 
         private void addBtn_Click(object sender, EventArgs e)

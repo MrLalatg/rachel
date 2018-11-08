@@ -11,7 +11,7 @@ namespace RacheM
 {
     public class db
     {
-        private static string cnString = "Data Source = myData";
+        private static string cnString = "Data Source = " + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "myData");
         private static Dictionary<int, PrizeItem> prizes = null;
 
         public static int saveUser(User user)
@@ -85,7 +85,8 @@ namespace RacheM
                 return db.prizes;
             }
             Dictionary<int, PrizeItem> prizes = new Dictionary<int, PrizeItem>();
-            using (SQLiteConnection cn = new SQLiteConnection("Data Source = myData"))
+
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
                 SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM prizes", cn);
@@ -113,5 +114,49 @@ namespace RacheM
             db.prizes = prizes;
             return prizes;
         }
+
+        public static List<User> getPrizePlayers(int prId)
+        {
+            List<User> result = new List<User>();
+
+            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM cross INNER JOIN players ON cross.playerId = players.id WHERE prizeId = {prId}", cn);
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        result.Add(getUserByName(sdr["name"].ToString()));
+                    }
+                }
+            }
+
+            return result;
+        }
+
+        public static void clearRoom(int room)
+        {
+            string roomName = room == 0 ? "golden_room" : "platinum_room";
+
+            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+
+                SQLiteCommand cmd = new SQLiteCommand(string.Format("DELETE FROM {0}", roomName), cn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        /*public static void saveRoom(int room, Dictionary<int, User> positions)
+        {
+            string roomName = room == 0 ? "golden_room" : "platinum_room";
+
+            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+            }
+        }*/
     }
 }

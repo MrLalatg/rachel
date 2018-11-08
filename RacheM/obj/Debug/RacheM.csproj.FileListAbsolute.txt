@@ -47,3 +47,5 @@ C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\S
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\Transitions.dll
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\Transitions.pdb
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.inventoryPanel.resources
+C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.prizesPanel.resources
+C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.room.resources

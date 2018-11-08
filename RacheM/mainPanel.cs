@@ -68,11 +68,12 @@ namespace RacheM
                 commonCase.Enabled = false;
                 eliteBtn.Enabled = false;
                 nickName.Enabled = false;
-                /*Transitions.Transition t = new Transitions.Transition(new Transitions.TransitionType_Linear(1000));
-                ((mainForm)Parent).inventoryPanel1.Visible = true;
-                t.add(((mainForm)Parent).inventoryPanel1, "Left", -353);
-                t.run();*/
             }
+        }
+
+        private void showPrizesBtn_Click(object sender, EventArgs e)
+        {
+            ((mainForm)Parent).prizesPanel1.Visible = true;
         }
     }
 }
