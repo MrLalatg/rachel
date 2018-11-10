@@ -75,7 +75,7 @@ namespace RacheM
 
             foreach (string i in players.CheckedItems)
             {
-                curUsr = db.getUserByName(i);
+                curUsr = db.getUserByField(i);
                 curUsr.prizes = curUsr.prizes.Where(p => p != currentPrize).ToList();
                 db.saveUser(curUsr);
             }
@@ -92,7 +92,7 @@ namespace RacheM
         {
             if(currentNick != "")
             {
-                User curUsr = db.getUserByName(currentNick) == null ? new User { Name = currentNick } : db.getUserByName(currentNick);
+                User curUsr = db.getUserByField(currentNick) == null ? new User { Name = currentNick } : db.getUserByField(currentNick);
 
                 curUsr.prizes.Add(currentPrize);
                 db.saveUser(curUsr);

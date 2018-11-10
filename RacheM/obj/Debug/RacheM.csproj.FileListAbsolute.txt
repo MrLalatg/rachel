@@ -49,3 +49,34 @@ C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\bin\Debug\T
 C:\Users\GotikTg\Documents\Visual Studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.inventoryPanel.resources
 C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.prizesPanel.resources
 C:\Users\GotikTg\documents\visual studio 2015\Projects\RacheM\RacheM\obj\Debug\RacheM.room.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.commonOpening.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.commonPanel.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.eliteCase.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.mainForm.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.getPrize.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.inventoryPanel.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.mainPanel.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.prizesPanel.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.Properties.Resources.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.room.resources
+C:\projects\rachel\RacheM\obj\Debug\RacheM.csproj.GenerateResource.Cache
+C:\projects\rachel\RacheM\obj\Debug\RacheM.exe
+C:\projects\rachel\RacheM\obj\Debug\RacheM.pdb
+C:\projects\rachel\RacheM\bin\Debug\RacheM.exe.config
+C:\projects\rachel\RacheM\bin\Debug\myData
+C:\projects\rachel\RacheM\bin\Debug\RacheM.exe
+C:\projects\rachel\RacheM\bin\Debug\RacheM.pdb
+C:\projects\rachel\RacheM\bin\Debug\EntityFramework.dll
+C:\projects\rachel\RacheM\bin\Debug\EntityFramework.SqlServer.dll
+C:\projects\rachel\RacheM\bin\Debug\System.Data.SQLite.dll
+C:\projects\rachel\RacheM\bin\Debug\System.Data.SQLite.EF6.dll
+C:\projects\rachel\RacheM\bin\Debug\System.Data.SQLite.Linq.dll
+C:\projects\rachel\RacheM\bin\Debug\Transitions.dll
+C:\projects\rachel\RacheM\bin\Debug\EntityFramework.xml
+C:\projects\rachel\RacheM\bin\Debug\EntityFramework.SqlServer.xml
+C:\projects\rachel\RacheM\bin\Debug\System.Data.SQLite.xml
+C:\projects\rachel\RacheM\bin\Debug\System.Data.SQLite.dll.config
+C:\projects\rachel\RacheM\bin\Debug\Transitions.pdb
+C:\projects\rachel\RacheM\obj\Debug\RacheM.csprojAssemblyReference.cache
+C:\projects\rachel\RacheM\obj\Debug\RacheM.csproj.CoreCompileInputs.cache
+C:\projects\rachel\RacheM\obj\Debug\RacheM.csproj.CopyComplete

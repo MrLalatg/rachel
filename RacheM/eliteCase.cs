@@ -143,7 +143,7 @@ namespace RacheM
         {
             Visible = false;
             ((mainForm)Parent).getPrize1.setPrize(prize);
-            User plr = db.getUserByName(((mainForm) Parent).currentNick);
+            User plr = db.getUserByField(((mainForm) Parent).currentNick);
             if (plr == null)
             {
                 plr = new User{Name = ((mainForm)Parent).currentNick};

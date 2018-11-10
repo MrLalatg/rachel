@@ -57,7 +57,7 @@ namespace RacheM
                 error.Visible = true;
             } else {
                 error.Visible = false;
-                User currentPlayer = db.getUserByName(((mainForm)Parent).currentNick);
+                User currentPlayer = db.getUserByField(((mainForm)Parent).currentNick);
                 if (currentPlayer == null)
                 {
                     currentPlayer = new User { Name = ((mainForm)Parent).currentNick };

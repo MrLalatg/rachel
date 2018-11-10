@@ -15,21 +15,26 @@ namespace RacheM
         private string currentNick;
         private int currentRoom;
         private List<Button> btns = new List<Button>();
-        private Dictionary<int, string> forWrite = new Dictionary<int, string>();
+        private Dictionary<int, int> forWrite = new Dictionary<int, int>();
         public room()
         {
             InitializeComponent();
-            btns = new List<Button>{btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10};
         }
 
         private void onClick(object sender, EventArgs e)
         {
+            if (db.getUserByField(currentNick) == null)
+            {
+                MessageBox.Show("Ошибка", "Пользователя не существует", MessageBoxButtons.OK);
+                return;
+            }
             ((Button)sender).Text = currentNick;
             db.clearRoom(currentRoom);
-            foreach(Button i in btns)
-            {
-                forWrite.Add(int.Parse(i.Tag.ToString()), i.Text);
-            }
+            forWrite = this.Controls
+                .OfType<Button>()
+                .Where(p => p.Name.Contains("btn") && !string.IsNullOrEmpty(p.Text))
+                .Select(btn => new KeyValuePair<int, int>(int.Parse(btn.Name.Replace("btn", "")), db.getUserByField(btn.Text).Id))
+                .ToDictionary(r => r.Key, r => r.Value);
             db.saveRoom(currentRoom, forWrite);
         }
 
@@ -38,14 +43,16 @@ namespace RacheM
             currentNick = nick.Text;
         }
 
-        private void read()
-        {
-
-        }
-
         public void init(int roomIn)
         {
             currentRoom = roomIn;
+            Dictionary<int, int> newRoom = db.getRoom(currentRoom);
+            this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
+                {
+                    r.Text = newRoom.ContainsKey(int.Parse(r.Name.Replace("btn", "")))
+                        ? db.getUserByField(newRoom[int.Parse(r.Name.Replace("btn", ""))], "id").Name
+                        : "";
+                });
         }
 
         private void home_Click(object sender, EventArgs e)

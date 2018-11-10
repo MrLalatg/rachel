@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\projects\rachel" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="RacheM" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="ComboboxItem.cs" t="Include" />
+        <e p="commonOpening.cs" t="Include" />
+        <e p="commonOpening.Designer.cs" t="Include" />
+        <e p="commonOpening.resx" t="Include" />
+        <e p="commonPanel.cs" t="Include" />
+        <e p="commonPanel.Designer.cs" t="Include" />
+        <e p="commonPanel.resx" t="Include" />
+        <e p="db.cs" t="Include" />
+        <e p="eliteCase.cs" t="Include" />
+        <e p="eliteCase.Designer.cs" t="Include" />
+        <e p="eliteCase.resx" t="Include" />
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="getPrize.cs" t="Include" />
+        <e p="getPrize.Designer.cs" t="Include" />
+        <e p="getPrize.resx" t="Include" />
+        <e p="inventoryPanel.cs" t="Include" />
+        <e p="inventoryPanel.Designer.cs" t="Include" />
+        <e p="inventoryPanel.resx" t="Include" />
+        <e p="mainPanel.cs" t="Include" />
+        <e p="mainPanel.Designer.cs" t="Include" />
+        <e p="mainPanel.resx" t="Include" />
+        <e p="myData" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="prizeItem.cs" t="Include" />
+        <e p="prizesPanel.cs" t="Include" />
+        <e p="prizesPanel.Designer.cs" t="Include" />
+        <e p="prizesPanel.resx" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="RacheM.csproj" t="IncludeRecursive" />
+        <e p="Resources" t="Include">
+          <e p="back.png" t="Include" />
+          <e p="bank.png" t="Include" />
+          <e p="brelok.png" t="Include" />
+          <e p="chair.png" t="Include" />
+          <e p="continue.png" t="Include" />
+          <e p="cup.png" t="Include" />
+          <e p="getPrize.jpg" t="Include" />
+          <e p="home.png" t="Include" />
+          <e p="if_Close_1891023.png" t="Include" />
+          <e p="inventory.png" t="Include" />
+          <e p="inventory1.png" t="Include" />
+          <e p="invite.png" t="Include" />
+          <e p="knife.png" t="Include" />
+          <e p="llikes.png" t="Include" />
+          <e p="magnet.png" t="Include" />
+          <e p="nametag.png" t="Include" />
+          <e p="prizePanel.jpg" t="Include" />
+          <e p="room.jpg" t="Include" />
+          <e p="room.png" t="Include" />
+          <e p="shirt.png" t="Include" />
+          <e p="smile.png" t="Include" />
+          <e p="soc.png" t="Include" />
+          <e p="spons.png" t="Include" />
+          <e p="vs.png" t="Include" />
+          <e p="znak.png" t="Include" />
+          <e p="Блат.jpg" t="Include" />
+          <e p="Главная.jpg" t="Include" />
+          <e p="ОбычныйКейс.jpg" t="Include" />
+          <e p="Прокрутка.jpg" t="Include" />
+        </e>
+        <e p="room.cs" t="Include" />
+        <e p="room.Designer.cs" t="Include" />
+        <e p="room.resx" t="Include" />
+        <e p="User.cs" t="Include" />
+      </e>
+      <e p="RacheM.sln" t="IncludeFlat" />
+      <e p="Solution Items" t="Include" />
+    </e>
+    <e p="C:\Users\zabl\.Rider2018.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\zabl\.Rider2018.2\system\resharper-host\local\Transient\ReSharperHost\v182\SolutionCaches\_RacheM.-610846860.00" t="ExcludeRecursive" />
+  </component>
+</project>
