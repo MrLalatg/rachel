@@ -7,23 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.Design;
+using System.Reflection;
 
 namespace RacheM
 {
     public partial class commonOpening : UserControl
     {
+        
+
         public commonOpening()
         {
             InitializeComponent();
-            ride();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void ride()
+        public void ride()
         {
             this.roller.Image =  buildSausage(getRandomPrizes(100));
         }

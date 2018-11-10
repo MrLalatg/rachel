@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.commonOpening1 = new RacheM.commonOpening();
             this.room1 = new RacheM.room();
             this.prizesPanel1 = new RacheM.prizesPanel();
             this.inventoryPanel1 = new RacheM.inventoryPanel();
@@ -37,6 +38,16 @@
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
             this.SuspendLayout();
+            // 
+            // commonOpening1
+            // 
+            this.commonOpening1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonOpening1.BackgroundImage")));
+            this.commonOpening1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.commonOpening1.Location = new System.Drawing.Point(0, 0);
+            this.commonOpening1.Name = "commonOpening1";
+            this.commonOpening1.Size = new System.Drawing.Size(1280, 720);
+            this.commonOpening1.TabIndex = 7;
+            this.commonOpening1.Visible = false;
             // 
             // room1
             // 
@@ -118,6 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.commonOpening1);
             this.Controls.Add(this.room1);
             this.Controls.Add(this.prizesPanel1);
             this.Controls.Add(this.inventoryPanel1);
@@ -142,6 +154,7 @@
         public inventoryPanel inventoryPanel1;
         public prizesPanel prizesPanel1;
         public room room1;
+        public commonOpening commonOpening1;
     }
 }
 

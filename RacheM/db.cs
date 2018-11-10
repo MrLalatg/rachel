@@ -13,6 +13,8 @@ namespace RacheM
     public class db
     {
         private static string cnString = "Data Source = " + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "myData");
+            
+        
         private static Dictionary<int, PrizeItem> prizes = null;
 
         public static int saveUser(User user)

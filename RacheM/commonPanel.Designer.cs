@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.home = new System.Windows.Forms.Button();
+            this.openBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // home
@@ -47,6 +48,19 @@
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
+            // openBtn
+            // 
+            this.openBtn.FlatAppearance.BorderSize = 0;
+            this.openBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.openBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.openBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openBtn.Location = new System.Drawing.Point(506, 484);
+            this.openBtn.Name = "openBtn";
+            this.openBtn.Size = new System.Drawing.Size(323, 77);
+            this.openBtn.TabIndex = 2;
+            this.openBtn.UseVisualStyleBackColor = true;
+            this.openBtn.Click += new System.EventHandler(this.openBtn_Click);
+            // 
             // commonPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -54,6 +68,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.commonCase;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.openBtn);
             this.Controls.Add(this.home);
             this.Name = "commonPanel";
             this.Size = new System.Drawing.Size(1280, 720);
@@ -63,5 +78,6 @@
 
         #endregion
         private System.Windows.Forms.Button home;
+        private System.Windows.Forms.Button openBtn;
     }
 }

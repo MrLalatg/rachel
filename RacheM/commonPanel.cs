@@ -21,5 +21,12 @@ namespace RacheM
         {
             ((mainForm)Parent).onHome(this);
         }
+
+        private void openBtn_Click(object sender, EventArgs e)
+        {
+            ((mainForm)Parent).commonOpening1.ride();
+            ((mainForm)Parent).commonOpening1.Visible = true;
+            this.Hide();
+        }
     }
 }
