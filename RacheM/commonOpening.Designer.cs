@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.roller = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.roller)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // roller
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 273);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1280, 171);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.roller.Location = new System.Drawing.Point(0, 274);
+            this.roller.Name = "roller";
+            this.roller.Size = new System.Drawing.Size(1280, 170);
+            this.roller.TabIndex = 0;
+            this.roller.TabStop = false;
             // 
             // commonOpening
             // 
@@ -46,16 +46,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RacheM.Properties.Resources.roll;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.roller);
             this.Name = "commonOpening";
             this.Size = new System.Drawing.Size(1280, 720);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roller)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox roller;
     }
 }
