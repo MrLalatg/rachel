@@ -42,7 +42,7 @@ namespace RacheM
                 else
                 {
                     int randomNumber = rnd.Next(1, 101);
-                    if (randomNumber <= 80)
+                    if (randomNumber <= 95)
                     {
                         prize = getRandomForGroup(1, 1).First();
 

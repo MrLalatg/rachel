@@ -41,6 +41,7 @@
             this.startBtn = new System.Windows.Forms.Button();
             this.nick = new System.Windows.Forms.TextBox();
             this.home = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn1
@@ -56,6 +57,7 @@
             this.btn1.Name = "btn1";
             this.btn1.Size = new System.Drawing.Size(121, 122);
             this.btn1.TabIndex = 0;
+            this.btn1.Tag = "1";
             this.btn1.UseVisualStyleBackColor = false;
             this.btn1.Click += new System.EventHandler(this.onClick);
             // 
@@ -72,6 +74,7 @@
             this.btn2.Name = "btn2";
             this.btn2.Size = new System.Drawing.Size(121, 122);
             this.btn2.TabIndex = 1;
+            this.btn2.Tag = "2";
             this.btn2.UseVisualStyleBackColor = false;
             this.btn2.Click += new System.EventHandler(this.onClick);
             // 
@@ -88,6 +91,7 @@
             this.btn3.Name = "btn3";
             this.btn3.Size = new System.Drawing.Size(121, 122);
             this.btn3.TabIndex = 2;
+            this.btn3.Tag = "3";
             this.btn3.UseVisualStyleBackColor = false;
             this.btn3.Click += new System.EventHandler(this.onClick);
             // 
@@ -104,6 +108,7 @@
             this.btn4.Name = "btn4";
             this.btn4.Size = new System.Drawing.Size(121, 122);
             this.btn4.TabIndex = 3;
+            this.btn4.Tag = "4";
             this.btn4.UseVisualStyleBackColor = false;
             this.btn4.Click += new System.EventHandler(this.onClick);
             // 
@@ -120,6 +125,7 @@
             this.btn5.Name = "btn5";
             this.btn5.Size = new System.Drawing.Size(121, 122);
             this.btn5.TabIndex = 4;
+            this.btn5.Tag = "5";
             this.btn5.UseVisualStyleBackColor = false;
             this.btn5.Click += new System.EventHandler(this.onClick);
             // 
@@ -136,6 +142,7 @@
             this.btn6.Name = "btn6";
             this.btn6.Size = new System.Drawing.Size(121, 122);
             this.btn6.TabIndex = 5;
+            this.btn6.Tag = "6";
             this.btn6.UseVisualStyleBackColor = false;
             this.btn6.Click += new System.EventHandler(this.onClick);
             // 
@@ -152,6 +159,7 @@
             this.btn7.Name = "btn7";
             this.btn7.Size = new System.Drawing.Size(121, 122);
             this.btn7.TabIndex = 6;
+            this.btn7.Tag = "7";
             this.btn7.UseVisualStyleBackColor = false;
             this.btn7.Click += new System.EventHandler(this.onClick);
             // 
@@ -168,6 +176,7 @@
             this.btn8.Name = "btn8";
             this.btn8.Size = new System.Drawing.Size(121, 122);
             this.btn8.TabIndex = 7;
+            this.btn8.Tag = "8";
             this.btn8.UseVisualStyleBackColor = false;
             this.btn8.Click += new System.EventHandler(this.onClick);
             // 
@@ -184,6 +193,7 @@
             this.btn9.Name = "btn9";
             this.btn9.Size = new System.Drawing.Size(121, 122);
             this.btn9.TabIndex = 7;
+            this.btn9.Tag = "9";
             this.btn9.UseVisualStyleBackColor = false;
             this.btn9.Click += new System.EventHandler(this.onClick);
             // 
@@ -200,6 +210,7 @@
             this.btn10.Name = "btn10";
             this.btn10.Size = new System.Drawing.Size(121, 122);
             this.btn10.TabIndex = 8;
+            this.btn10.Tag = "10";
             this.btn10.UseVisualStyleBackColor = false;
             this.btn10.Click += new System.EventHandler(this.onClick);
             // 
@@ -241,12 +252,28 @@
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
+            // saveBtn
+            // 
+            this.saveBtn.BackColor = System.Drawing.Color.Black;
+            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
+            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.ForeColor = System.Drawing.Color.Fuchsia;
+            this.saveBtn.Location = new System.Drawing.Point(576, 430);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(121, 32);
+            this.saveBtn.TabIndex = 31;
+            this.saveBtn.Text = "Сохранить";
+            this.saveBtn.UseVisualStyleBackColor = false;
+            this.saveBtn.Visible = false;
+            // 
             // room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RacheM.Properties.Resources.room1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.home);
             this.Controls.Add(this.nick);
             this.Controls.Add(this.startBtn);
@@ -282,5 +309,6 @@
         private System.Windows.Forms.Button startBtn;
         private System.Windows.Forms.TextBox nick;
         private System.Windows.Forms.Button home;
+        private System.Windows.Forms.Button saveBtn;
     }
 }

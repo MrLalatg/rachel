@@ -149,14 +149,42 @@ namespace RacheM
             }
         }
 
-        /*public static void saveRoom(int room, Dictionary<int, User> positions)
+        /*public static Dictionary<int, string> getRoom(int room)
         {
             string roomName = room == 0 ? "golden_room" : "platinum_room";
+            Dictionary<int, string> result = new Dictionary<int, string>();
 
-            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
+
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM {roomName}", cn);
+
+                using(SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        result.Add(sdr.GetInt32(0), sdr[])
+                    }
+                }
             }
         }*/
+
+       public static void saveRoom(int room, Dictionary<int, string> positions)
+        {
+            string roomName = room == 0 ? "golden_room" : "platinum_room";
+            
+            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                SQLiteCommand cmd = new SQLiteCommand("", cn);
+
+                cn.Open();
+                foreach(int i in positions.Keys)
+                {
+                    cmd.CommandText = $"INSERT INTO {roomName} (id, playerId) VALUES ({i}, '{positions[i]}')";
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }

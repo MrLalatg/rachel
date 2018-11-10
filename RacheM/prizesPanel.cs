@@ -115,6 +115,15 @@ namespace RacheM
         {
             prize.Hide();
             this.Hide();
+            switch (currentPrize.Name)
+            {
+                case "Золотая Комната":
+                    ((mainForm)Parent).room1.init(0);
+                    break;
+                case "Платиновая Комната":
+                    ((mainForm)Parent).room1.init(1);
+                    break;
+            }
             ((mainForm)Parent).room1.Visible = true;
         }
     }
