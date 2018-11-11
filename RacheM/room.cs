@@ -46,13 +46,21 @@ namespace RacheM
         public void init(int roomIn)
         {
             currentRoom = roomIn;
-            Dictionary<int, int> newRoom = db.getRoom(currentRoom);
-            this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
-                {
-                    r.Text = newRoom.ContainsKey(int.Parse(r.Name.Replace("btn", "")))
-                        ? db.getUserByField(newRoom[int.Parse(r.Name.Replace("btn", ""))], "id").Name
-                        : "";
-                });
+            if (roomIn == 1)
+            {
+                Dictionary<int, int> newRoom = db.getRoom(currentRoom);
+                this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
+                    {
+                        r.Text = newRoom.ContainsKey(int.Parse(r.Name.Replace("btn", "")))
+                            ? db.getUserByField(newRoom[int.Parse(r.Name.Replace("btn", ""))], "id").Name
+                            : "";
+                    });
+            } else
+            {
+                Dictionary<int, int> newRoom = db.getRoom(currentRoom);
+
+
+            }
         }
 
         private void home_Click(object sender, EventArgs e)
