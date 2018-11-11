@@ -8,12 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Reflection;
 
 namespace RacheM
 {
     public partial class commonOpening : UserControl
     {
+        Random rnd = new Random();
+
         
 
         public commonOpening()
@@ -23,7 +26,42 @@ namespace RacheM
 
         public void ride()
         {
-            this.roller.Image =  buildSausage(getRandomPrizes(100));
+            int ImageCount = 60;
+            int ImageLength = 170;
+            
+            this.roller.Image = new Bitmap(1280, 170);
+            Graphics gr = Graphics.FromImage( this.roller.Image);
+
+            var randomPrizes = getRandomPrizes(ImageCount);
+            Image LongImage =  buildSausage(randomPrizes, ImageLength );
+
+            int speed = 30;
+
+            int endPtr = ImageLength * ImageCount;
+
+            bool beginStop = false;
+
+            int i;
+            for (i = 0; i < endPtr; i += speed )
+            {
+                gr.DrawImage(LongImage,new Rectangle(0,0,1280,170), new Rectangle(i,0,1280,170),GraphicsUnit.Pixel  );
+                roller.Refresh();
+                Debug.WriteLine("speed:{0}   i:{1}   ",speed , i);
+
+                speed = (int)((Math.Cos((i * Math.PI ) / (ImageLength * ImageCount)) + 1) * 15);
+                if (speed == 1 && !beginStop)
+                {
+                    beginStop = true;
+                    endPtr = i + rnd.Next(10, 160);
+                }
+            }
+
+            Debug.WriteLine(i);
+            Debug.WriteLine((i + 1280 / 2) / 170);
+            MessageBox.Show(randomPrizes[(i + 1280 / 2) / 170].Name);
+
+
+
         }
 
         private List<PrizeItem> getRandomPrizes(int count)
@@ -31,10 +69,9 @@ namespace RacheM
             List<PrizeItem> allPrizes= db.getPrizes().Where(p => p.Value.Type != 2).Select(p => p.Value).ToList();
             List<PrizeItem> result = new List<PrizeItem>();
             List<PrizeItem> tempres = new List<PrizeItem>();
-            int r1 = (count / 100) * 60;
-            int r2 = (count / 100) * 30;
-            int r3 = (count / 100) * 8;
-            Random rnd = new Random();
+            int r1 = (int) ((count / 100M) * 60);
+            int r2 = (int)((count / 100M) * 30);
+            int r3 = (int)((count / 100M) * 8);
 
             for (int i = 0; i < r1; i++)
             {
@@ -59,19 +96,24 @@ namespace RacheM
                 result[rnd.Next(0, result.Count)] = db.getPrizes().Where(p => p.Value.Type == -1).Select(p => p.Value).FirstOrDefault();
             }
 
-            return result;
+
+            return result.Select( r=> new {item = r, ord = rnd.Next()}).OrderBy(r=> r.ord).Select(r => r.item).ToList();
         }
 
-        private Image buildSausage(List<PrizeItem> prizes)
+        private Image buildSausage(List<PrizeItem> prizes, int imageLength)
         {
-            Image sausage = new Bitmap(170*prizes.Count, 170);
+            Image sausage = new Bitmap(170*prizes.Count, imageLength);
             Graphics g = Graphics.FromImage(sausage);
             for (int i = 0; i < prizes.Count; i++)
             {
-                g.DrawImage(prizes[i].Image, new Point(170*i, 0));
+                g.DrawImage(prizes[i].Image, new Rectangle(imageLength * i,0, imageLength, imageLength) );
             }
-
             return sausage;
+        }
+
+        public void onShow()
+        {
+            
         }
     }
 }

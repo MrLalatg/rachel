@@ -24,9 +24,10 @@ namespace RacheM
 
         private void openBtn_Click(object sender, EventArgs e)
         {
-            ((mainForm)Parent).commonOpening1.ride();
             ((mainForm)Parent).commonOpening1.Visible = true;
             this.Hide();
+            ((mainForm)Parent).commonOpening1.ride();
+            
         }
     }
 }
