@@ -16,6 +16,7 @@ namespace RacheM
         private int currentRoom;
         private List<Button> btns = new List<Button>();
         private Dictionary<int, int> forWrite = new Dictionary<int, int>();
+        private int goldenId = 27;
         public room()
         {
             InitializeComponent();
@@ -57,9 +58,22 @@ namespace RacheM
                     });
             } else
             {
-                Dictionary<int, int> newRoom = db.getRoom(currentRoom);
+                List<User> newRoom = db.getPrizePlayers(goldenId).Take(10).ToList();
 
+                if (newRoom.Count < 10)
+                {
+                    while (newRoom.Count != 10)
+                    {
+                        newRoom.Add(null);
+                    }
+                }
 
+                this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
+                    {
+                        r.Text = newRoom[(int.Parse(r.Name.Replace("btn", "")))-1] != null
+                            ? newRoom[(int.Parse(r.Name.Replace("btn", "")))-1].Name
+                            : "";
+                    });
             }
         }
 
