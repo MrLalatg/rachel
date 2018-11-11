@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="1afbcc76-ca40-40f7-9e3e-003d7b0cee5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RacheM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RacheM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM.v12.suo" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM.v12.suo" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/commonOpening.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/commonOpening.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/myData" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/myData" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/commonOpening.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/commonOpening.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/DesignTimeResolveAssemblyReferences.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RacheM/commonPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/commonPanel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.csproj.GenerateResource.Cache" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.csproj.GenerateResource.Cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.pdb" afterDir="false" />
@@ -24,29 +23,30 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cs" value="9" />
+          <entry key="cs" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="C#" value="9" />
+          <entry key="C#" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cs" value="1767" />
+          <entry key="cs" value="2721" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="C#" value="1767" />
+          <entry key="C#" value="2721" />
         </counts>
       </usages-collector>
     </session>
@@ -74,23 +74,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state>
               <folding>
-                <marker date="1541862530542" expanded="true" signature="16:6985" ph="{...}" />
-                <marker date="1541862530542" expanded="true" signature="45:6983" ph="{...}" />
-                <marker date="1541862530542" expanded="true" signature="60:136" ph="/// Required designer variable. ... " />
-                <marker date="1541862530542" expanded="true" signature="214:405" ph="/// Clean up any resources being used. ... " />
-                <marker date="1541862530542" expanded="true" signature="461:635" ph="{...}" />
-                <marker date="1541862530542" expanded="true" signature="522:588" ph="{...}" />
-                <marker date="1541862530542" expanded="true" signature="645:6711" ph="Windows Form Designer generated code" />
-                <marker date="1541862530542" expanded="true" signature="699:862" ph="/// Required method for Designer support - do not modify ... " />
-                <marker date="1541862530542" expanded="true" signature="905:6691" ph="{...}" />
-                <marker date="1541862530542" expanded="true" signature="1487:1527" ph="/* room1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="1990:2037" ph="/* prizesPanel1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="2563:2613" ph="/* inventoryPanel1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="3246:3290" ph="/* getPrize1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="3862:3907" ph="/* eliteCase1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="4489:4536" ph="/* commonPanel1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="5138:5183" ph="/* mainPanel1 ... */" />
-                <marker date="1541862530542" expanded="true" signature="5806:5849" ph="/* mainForm ... */" />
+                <marker date="1541952736244" expanded="true" signature="16:7737" ph="{...}" />
+                <marker date="1541952736244" expanded="true" signature="45:7735" ph="{...}" />
+                <marker date="1541952736244" expanded="true" signature="60:136" ph="/// Required designer variable. ... " />
+                <marker date="1541952736244" expanded="true" signature="214:405" ph="/// Clean up any resources being used. ... " />
+                <marker date="1541952736244" expanded="true" signature="461:635" ph="{...}" />
+                <marker date="1541952736244" expanded="true" signature="522:588" ph="{...}" />
+                <marker date="1541952736244" expanded="true" signature="645:1074" ph="Windows Form Designer generated code" />
+                <marker date="1541952736244" expanded="true" signature="699:862" ph="/// Required method for Designer support - do not modify ... " />
+                <marker date="1541952736244" expanded="true" signature="905:1074" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -133,46 +125,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RacheM/db.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="176" column="69" selection-start-line="176" selection-start-column="69" selection-end-line="176" selection-end-column="69" />
+            <state relative-caret-position="510">
+              <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
               <folding>
-                <marker date="1541867482311" expanded="false" signature="6:199" ph="..." />
-                <marker date="1541867482311" expanded="true" signature="217:7074" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="239:7072" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="480:1506" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="563:1468" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="778:989" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="1010:1193" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="1247:1453" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="1590:3126" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="1673:3116" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="1882:2001" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2022:2158" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2262:2687" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2316:2563" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2405:2540" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2588:2669" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2867:3070" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="2928:3052" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3188:4583" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3233:3295" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3451:4514" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3642:4500" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3699:4482" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="3844:4105" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="4643:5288" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="4776:5250" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5041:5236" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5098:5218" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5336:5702" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5494:5692" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5764:6431" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="5993:6393" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="6190:6379" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="6247:6361" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="6509:7066" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="6679:7056" ph="{...}" />
-                <marker date="1541867482311" expanded="true" signature="6833:7003" ph="{...}" />
+                <marker date="1541952736499" expanded="false" signature="6:199" ph="..." />
+                <marker date="1541952736499" expanded="true" signature="217:7096" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="239:7094" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="502:1528" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="585:1490" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="800:1011" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="1032:1215" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="1269:1475" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="1612:3148" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="1695:3138" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="1904:2023" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2044:2180" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2284:2709" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2338:2585" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2427:2562" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2610:2691" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2889:3092" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="2950:3074" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3210:4605" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3255:3317" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3473:4536" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3664:4522" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3721:4504" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="3866:4127" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="4665:5310" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="4798:5272" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="5063:5258" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="5120:5240" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="5358:5724" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="5516:5714" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="5786:6453" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6015:6415" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6212:6401" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6269:6383" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6531:7088" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6701:7078" ph="{...}" />
+                <marker date="1541952736499" expanded="true" signature="6855:7025" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -181,7 +173,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RacheM/room.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="562">
+            <state relative-caret-position="570">
               <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
               <folding>
                 <marker date="1541868669118" expanded="false" signature="6:213" ph="..." />
@@ -202,14 +194,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RacheM/commonPanel.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="375">
+              <caret line="33" selection-start-line="33" selection-end-line="33" />
               <folding>
-                <marker date="1541862531048" expanded="false" signature="6:213" ph="..." />
-                <marker date="1541862531048" expanded="true" signature="231:508" ph="{...}" />
-                <marker date="1541862531048" expanded="true" signature="284:506" ph="{...}" />
-                <marker date="1541862531048" expanded="true" signature="319:374" ph="{...}" />
-                <marker date="1541862531048" expanded="true" signature="435:500" ph="{...}" />
+                <marker date="1541955971137" expanded="false" signature="6:213" ph="..." />
+                <marker date="1541955971137" expanded="true" signature="231:746" ph="{...}" />
+                <marker date="1541955971137" expanded="true" signature="284:744" ph="{...}" />
+                <marker date="1541955971137" expanded="true" signature="319:374" ph="{...}" />
+                <marker date="1541955971137" expanded="true" signature="435:500" ph="{...}" />
+                <marker date="1541955971137" expanded="true" signature="564:738" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -218,22 +211,49 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+            <state relative-caret-position="260">
+              <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
               <folding>
-                <marker date="1541876215826" expanded="false" signature="6:213" ph="..." />
-                <marker date="1541876215826" expanded="true" signature="231:2350" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="286:2348" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="323:398" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="466:499" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="528:617" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="677:1970" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="1126:1290" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="1344:1508" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="1562:1726" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="1767:1932" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="2030:2342" ph="{...}" />
-                <marker date="1541876215826" expanded="true" signature="2208:2303" ph="{...}" />
+                <marker date="1541959376171" expanded="false" signature="6:300" ph="..." />
+                <marker date="1541959376171" expanded="true" signature="318:3698" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="373:3696" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="456:511" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="539:1757" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="1072:1590" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="1450:1576" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="1817:3191" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="2252:2416" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="2470:2634" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="2688:2852" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="2893:3058" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="3268:3627" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="3454:3589" ph="{...}" />
+                <marker date="1541959376171" expanded="true" signature="3657:3690" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/RacheM/mainPanel.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-55">
+              <folding>
+                <marker date="1541867397996" expanded="false" signature="6:213" ph="..." />
+                <marker date="1541867397996" expanded="true" signature="231:2523" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="282:2521" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="315:370" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="437:788" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="543:609" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="614:778" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="853:1263" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="959:1025" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="1030:1253" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="1334:1449" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="1515:2365" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="1621:1687" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="1864:1988" ph="{...}" />
+                <marker date="1541867397996" expanded="true" signature="2435:2515" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -275,28 +295,6 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.Designer.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="73" lean-forward="true" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
-              <folding>
-                <marker date="1541875261504" expanded="true" signature="16:2142" ph="{...}" />
-                <marker date="1541875261504" expanded="true" signature="50:2140" ph="{...}" />
-                <marker date="1541875261504" expanded="true" signature="65:142" ph="/// Required designer variable. ... " />
-                <marker date="1541875261504" expanded="true" signature="220:412" ph="/// Clean up any resources being used. ... " />
-                <marker date="1541875261504" expanded="true" signature="468:642" ph="{...}" />
-                <marker date="1541875261504" expanded="true" signature="529:595" ph="{...}" />
-                <marker date="1541875261504" expanded="true" signature="652:2077" ph="Component Designer generated code" />
-                <marker date="1541875261504" expanded="true" signature="703:868" ph="/// Required method for Designer support - do not modify  ... " />
-                <marker date="1541875261504" expanded="true" signature="911:2057" ph="{...}" />
-                <marker date="1541875261504" expanded="true" signature="1116:1157" ph="/* roller ... */" />
-                <marker date="1541875261504" expanded="true" signature="1426:1474" ph="/* commonOpening ... */" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -308,9 +306,11 @@
     <setting file="file://$PROJECT_DIR$/RacheM/commonOpening.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/commonPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/eliteCase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7BA8BFF9-DFDB-4207-A171-7D1C6879C3ED/85/db6a7559/PictureBox.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/db.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/Form1.Designer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/Form1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RacheM/mainPanel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/RacheM/prizesPanel.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -319,6 +319,7 @@
         <option value="$PROJECT_DIR$/RacheM/db.cs" />
         <option value="$PROJECT_DIR$/RacheM/room.cs" />
         <option value="$PROJECT_DIR$/RacheM/commonOpening.Designer.cs" />
+        <option value="$PROJECT_DIR$/RacheM/commonPanel.cs" />
         <option value="$PROJECT_DIR$/RacheM/commonOpening.cs" />
       </list>
     </option>
@@ -340,6 +341,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="FileSystemExplorer" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -363,7 +365,6 @@
         </subPane>
         <option name="show-all-files" value="false" />
       </pane>
-      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -415,11 +416,12 @@
       <updated>1541862765167</updated>
       <workItem from="1541862768671" duration="8030000" />
       <workItem from="1541871250730" duration="5042000" />
+      <workItem from="1541953008775" duration="6614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13072000" />
+    <option name="totallyTimeSpent" value="19686000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -432,14 +434,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-1058" width="1696" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25305623" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.25611246" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32939914" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.20064378" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5214592" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -493,6 +496,37 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/RacheM/Form1.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1541862530543" expanded="false" signature="6:126" ph="..." />
+            <marker date="1541862530543" expanded="true" signature="144:846" ph="{...}" />
+            <marker date="1541862530543" expanded="true" signature="187:844" ph="{...}" />
+            <marker date="1541862530543" expanded="true" signature="358:414" ph="{...}" />
+            <marker date="1541862530543" expanded="true" signature="458:552" ph="{...}" />
+            <marker date="1541862530543" expanded="true" signature="627:838" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RacheM/Form1.Designer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1541952736244" expanded="true" signature="16:7737" ph="{...}" />
+            <marker date="1541952736244" expanded="true" signature="45:7735" ph="{...}" />
+            <marker date="1541952736244" expanded="true" signature="60:136" ph="/// Required designer variable. ... " />
+            <marker date="1541952736244" expanded="true" signature="214:405" ph="/// Clean up any resources being used. ... " />
+            <marker date="1541952736244" expanded="true" signature="461:635" ph="{...}" />
+            <marker date="1541952736244" expanded="true" signature="522:588" ph="{...}" />
+            <marker date="1541952736244" expanded="true" signature="645:1074" ph="Windows Form Designer generated code" />
+            <marker date="1541952736244" expanded="true" signature="699:862" ph="/// Required method for Designer support - do not modify ... " />
+            <marker date="1541952736244" expanded="true" signature="905:1074" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/prizesPanel.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -527,7 +561,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/room.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
+        <state relative-caret-position="570">
           <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
           <folding>
             <marker date="1541868669118" expanded="false" signature="6:213" ph="..." />
@@ -546,46 +580,73 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/db.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="176" column="69" selection-start-line="176" selection-start-column="69" selection-end-line="176" selection-end-column="69" />
+        <state relative-caret-position="510">
+          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
           <folding>
-            <marker date="1541867482311" expanded="false" signature="6:199" ph="..." />
-            <marker date="1541867482311" expanded="true" signature="217:7074" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="239:7072" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="480:1506" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="563:1468" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="778:989" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="1010:1193" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="1247:1453" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="1590:3126" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="1673:3116" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="1882:2001" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2022:2158" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2262:2687" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2316:2563" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2405:2540" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2588:2669" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2867:3070" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="2928:3052" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3188:4583" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3233:3295" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3451:4514" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3642:4500" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3699:4482" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="3844:4105" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="4643:5288" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="4776:5250" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5041:5236" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5098:5218" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5336:5702" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5494:5692" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5764:6431" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="5993:6393" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="6190:6379" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="6247:6361" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="6509:7066" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="6679:7056" ph="{...}" />
-            <marker date="1541867482311" expanded="true" signature="6833:7003" ph="{...}" />
+            <marker date="1541952736499" expanded="false" signature="6:199" ph="..." />
+            <marker date="1541952736499" expanded="true" signature="217:7096" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="239:7094" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="502:1528" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="585:1490" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="800:1011" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="1032:1215" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="1269:1475" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="1612:3148" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="1695:3138" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="1904:2023" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2044:2180" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2284:2709" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2338:2585" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2427:2562" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2610:2691" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2889:3092" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="2950:3074" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3210:4605" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3255:3317" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3473:4536" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3664:4522" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3721:4504" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="3866:4127" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="4665:5310" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="4798:5272" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="5063:5258" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="5120:5240" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="5358:5724" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="5516:5714" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="5786:6453" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6015:6415" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6212:6401" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6269:6383" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6531:7088" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6701:7078" ph="{...}" />
+            <marker date="1541952736499" expanded="true" signature="6855:7025" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/7BA8BFF9-DFDB-4207-A171-7D1C6879C3ED/85/db6a7559/PictureBox.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="72" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.Designer.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="38" column="64" lean-forward="true" selection-start-line="38" selection-start-column="55" selection-end-line="38" selection-end-column="64" />
+          <folding>
+            <marker date="1541875261504" expanded="true" signature="16:2142" ph="{...}" />
+            <marker date="1541875261504" expanded="true" signature="50:2140" ph="{...}" />
+            <marker date="1541875261504" expanded="true" signature="65:142" ph="/// Required designer variable. ... " />
+            <marker date="1541875261504" expanded="true" signature="220:412" ph="/// Clean up any resources being used. ... " />
+            <marker date="1541875261504" expanded="true" signature="468:642" ph="{...}" />
+            <marker date="1541875261504" expanded="true" signature="529:595" ph="{...}" />
+            <marker date="1541875261504" expanded="true" signature="652:2077" ph="Component Designer generated code" />
+            <marker date="1541875261504" expanded="true" signature="703:868" ph="/// Required method for Designer support - do not modify  ... " />
+            <marker date="1541875261504" expanded="true" signature="911:2057" ph="{...}" />
+            <marker date="1541875261504" expanded="true" signature="1116:1157" ph="/* roller ... */" />
+            <marker date="1541875261504" expanded="true" signature="1426:1474" ph="/* commonOpening ... */" />
           </folding>
         </state>
       </provider>
@@ -624,97 +685,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/RacheM/mainPanel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-55">
+          <folding>
+            <marker date="1541867397996" expanded="false" signature="6:213" ph="..." />
+            <marker date="1541867397996" expanded="true" signature="231:2523" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="282:2521" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="315:370" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="437:788" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="543:609" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="614:778" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="853:1263" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="959:1025" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="1030:1253" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="1334:1449" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="1515:2365" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="1621:1687" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="1864:1988" ph="{...}" />
+            <marker date="1541867397996" expanded="true" signature="2435:2515" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/commonPanel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state relative-caret-position="375">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
           <folding>
-            <marker date="1541862531048" expanded="false" signature="6:213" ph="..." />
-            <marker date="1541862531048" expanded="true" signature="231:508" ph="{...}" />
-            <marker date="1541862531048" expanded="true" signature="284:506" ph="{...}" />
-            <marker date="1541862531048" expanded="true" signature="319:374" ph="{...}" />
-            <marker date="1541862531048" expanded="true" signature="435:500" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.Designer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="73" lean-forward="true" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
-          <folding>
-            <marker date="1541875261504" expanded="true" signature="16:2142" ph="{...}" />
-            <marker date="1541875261504" expanded="true" signature="50:2140" ph="{...}" />
-            <marker date="1541875261504" expanded="true" signature="65:142" ph="/// Required designer variable. ... " />
-            <marker date="1541875261504" expanded="true" signature="220:412" ph="/// Clean up any resources being used. ... " />
-            <marker date="1541875261504" expanded="true" signature="468:642" ph="{...}" />
-            <marker date="1541875261504" expanded="true" signature="529:595" ph="{...}" />
-            <marker date="1541875261504" expanded="true" signature="652:2077" ph="Component Designer generated code" />
-            <marker date="1541875261504" expanded="true" signature="703:868" ph="/// Required method for Designer support - do not modify  ... " />
-            <marker date="1541875261504" expanded="true" signature="911:2057" ph="{...}" />
-            <marker date="1541875261504" expanded="true" signature="1116:1157" ph="/* roller ... */" />
-            <marker date="1541875261504" expanded="true" signature="1426:1474" ph="/* commonOpening ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RacheM/Form1.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1541862530543" expanded="false" signature="6:126" ph="..." />
-            <marker date="1541862530543" expanded="true" signature="144:846" ph="{...}" />
-            <marker date="1541862530543" expanded="true" signature="187:844" ph="{...}" />
-            <marker date="1541862530543" expanded="true" signature="358:414" ph="{...}" />
-            <marker date="1541862530543" expanded="true" signature="458:552" ph="{...}" />
-            <marker date="1541862530543" expanded="true" signature="627:838" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/RacheM/Form1.Designer.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1541862530542" expanded="true" signature="16:6985" ph="{...}" />
-            <marker date="1541862530542" expanded="true" signature="45:6983" ph="{...}" />
-            <marker date="1541862530542" expanded="true" signature="60:136" ph="/// Required designer variable. ... " />
-            <marker date="1541862530542" expanded="true" signature="214:405" ph="/// Clean up any resources being used. ... " />
-            <marker date="1541862530542" expanded="true" signature="461:635" ph="{...}" />
-            <marker date="1541862530542" expanded="true" signature="522:588" ph="{...}" />
-            <marker date="1541862530542" expanded="true" signature="645:6711" ph="Windows Form Designer generated code" />
-            <marker date="1541862530542" expanded="true" signature="699:862" ph="/// Required method for Designer support - do not modify ... " />
-            <marker date="1541862530542" expanded="true" signature="905:6691" ph="{...}" />
-            <marker date="1541862530542" expanded="true" signature="1487:1527" ph="/* room1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="1990:2037" ph="/* prizesPanel1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="2563:2613" ph="/* inventoryPanel1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="3246:3290" ph="/* getPrize1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="3862:3907" ph="/* eliteCase1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="4489:4536" ph="/* commonPanel1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="5138:5183" ph="/* mainPanel1 ... */" />
-            <marker date="1541862530542" expanded="true" signature="5806:5849" ph="/* mainForm ... */" />
+            <marker date="1541955971137" expanded="false" signature="6:213" ph="..." />
+            <marker date="1541955971137" expanded="true" signature="231:746" ph="{...}" />
+            <marker date="1541955971137" expanded="true" signature="284:744" ph="{...}" />
+            <marker date="1541955971137" expanded="true" signature="319:374" ph="{...}" />
+            <marker date="1541955971137" expanded="true" signature="435:500" ph="{...}" />
+            <marker date="1541955971137" expanded="true" signature="564:738" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
+        <state relative-caret-position="260">
+          <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
           <folding>
-            <marker date="1541876215826" expanded="false" signature="6:213" ph="..." />
-            <marker date="1541876215826" expanded="true" signature="231:2350" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="286:2348" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="323:398" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="466:499" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="528:617" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="677:1970" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="1126:1290" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="1344:1508" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="1562:1726" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="1767:1932" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="2030:2342" ph="{...}" />
-            <marker date="1541876215826" expanded="true" signature="2208:2303" ph="{...}" />
+            <marker date="1541959376171" expanded="false" signature="6:300" ph="..." />
+            <marker date="1541959376171" expanded="true" signature="318:3698" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="373:3696" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="456:511" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="539:1757" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="1072:1590" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="1450:1576" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="1817:3191" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="2252:2416" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="2470:2634" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="2688:2852" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="2893:3058" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="3268:3627" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="3454:3589" ph="{...}" />
+            <marker date="1541959376171" expanded="true" signature="3657:3690" ph="{...}" />
           </folding>
         </state>
       </provider>
