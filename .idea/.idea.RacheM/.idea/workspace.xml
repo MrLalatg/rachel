@@ -3,14 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1afbcc76-ca40-40f7-9e3e-003d7b0cee5f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RacheM/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RacheM/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/RacheM.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/bin/Debug/myData" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/bin/Debug/myData" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/commonOpening.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/commonOpening.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/commonPanel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/commonPanel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.csproj.GenerateResource.Cache" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.csproj.GenerateResource.Cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.exe" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/RacheM/obj/Debug/RacheM.pdb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -211,8 +203,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
+            <state relative-caret-position="170">
+              <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
               <folding>
                 <marker date="1541959376171" expanded="false" signature="6:300" ph="..." />
                 <marker date="1541959376171" expanded="true" signature="318:3698" ph="{...}" />
@@ -416,12 +408,12 @@
       <updated>1541862765167</updated>
       <workItem from="1541862768671" duration="8030000" />
       <workItem from="1541871250730" duration="5042000" />
-      <workItem from="1541953008775" duration="6614000" />
+      <workItem from="1541953008775" duration="7758000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19686000" />
+    <option name="totallyTimeSpent" value="20830000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -442,7 +434,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32939914" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.5214592" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.29613733" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -725,8 +717,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/RacheM/commonOpening.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="60" column="56" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
+        <state relative-caret-position="170">
+          <caret line="54" column="51" lean-forward="true" selection-start-line="54" selection-start-column="51" selection-end-line="54" selection-end-column="51" />
           <folding>
             <marker date="1541959376171" expanded="false" signature="6:300" ph="..." />
             <marker date="1541959376171" expanded="true" signature="318:3698" ph="{...}" />
