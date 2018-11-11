@@ -41,7 +41,6 @@
             this.startBtn = new System.Windows.Forms.Button();
             this.nick = new System.Windows.Forms.TextBox();
             this.home = new System.Windows.Forms.Button();
-            this.saveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn1
@@ -252,28 +251,12 @@
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
-            // saveBtn
-            // 
-            this.saveBtn.BackColor = System.Drawing.Color.Black;
-            this.saveBtn.FlatAppearance.BorderColor = System.Drawing.Color.Fuchsia;
-            this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.saveBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.ForeColor = System.Drawing.Color.Fuchsia;
-            this.saveBtn.Location = new System.Drawing.Point(576, 430);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(121, 32);
-            this.saveBtn.TabIndex = 31;
-            this.saveBtn.Text = "Сохранить";
-            this.saveBtn.UseVisualStyleBackColor = false;
-            this.saveBtn.Visible = false;
-            // 
             // room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RacheM.Properties.Resources.room1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.home);
             this.Controls.Add(this.nick);
             this.Controls.Add(this.startBtn);
@@ -309,6 +292,5 @@
         private System.Windows.Forms.Button startBtn;
         private System.Windows.Forms.TextBox nick;
         private System.Windows.Forms.Button home;
-        private System.Windows.Forms.Button saveBtn;
     }
 }
