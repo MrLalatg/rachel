@@ -131,6 +131,12 @@
     <Compile Include="room.Designer.cs">
       <DependentUpon>room.cs</DependentUpon>
     </Compile>
+    <Compile Include="roomres.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="roomres.Designer.cs">
+      <DependentUpon>roomres.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="commonOpening.resx">
       <DependentUpon>commonOpening.cs</DependentUpon>
@@ -168,6 +174,9 @@
     </Compile>
     <EmbeddedResource Include="room.resx">
       <DependentUpon>room.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="roomres.resx">
+      <DependentUpon>roomres.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="myData">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -272,6 +281,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\room.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\roomresult.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.109.2\build\net451\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.109.2\build\net451\System.Data.SQLite.Core.targets')" />

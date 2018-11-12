@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.roomres1 = new RacheM.roomres();
             this.commonOpening1 = new RacheM.commonOpening();
             this.room1 = new RacheM.room();
             this.prizesPanel1 = new RacheM.prizesPanel();
@@ -38,6 +39,16 @@
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
             this.SuspendLayout();
+            // 
+            // roomres1
+            // 
+            this.roomres1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roomres1.BackgroundImage")));
+            this.roomres1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.roomres1.Location = new System.Drawing.Point(0, 0);
+            this.roomres1.Name = "roomres1";
+            this.roomres1.Size = new System.Drawing.Size(1280, 720);
+            this.roomres1.TabIndex = 8;
+            this.roomres1.Visible = false;
             // 
             // commonOpening1
             // 
@@ -129,6 +140,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.roomres1);
             this.Controls.Add(this.commonOpening1);
             this.Controls.Add(this.room1);
             this.Controls.Add(this.prizesPanel1);
@@ -155,6 +167,7 @@
         public prizesPanel prizesPanel1;
         public room room1;
         public commonOpening commonOpening1;
+        public roomres roomres1;
     }
 }
 

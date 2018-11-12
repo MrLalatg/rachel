@@ -76,7 +76,7 @@ namespace RacheM
             foreach (string i in players.CheckedItems)
             {
                 curUsr = db.getUserByField(i);
-                curUsr.prizes = curUsr.prizes.Where(p => p != currentPrize).ToList();
+                curUsr.prizes.RemoveAt(curUsr.prizes.FindLastIndex(p => p == currentPrize));
                 db.saveUser(curUsr);
             }
 

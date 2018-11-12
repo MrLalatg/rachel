@@ -26,8 +26,12 @@ namespace RacheM
         {
             ((mainForm)Parent).commonOpening1.Visible = true;
             this.Hide();
-            ((mainForm)Parent).commonOpening1.ride();
-            
+            User tempusr = db.getUserByField(((mainForm)Parent).currentNick);
+            if (tempusr == null){
+                tempusr = new User { Name = ((mainForm)Parent).currentNick };
+                db.saveUser(tempusr);
+            }
+            ((mainForm)Parent).commonOpening1.ride(tempusr);
         }
     }
 }

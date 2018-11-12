@@ -24,7 +24,7 @@ namespace RacheM
             InitializeComponent();
         }
 
-        public void ride()
+        public void ride(User curUsr)
         {
             int ImageCount = 60;
             int ImageLength = 170;
@@ -46,7 +46,6 @@ namespace RacheM
             {
                 gr.DrawImage(LongImage,new Rectangle(0,0,1280,170), new Rectangle(i,0,1280,170),GraphicsUnit.Pixel  );
                 roller.Refresh();
-                Debug.WriteLine("speed:{0}   i:{1}   ",speed , i);
 
                 speed = (int)((Math.Cos((i * Math.PI ) / (ImageLength * ImageCount)) + 1) * 15);
                 if (speed == 1 && !beginStop)
@@ -56,11 +55,11 @@ namespace RacheM
                 }
             }
 
-            Debug.WriteLine(i);
-            Debug.WriteLine((i + 1280 / 2) / 170);
-            MessageBox.Show(randomPrizes[(i + 1280 / 2) / 170].Name);
-
-
+            curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+            ((mainForm)Parent).getPrize1.setPrize(randomPrizes[(i + 1280 / 2) / 170].Id);
+            db.saveUser(curUsr);
+            ((mainForm)Parent).getPrize1.Visible = true;
+            this.Hide();
 
         }
 
@@ -109,11 +108,6 @@ namespace RacheM
                 g.DrawImage(prizes[i].Image, new Rectangle(imageLength * i,0, imageLength, imageLength) );
             }
             return sausage;
-        }
-
-        public void onShow()
-        {
-            
         }
     }
 }

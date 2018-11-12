@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace RacheM
 {
@@ -14,9 +15,8 @@ namespace RacheM
     {
         private string currentNick;
         private int currentRoom;
-        private List<Button> btns = new List<Button>();
         private Dictionary<int, int> forWrite = new Dictionary<int, int>();
-        private int goldenId = 27;
+        private int prizeId = 27;
         public room()
         {
             InitializeComponent();
@@ -24,12 +24,17 @@ namespace RacheM
 
         private void onClick(object sender, EventArgs e)
         {
-            if (db.getUserByField(currentNick) == null)
+            bool nullOrE = false;
+            if (string.IsNullOrEmpty(currentNick))
             {
-                MessageBox.Show("Ошибка", "Пользователя не существует", MessageBoxButtons.OK);
+                nullOrE = true;
+            }
+            if (!nullOrE && db.getUserByField(currentNick) == null)
+            {
+                MessageBox.Show("Такого пользователья не существует", "Ошибка", MessageBoxButtons.OK);
                 return;
             }
-            ((Button)sender).Text = currentNick;
+            ((Button)sender).Text = string.IsNullOrEmpty(currentNick) ? "" : currentNick;
             db.clearRoom(currentRoom);
             forWrite = this.Controls
                 .OfType<Button>()
@@ -49,6 +54,7 @@ namespace RacheM
             currentRoom = roomIn;
             if (roomIn == 1)
             {
+                prizeId = 1;
                 Dictionary<int, int> newRoom = db.getRoom(currentRoom);
                 this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
                     {
@@ -58,7 +64,10 @@ namespace RacheM
                     });
             } else
             {
-                List<User> newRoom = db.getPrizePlayers(goldenId).Take(10).ToList();
+                prizeId = 27;
+                List<User> newRoom = db.getPrizePlayers(prizeId).Take(10).ToList();
+
+                nick.Visible = false;
 
                 if (newRoom.Count < 10)
                 {
@@ -79,7 +88,54 @@ namespace RacheM
 
         private void home_Click(object sender, EventArgs e)
         {
+            List<Button> btns = this.Controls
+                                    .OfType<Button>()
+                                    .Where(p => p.Name.Contains("btn"))
+                                    .ToList();
+            btns.Select(p => p.FlatAppearance.BorderSize = 0);
             ((mainForm)Parent).onHome(this);
+        }
+
+        private async void startBtn_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            Button winBtn = new Button();
+            User curUsr = new User();
+            int tempRnd = rnd.Next(0, 10);
+            int lastRnd = tempRnd;
+            List<Button> btns = this.Controls
+                                    .OfType<Button>()
+                                    .Where(p => p.Name.Contains("btn"))
+                                    .ToList();
+            for (int i = 0; i < 20; i++)
+            {
+                while(tempRnd == lastRnd)
+                {
+                    tempRnd = rnd.Next(0, 10);
+                }
+                btns[tempRnd].FlatAppearance.BorderColor = Color.Yellow;
+                btns[tempRnd].FlatAppearance.BorderSize = 3;
+                winBtn = btns[tempRnd];
+                await Task.Delay(500);
+                btns[tempRnd].FlatAppearance.BorderSize = 0;
+                lastRnd = tempRnd;
+            }
+
+            winBtn.FlatAppearance.BorderColor = Color.Green;
+            winBtn.FlatAppearance.BorderSize = 5;
+
+            ((mainForm)Parent).roomres1.setNick(winBtn.Text);
+            await Task.Delay(500);
+            winBtn.FlatAppearance.BorderSize = 0;
+            ((mainForm)Parent).roomres1.Visible = true;
+            this.Hide();
+
+            foreach (Button i in btns)
+            {
+                curUsr = db.getUserByField(i.Text);
+                curUsr.prizes.RemoveAt(curUsr.prizes.FindLastIndex(p => p.Id == prizeId));
+                db.saveUser(curUsr);
+            }
         }
     }
 }

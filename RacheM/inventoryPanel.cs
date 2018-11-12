@@ -26,7 +26,9 @@ namespace RacheM
 
         private void completeBtn_Click(object sender, EventArgs e)
         {
-            curUsr.prizes = curUsr.prizes.Where(p => !prizeItems.CheckedItems.Contains(p.Name)).ToList();
+            curUsr.prizes = curUsr.prizes.Where(p => prizeItems.CheckedItems.Contains(p.Name)).ToList();
+            curUsr.prizes = curUsr.prizes.Where(p => prizeItems.CheckedItems.Contains(p.Name)).ToList();
+            curUsr.prizes.RemoveAt(0);
             db.saveUser(curUsr);
             setUser(curUsr);
         }

@@ -225,6 +225,7 @@
             this.startBtn.Size = new System.Drawing.Size(464, 113);
             this.startBtn.TabIndex = 9;
             this.startBtn.UseVisualStyleBackColor = false;
+            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
             // 
             // nick
             // 
