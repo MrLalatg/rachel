@@ -12,4 +12,5 @@ namespace RacheM
         public int Type;
         public DateTime? Date = null;
     }
+   
 }

@@ -65,7 +65,7 @@ namespace RacheM
             } else
             {
                 prizeId = 27;
-                List<User> newRoom = db.getPrizePlayers(prizeId).Take(10).ToList();
+                List<User> newRoom = db.getPrizePlayers(prizeId).OrderBy(usr => usr.prizes.Where(p => p.Id == prizeId).Select(p => p.Date).Min()).ToList();
 
                 nick.Visible = false;
 

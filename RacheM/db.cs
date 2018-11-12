@@ -15,7 +15,7 @@ namespace RacheM
         private static string cnString = "Data Source = " + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "myData");
             
         
-        private static Dictionary<int, PrizeItem> prizes = null;
+        private static Dictionary<int, PrizeItem> dbPrizes = null;
 
         public static int saveUser(User user)
         {
@@ -34,11 +34,19 @@ namespace RacheM
                     cmd.CommandText = string.Format("DELETE FROM cross WHERE playerId='{0}'", user.Id);
                     cmd.ExecuteNonQuery();
                 }
+                user.prizes = user.prizes.Select(p =>
+                {
+                    if (p.Date == null)
+                    {
+                        p.Date = DateTime.UtcNow;
+                    }
+                    return p;
+                }).ToList();
 
-                foreach (PrizeItem i in user.prizes)
+                foreach(PrizeItem i in user.prizes)
                 {
                     cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId, time) VALUES ({0}, {1}, @datetime)", user.Id, i.Id);
-                    cmd.Parameters.Add("@datetime", DbType.DateTime).Value = DateTime.UtcNow;
+                    cmd.Parameters.Add("@datetime", DbType.DateTime).Value = i.Date;
                     cmd.ExecuteNonQuery();
                 }
 
@@ -93,9 +101,9 @@ namespace RacheM
 
         public static Dictionary<int, PrizeItem> getPrizes()
         {
-            if (db.prizes != null)
+            if (db.dbPrizes != null)
             {
-                return db.prizes;
+                //return db.dbPrizes;
             }
             Dictionary<int, PrizeItem> prizes = new Dictionary<int, PrizeItem>();
 
@@ -113,7 +121,7 @@ namespace RacheM
                                 Id = sdr.GetInt32(0),
                                 IsBad = sdr.GetInt32(4),
                                 Type = sdr.GetInt32(2),
-                                Name = sdr["name"].ToString(),
+                                Name = sdr["name"].ToString()
                             }
                         );
                         byte[] bytBLOB = new byte[sdr.GetBytes(3, 0, null, 0, int.MaxValue) - 1];
@@ -124,7 +132,7 @@ namespace RacheM
                     }
                 }
             }
-            db.prizes = prizes;
+            db.dbPrizes = prizes;
             return prizes;
         }
 

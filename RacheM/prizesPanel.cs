@@ -95,6 +95,7 @@ namespace RacheM
                 User curUsr = db.getUserByField(currentNick) == null ? new User { Name = currentNick } : db.getUserByField(currentNick);
 
                 curUsr.prizes.Add(currentPrize);
+
                 db.saveUser(curUsr);
 
                 players.Items.Clear();
