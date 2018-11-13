@@ -37,8 +37,7 @@ namespace RacheM
 
                 foreach (PrizeItem i in user.prizes)
                 {
-                    cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId, time) VALUES ({0}, {1}, @datetime)", user.Id, i.Id);
-                    cmd.Parameters.Add("@datetime", DbType.DateTime).Value = DateTime.UtcNow;
+                    cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId, time) VALUES ({0}, {1}, NULL)", user.Id, i.Id);
                     cmd.ExecuteNonQuery();
                 }
 
@@ -201,6 +200,33 @@ namespace RacheM
                 }
                 cmd.ExecuteNonQuery();
             }
+        }
+
+       public static Image getCard(int cardId)
+        {
+            Image result;
+            using(SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT image FROM cards WHERE id={cardId}", cn);
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        byte[] bytBLOB = new byte[sdr.GetBytes(0, 0, null, 0, int.MaxValue) - 1];
+                        sdr.GetBytes(0, 0, bytBLOB, 0, bytBLOB.Length);
+
+
+                        MemoryStream stmBLOB = new MemoryStream(bytBLOB);
+                        result = Image.FromStream(stmBLOB);
+
+                        return result;
+                    }
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.ComponentModel.Design;
 using System.Diagnostics;
 using System.Reflection;
+using System.Threading;
 
 namespace RacheM
 {
@@ -58,6 +59,7 @@ namespace RacheM
             curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
             ((mainForm)Parent).getPrize1.setPrize(randomPrizes[(i + 1280 / 2) / 170].Id);
             db.saveUser(curUsr);
+            Thread.Sleep(500);
             ((mainForm)Parent).getPrize1.Visible = true;
             this.Hide();
 

@@ -75,5 +75,10 @@ namespace RacheM
         {
             ((mainForm)Parent).prizesPanel1.Visible = true;
         }
+
+        private void infoBtn_Click(object sender, EventArgs e)
+        {
+            ((mainForm)Parent).informPanel1.Visible = true;
+        }
     }
 }

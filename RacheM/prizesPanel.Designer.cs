@@ -59,12 +59,15 @@
             this.button29 = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
             this.prize = new System.Windows.Forms.Panel();
+            this.cardBtn = new System.Windows.Forms.Button();
             this.roomBtn = new System.Windows.Forms.Button();
             this.nick = new System.Windows.Forms.TextBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.completeBtn = new System.Windows.Forms.Button();
             this.players = new System.Windows.Forms.CheckedListBox();
+            this.cardBox = new System.Windows.Forms.PictureBox();
             this.prize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBox)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -435,6 +438,7 @@
             // 
             this.prize.BackgroundImage = global::RacheM.Properties.Resources.inventory1;
             this.prize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.prize.Controls.Add(this.cardBtn);
             this.prize.Controls.Add(this.roomBtn);
             this.prize.Controls.Add(this.nick);
             this.prize.Controls.Add(this.addBtn);
@@ -445,6 +449,22 @@
             this.prize.Size = new System.Drawing.Size(353, 720);
             this.prize.TabIndex = 30;
             this.prize.Visible = false;
+            // 
+            // cardBtn
+            // 
+            this.cardBtn.BackColor = System.Drawing.Color.Black;
+            this.cardBtn.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.cardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cardBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cardBtn.ForeColor = System.Drawing.Color.Blue;
+            this.cardBtn.Location = new System.Drawing.Point(185, 628);
+            this.cardBtn.Name = "cardBtn";
+            this.cardBtn.Size = new System.Drawing.Size(145, 38);
+            this.cardBtn.TabIndex = 9;
+            this.cardBtn.Text = "Выполнить Карту";
+            this.cardBtn.UseVisualStyleBackColor = false;
+            this.cardBtn.Visible = false;
+            this.cardBtn.Click += new System.EventHandler(this.cardBtn_Click);
             // 
             // roomBtn
             // 
@@ -510,12 +530,24 @@
             this.players.Size = new System.Drawing.Size(308, 599);
             this.players.TabIndex = 4;
             // 
+            // cardBox
+            // 
+            this.cardBox.BackColor = System.Drawing.Color.Transparent;
+            this.cardBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cardBox.Location = new System.Drawing.Point(433, 32);
+            this.cardBox.Name = "cardBox";
+            this.cardBox.Size = new System.Drawing.Size(414, 656);
+            this.cardBox.TabIndex = 31;
+            this.cardBox.TabStop = false;
+            this.cardBox.Visible = false;
+            // 
             // prizesPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::RacheM.Properties.Resources.prizePanel;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.cardBox);
             this.Controls.Add(this.prize);
             this.Controls.Add(this.home);
             this.Controls.Add(this.button29);
@@ -552,6 +584,7 @@
             this.Click += new System.EventHandler(this.prizesPanel_Click);
             this.prize.ResumeLayout(false);
             this.prize.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -594,5 +627,7 @@
         private System.Windows.Forms.Button completeBtn;
         public System.Windows.Forms.CheckedListBox players;
         public System.Windows.Forms.Button roomBtn;
+        public System.Windows.Forms.Button cardBtn;
+        private System.Windows.Forms.PictureBox cardBox;
     }
 }

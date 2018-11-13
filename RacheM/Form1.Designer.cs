@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.informPanel1 = new RacheM.informPanel();
             this.roomres1 = new RacheM.roomres();
             this.commonOpening1 = new RacheM.commonOpening();
             this.room1 = new RacheM.room();
@@ -39,6 +40,16 @@
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
             this.SuspendLayout();
+            // 
+            // informPanel1
+            // 
+            this.informPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("informPanel1.BackgroundImage")));
+            this.informPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.informPanel1.Location = new System.Drawing.Point(0, 0);
+            this.informPanel1.Name = "informPanel1";
+            this.informPanel1.Size = new System.Drawing.Size(1280, 720);
+            this.informPanel1.TabIndex = 9;
+            this.informPanel1.Visible = false;
             // 
             // roomres1
             // 
@@ -140,6 +151,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.informPanel1);
             this.Controls.Add(this.roomres1);
             this.Controls.Add(this.commonOpening1);
             this.Controls.Add(this.room1);
@@ -150,9 +162,10 @@
             this.Controls.Add(this.commonPanel1);
             this.Controls.Add(this.mainPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "RachelR Case";
             this.ResumeLayout(false);
 
         }
@@ -168,6 +181,7 @@
         public room room1;
         public commonOpening commonOpening1;
         public roomres roomres1;
+        public informPanel informPanel1;
     }
 }
 

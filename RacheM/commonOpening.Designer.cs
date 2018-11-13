@@ -46,9 +46,9 @@
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.Enabled = false;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(640, 274);
+            this.button1.Location = new System.Drawing.Point(637, 274);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(10, 170);
+            this.button1.Size = new System.Drawing.Size(6, 170);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;

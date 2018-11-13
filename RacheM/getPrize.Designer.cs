@@ -32,7 +32,9 @@
             this.home = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.completeBtn = new System.Windows.Forms.Button();
+            this.cardBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.prizeImg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBox)).BeginInit();
             this.SuspendLayout();
             // 
             // prizeImg
@@ -86,6 +88,17 @@
             this.completeBtn.UseVisualStyleBackColor = true;
             this.completeBtn.Click += new System.EventHandler(this.completeBtn_Click);
             // 
+            // cardBox
+            // 
+            this.cardBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.cardBox.Location = new System.Drawing.Point(433, 32);
+            this.cardBox.Name = "cardBox";
+            this.cardBox.Size = new System.Drawing.Size(414, 656);
+            this.cardBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.cardBox.TabIndex = 6;
+            this.cardBox.TabStop = false;
+            this.cardBox.Visible = false;
+            // 
             // getPrize
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -93,6 +106,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.getPrize;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.cardBox);
             this.Controls.Add(this.completeBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.home);
@@ -100,6 +114,7 @@
             this.Name = "getPrize";
             this.Size = new System.Drawing.Size(1280, 720);
             ((System.ComponentModel.ISupportInitialize)(this.prizeImg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cardBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -110,5 +125,6 @@
         private System.Windows.Forms.Button home;
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button completeBtn;
+        private System.Windows.Forms.PictureBox cardBox;
     }
 }

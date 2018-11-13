@@ -34,6 +34,7 @@
             this.inventory = new System.Windows.Forms.Button();
             this.error = new System.Windows.Forms.Label();
             this.showPrizesBtn = new System.Windows.Forms.Button();
+            this.infoBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // commonCase
@@ -115,13 +116,29 @@
             this.showPrizesBtn.UseVisualStyleBackColor = false;
             this.showPrizesBtn.Click += new System.EventHandler(this.showPrizesBtn_Click);
             // 
+            // infoBtn
+            // 
+            this.infoBtn.BackgroundImage = global::RacheM.Properties.Resources.information_icon_png_7;
+            this.infoBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.infoBtn.FlatAppearance.BorderSize = 0;
+            this.infoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoBtn.Location = new System.Drawing.Point(1208, 648);
+            this.infoBtn.Name = "infoBtn";
+            this.infoBtn.Size = new System.Drawing.Size(72, 72);
+            this.infoBtn.TabIndex = 6;
+            this.infoBtn.UseVisualStyleBackColor = true;
+            this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
+            // 
             // mainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BackgroundImage = global::RacheM.Properties.Resources.main;
+            this.BackgroundImage = global::RacheM.Properties.Resources.mainfix;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.infoBtn);
             this.Controls.Add(this.showPrizesBtn);
             this.Controls.Add(this.error);
             this.Controls.Add(this.inventory);
@@ -142,5 +159,6 @@
         public System.Windows.Forms.TextBox nickName;
         public System.Windows.Forms.Label error;
         private System.Windows.Forms.Button showPrizesBtn;
+        private System.Windows.Forms.Button infoBtn;
     }
 }

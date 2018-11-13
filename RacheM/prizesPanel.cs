@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
 
 namespace RacheM
 {
@@ -50,6 +52,16 @@ namespace RacheM
                 {
                     roomBtn.Visible = false;
                 }
+
+                if(currentPrize.Name == "Счастливая колода")
+                {
+                    cardBtn.Visible = true;
+                    completeBtn.Visible = false;
+                } else
+                {
+                    completeBtn.Visible = true;
+                    cardBtn.Visible = false;
+                }
                 foreach (User i in db.getPrizePlayers(currentPrize.Id))
                 {
                     players.Items.Add(i.Name);
@@ -69,7 +81,7 @@ namespace RacheM
             prize.Visible = false;
         }
 
-        private void completeBtn_Click(object sender, EventArgs e)
+        public void completeBtn_Click(object sender, EventArgs e)
         {
             User curUsr = new User();
 
@@ -125,6 +137,20 @@ namespace RacheM
                     break;
             }
             ((mainForm)Parent).room1.Visible = true;
+        }
+
+        private void cardBtn_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            cardBox.Image = db.getCard(rnd.Next(1, 53));
+            cardBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            cardBox.BringToFront();
+            cardBox.Visible = true;
+            cardBox.Refresh();
+            Thread.Sleep(2000);
+            cardBox.Visible = false;
+
+            completeBtn_Click(null, null);
         }
     }
 }
