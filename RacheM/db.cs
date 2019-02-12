@@ -37,7 +37,7 @@ namespace RacheM
 
                 foreach (PrizeItem i in user.prizes)
                 {
-                    cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId, time) VALUES ({0}, {1}, NULL)", user.Id, i.Id);
+                    cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
                     cmd.ExecuteNonQuery();
                 }
 
