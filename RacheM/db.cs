@@ -17,6 +17,20 @@ namespace RacheM
         
         private static Dictionary<int, PrizeItem> prizes = null;
 
+        public static void deletePrizeForUsers(IEnumerable<User> users, int prizeId)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                var sql = String.Format("DELETE FROM cross WHERE prizeId = {0} AND playerId IN ({1})", prizeId
+                    , String.Join(",", users.Select(u => u.Id)));
+                SQLiteCommand cmd = new SQLiteCommand(sql, cn);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
         public static int saveUser(User user)
         {
             using (SQLiteConnection cn = new SQLiteConnection(cnString))

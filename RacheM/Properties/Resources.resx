@@ -127,8 +127,8 @@
   <data name="soc" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\soc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="znak" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\znak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="roll" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Прокрутка.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,9 +154,6 @@
   <data name="main" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Главная.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shirt" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shirt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bank" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -181,6 +178,12 @@
   <data name="likes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\llikes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="nametag" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nametag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="yDw9ixa1ppg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\yDw9ixa1ppg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="information-icon-png-7" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\information-icon-png-7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -189,6 +192,9 @@
   </data>
   <data name="magnet" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mainfix" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainfix.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="continueBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\continue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,8 +205,8 @@
   <data name="prizePanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prizePanel.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nametag" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nametag.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="znak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\znak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spons" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\spons.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,10 +214,13 @@
   <data name="brelok" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\brelok.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FEZ-04-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FEZ-04-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="infP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\infP.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="mainfix" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mainfix.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="qccg8zaFwRI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\qccg8zaFwRI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

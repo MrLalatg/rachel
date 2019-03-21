@@ -35,6 +35,7 @@
             this.error = new System.Windows.Forms.Label();
             this.showPrizesBtn = new System.Windows.Forms.Button();
             this.infoBtn = new System.Windows.Forms.Button();
+            this.settings = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // commonCase
@@ -131,6 +132,21 @@
             this.infoBtn.UseVisualStyleBackColor = true;
             this.infoBtn.Click += new System.EventHandler(this.infoBtn_Click);
             // 
+            // settings
+            // 
+            this.settings.BackgroundImage = global::RacheM.Properties.Resources.FEZ_04_512;
+            this.settings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settings.FlatAppearance.BorderSize = 0;
+            this.settings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.settings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settings.Location = new System.Drawing.Point(0, 648);
+            this.settings.Name = "settings";
+            this.settings.Size = new System.Drawing.Size(72, 72);
+            this.settings.TabIndex = 7;
+            this.settings.UseVisualStyleBackColor = true;
+            this.settings.Click += new System.EventHandler(this.settings_Click);
+            // 
             // mainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,6 +154,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.mainfix;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.settings);
             this.Controls.Add(this.infoBtn);
             this.Controls.Add(this.showPrizesBtn);
             this.Controls.Add(this.error);
@@ -160,5 +177,6 @@
         public System.Windows.Forms.Label error;
         private System.Windows.Forms.Button showPrizesBtn;
         private System.Windows.Forms.Button infoBtn;
+        private System.Windows.Forms.Button settings;
     }
 }

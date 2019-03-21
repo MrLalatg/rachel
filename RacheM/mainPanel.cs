@@ -80,5 +80,10 @@ namespace RacheM
         {
             ((mainForm)Parent).informPanel1.Visible = true;
         }
+
+        private void settings_Click(object sender, EventArgs e)
+        {
+            ((mainForm)Parent).settings_panel1.Visible = true;
+        }
     }
 }

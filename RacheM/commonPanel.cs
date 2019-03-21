@@ -33,5 +33,6 @@ namespace RacheM
             }
             ((mainForm)Parent).commonOpening1.ride(tempusr);
         }
+
     }
 }

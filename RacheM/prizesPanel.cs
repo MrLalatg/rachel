@@ -53,7 +53,16 @@ namespace RacheM
                     roomBtn.Visible = false;
                 }
 
-                if(currentPrize.Name == "Счастливая колода")
+                if (currentPrize.Id == 23 && db.getPrizePlayers(23).Count >= 100)
+                {
+                    hundredBtn.Show();
+                }
+                else
+                {
+                    hundredBtn.Hide();
+                }
+
+                if (currentPrize.Name == "Счастливая колода")
                 {
                     cardBtn.Visible = true;
                     completeBtn.Visible = false;
@@ -151,6 +160,33 @@ namespace RacheM
             cardBox.Visible = false;
 
             completeBtn_Click(null, null);
+        }
+
+        private void hundredBtn_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+            List<User> curUsers = db.getPrizePlayers(currentPrize.Id);
+            hundredWinner.Text = curUsers[rnd.Next(0, curUsers.Count - 1)].Name;
+            hundredWinner.Show();
+            hundredWinner.BringToFront();
+            hundredOK.Visible = true;
+            hundredOK.BringToFront();
+            var sw = Stopwatch.StartNew();
+            /*            foreach (User i in curUsers)
+                        {
+                            i.prizes.RemoveAll(n => (n.Id == 23));
+                            db.saveUser(i);
+                        } */
+            db.deletePrizeForUsers(curUsers, 23);
+            sw.Stop();
+            Console.WriteLine("sw: " + sw.ElapsedMilliseconds / 1000);
+
+        }
+
+        private void hundredOK_Click(object sender, EventArgs e)
+        {
+            hundredWinner.Hide();
+            hundredOK.Hide();
         }
     }
 }

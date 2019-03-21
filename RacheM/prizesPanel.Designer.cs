@@ -59,6 +59,8 @@
             this.button29 = new System.Windows.Forms.Button();
             this.home = new System.Windows.Forms.Button();
             this.prize = new System.Windows.Forms.Panel();
+            this.hundredOK = new System.Windows.Forms.Button();
+            this.hundredBtn = new System.Windows.Forms.Button();
             this.cardBtn = new System.Windows.Forms.Button();
             this.roomBtn = new System.Windows.Forms.Button();
             this.nick = new System.Windows.Forms.TextBox();
@@ -66,6 +68,7 @@
             this.completeBtn = new System.Windows.Forms.Button();
             this.players = new System.Windows.Forms.CheckedListBox();
             this.cardBox = new System.Windows.Forms.PictureBox();
+            this.hundredWinner = new System.Windows.Forms.TextBox();
             this.prize.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).BeginInit();
             this.SuspendLayout();
@@ -438,6 +441,8 @@
             // 
             this.prize.BackgroundImage = global::RacheM.Properties.Resources.inventory1;
             this.prize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.prize.Controls.Add(this.hundredOK);
+            this.prize.Controls.Add(this.hundredBtn);
             this.prize.Controls.Add(this.cardBtn);
             this.prize.Controls.Add(this.roomBtn);
             this.prize.Controls.Add(this.nick);
@@ -449,6 +454,38 @@
             this.prize.Size = new System.Drawing.Size(353, 720);
             this.prize.TabIndex = 30;
             this.prize.Visible = false;
+            // 
+            // hundredOK
+            // 
+            this.hundredOK.BackColor = System.Drawing.Color.Black;
+            this.hundredOK.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
+            this.hundredOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hundredOK.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hundredOK.ForeColor = System.Drawing.Color.Lime;
+            this.hundredOK.Location = new System.Drawing.Point(108, 365);
+            this.hundredOK.Name = "hundredOK";
+            this.hundredOK.Size = new System.Drawing.Size(145, 38);
+            this.hundredOK.TabIndex = 11;
+            this.hundredOK.Text = "OK";
+            this.hundredOK.UseVisualStyleBackColor = false;
+            this.hundredOK.Visible = false;
+            this.hundredOK.Click += new System.EventHandler(this.hundredOK_Click);
+            // 
+            // hundredBtn
+            // 
+            this.hundredBtn.BackColor = System.Drawing.Color.Black;
+            this.hundredBtn.FlatAppearance.BorderColor = System.Drawing.Color.Crimson;
+            this.hundredBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hundredBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hundredBtn.ForeColor = System.Drawing.Color.Crimson;
+            this.hundredBtn.Location = new System.Drawing.Point(185, 672);
+            this.hundredBtn.Name = "hundredBtn";
+            this.hundredBtn.Size = new System.Drawing.Size(145, 38);
+            this.hundredBtn.TabIndex = 10;
+            this.hundredBtn.Text = "Разыграть";
+            this.hundredBtn.UseVisualStyleBackColor = false;
+            this.hundredBtn.Visible = false;
+            this.hundredBtn.Click += new System.EventHandler(this.hundredBtn_Click);
             // 
             // cardBtn
             // 
@@ -534,12 +571,22 @@
             // 
             this.cardBox.BackColor = System.Drawing.Color.Transparent;
             this.cardBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.cardBox.Location = new System.Drawing.Point(433, 32);
+            this.cardBox.Location = new System.Drawing.Point(827, 17);
             this.cardBox.Name = "cardBox";
             this.cardBox.Size = new System.Drawing.Size(414, 656);
             this.cardBox.TabIndex = 31;
             this.cardBox.TabStop = false;
             this.cardBox.Visible = false;
+            // 
+            // hundredWinner
+            // 
+            this.hundredWinner.Enabled = false;
+            this.hundredWinner.Font = new System.Drawing.Font("Unispace", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hundredWinner.Location = new System.Drawing.Point(433, 275);
+            this.hundredWinner.Name = "hundredWinner";
+            this.hundredWinner.Size = new System.Drawing.Size(414, 84);
+            this.hundredWinner.TabIndex = 32;
+            this.hundredWinner.Visible = false;
             // 
             // prizesPanel
             // 
@@ -548,6 +595,7 @@
             this.BackgroundImage = global::RacheM.Properties.Resources.prizePanel;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.cardBox);
+            this.Controls.Add(this.hundredWinner);
             this.Controls.Add(this.prize);
             this.Controls.Add(this.home);
             this.Controls.Add(this.button29);
@@ -586,6 +634,7 @@
             this.prize.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cardBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -629,5 +678,8 @@
         public System.Windows.Forms.Button roomBtn;
         public System.Windows.Forms.Button cardBtn;
         private System.Windows.Forms.PictureBox cardBox;
+        public System.Windows.Forms.Button hundredBtn;
+        public System.Windows.Forms.TextBox hundredWinner;
+        public System.Windows.Forms.Button hundredOK;
     }
 }
