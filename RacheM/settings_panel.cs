@@ -21,5 +21,10 @@ namespace RacheM
         {
             ((mainForm)Parent).onHome(this);
         }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            db.setPassword(this.donPassword.Text);
+        }
     }
 }

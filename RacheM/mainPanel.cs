@@ -84,6 +84,12 @@ namespace RacheM
         private void settings_Click(object sender, EventArgs e)
         {
             ((mainForm)Parent).settings_panel1.Visible = true;
+            ((mainForm)Parent).settings_panel1.donPassword.Text = db.getPassword();
+        }
+
+        private void mainPanel_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

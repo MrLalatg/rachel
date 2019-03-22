@@ -242,5 +242,41 @@ namespace RacheM
 
             return null;
         }
+
+        public static string getPassword()
+        {
+            string result = "";
+
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand("SELECT password FROM pass_table WHERE id=1", cn);
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        result = sdr["password"].ToString();
+                    }
+
+                    return result;
+                }
+            }
+        }
+
+        public static void setPassword(string password)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand("DELETE FROM pass_table WHERE id=1", cn);
+
+                cmd.ExecuteNonQuery();
+
+                cmd = new SQLiteCommand($"INSERT INTO pass_table (id, password) VALUES (1, '{password}');", cn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }

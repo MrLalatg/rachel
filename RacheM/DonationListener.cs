@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace ConsoleApp1
+namespace RacheM
 {
     public class DonationListener
     {
@@ -32,7 +32,7 @@ namespace ConsoleApp1
             var sid = ExtractToken(result);
             if (string.IsNullOrEmpty(sid))
             {
-                throw new Exception("Не удалось получить sid");
+                throw new Exception("Failed to get sid");
             }
 
             var cookie = new Cookie("io", sid, "/", "socket.donationalerts.ru");

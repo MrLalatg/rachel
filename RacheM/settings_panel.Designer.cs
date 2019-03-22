@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.home = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.donPassword = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -49,16 +49,16 @@
             this.home.UseVisualStyleBackColor = false;
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
-            // textBox1
+            // donPassword
             // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(395, 195);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(507, 34);
-            this.textBox1.TabIndex = 32;
+            this.donPassword.BackColor = System.Drawing.Color.White;
+            this.donPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.donPassword.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.donPassword.Location = new System.Drawing.Point(395, 195);
+            this.donPassword.Name = "donPassword";
+            this.donPassword.PasswordChar = '*';
+            this.donPassword.Size = new System.Drawing.Size(507, 34);
+            this.donPassword.TabIndex = 32;
             // 
             // saveBtn
             // 
@@ -73,7 +73,7 @@
             this.saveBtn.TabIndex = 33;
             this.saveBtn.Text = "Сохранить";
             this.saveBtn.UseVisualStyleBackColor = false;
-            this.saveBtn.Visible = false;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // settings_panel
             // 
@@ -81,7 +81,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.donPassword);
             this.Controls.Add(this.home);
             this.Name = "settings_panel";
             this.Size = new System.Drawing.Size(1280, 720);
@@ -93,7 +93,7 @@
         #endregion
 
         public System.Windows.Forms.Button home;
-        private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Button saveBtn;
+        public System.Windows.Forms.TextBox donPassword;
     }
 }

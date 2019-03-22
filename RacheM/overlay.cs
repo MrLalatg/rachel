@@ -49,8 +49,8 @@ namespace RacheM
                 }
             }
 
-            curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
-            db.saveUser(curUsr);
+           curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+           db.saveUser(curUsr);
             this.Hide();
 
         }
