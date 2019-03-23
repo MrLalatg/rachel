@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
+            this.tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.settings_panel1 = new RacheM.settings_panel();
             this.informPanel1 = new RacheM.informPanel();
             this.roomres1 = new RacheM.roomres();
             this.commonOpening1 = new RacheM.commonOpening();
@@ -39,8 +42,22 @@
             this.eliteCase1 = new RacheM.eliteCase();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
-            this.settings_panel1 = new RacheM.settings_panel();
             this.SuspendLayout();
+            // 
+            // tray
+            // 
+            this.tray.Icon = ((System.Drawing.Icon)(resources.GetObject("tray.Icon")));
+            this.tray.Text = "Rachel Case";
+            this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            // 
+            // settings_panel1
+            // 
+            this.settings_panel1.BackColor = System.Drawing.Color.Black;
+            this.settings_panel1.Location = new System.Drawing.Point(0, 0);
+            this.settings_panel1.Name = "settings_panel1";
+            this.settings_panel1.Size = new System.Drawing.Size(1280, 720);
+            this.settings_panel1.TabIndex = 10;
+            this.settings_panel1.Visible = false;
             // 
             // informPanel1
             // 
@@ -147,15 +164,6 @@
             this.mainPanel1.TabIndex = 0;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
-            // settings_panel1
-            // 
-            this.settings_panel1.BackColor = System.Drawing.Color.Black;
-            this.settings_panel1.Location = new System.Drawing.Point(0, 0);
-            this.settings_panel1.Name = "settings_panel1";
-            this.settings_panel1.Size = new System.Drawing.Size(1280, 720);
-            this.settings_panel1.TabIndex = 10;
-            this.settings_panel1.Visible = false;
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,6 +185,7 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RachelR Case";
+            this.Resize += new System.EventHandler(this.mainForm_Resize);
             this.ResumeLayout(false);
 
         }
@@ -194,6 +203,7 @@
         public roomres roomres1;
         public informPanel informPanel1;
         public settings_panel settings_panel1;
+        private System.Windows.Forms.NotifyIcon tray;
     }
 }
 

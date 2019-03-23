@@ -160,6 +160,12 @@
     <Compile Include="settings_panel.Designer.cs">
       <DependentUpon>settings_panel.cs</DependentUpon>
     </Compile>
+    <Compile Include="TransparentTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TransparentTextBox.Designer.cs">
+      <DependentUpon>TransparentTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="commonOpening.resx">
       <DependentUpon>commonOpening.cs</DependentUpon>

@@ -16,6 +16,7 @@ namespace RacheM
         public overlay()
         {
             InitializeComponent();
+            this.ShowInTaskbar = false;
         }
 
         public void ride(User curUsr, int prizeType = 0)
@@ -23,6 +24,11 @@ namespace RacheM
             int ImageCount = 60;
             int ImageLength = 170;
 
+            this.roller.Show();
+            this.button1.Show();
+            this.nickname.Text = curUsr.Name;
+            this.nickname.Show();
+            this.Refresh();
             this.roller.Image = new Bitmap(1280, 170);
             Graphics gr = Graphics.FromImage(this.roller.Image);
 
@@ -49,10 +55,12 @@ namespace RacheM
                 }
             }
 
-           curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
-           db.saveUser(curUsr);
-            this.Hide();
-
+            curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+            db.saveUser(curUsr);
+            this.roller.Hide();
+            this.button1.Hide();
+            this.nickname.Text = "";
+            this.nickname.Hide();
         }
 
         private List<PrizeItem> getRandomPrizes(int count)

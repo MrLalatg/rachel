@@ -16,11 +16,14 @@ namespace RacheM
         public string currentNick = null;
         public string donation_password;
         DonationListener dl;
+        overlay ol = new overlay();
 
         public System.Windows.Forms.PictureBox[,] eliteCards;
         public mainForm()
         {
             InitializeComponent();
+            ol.Show();
+
             initializeDonation();
         }
 
@@ -28,7 +31,6 @@ namespace RacheM
 
         public void InvokeMethod( JObject donation)
         {
-            overlay ol = new overlay();
             string username = donation["username"].ToString();
             User toRide = db.getUserByField(username);
             if(toRide == null)
@@ -36,7 +38,6 @@ namespace RacheM
                 toRide = new User() { Name = username };
                 db.saveUser(toRide);
             }
-            ol.Show();
             ol.ride(toRide);
         }
 
@@ -69,6 +70,30 @@ namespace RacheM
             mainPanel1.commonCase.Enabled = true;
             mainPanel1.eliteBtn.Enabled = true;
             mainPanel1.nickName.Enabled = true;
+        }
+
+        private void mainForm_Resize(object sender, System.EventArgs e)
+        {
+            tray.BalloonTipTitle = "App was minimized to tray";
+            tray.BalloonTipText = "Чтобы открыть окно дважды нажмите на иконку";
+
+            if (FormWindowState.Minimized == this.WindowState)
+            {
+                tray.Visible = true;
+                tray.ShowBalloonTip(500);
+                this.Hide();
+            }
+            else if (FormWindowState.Normal == this.WindowState)
+            {
+                tray.Visible = false;
+            }
+        }
+
+        private void tray_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+            this.BringToFront();
         }
     }
 }
