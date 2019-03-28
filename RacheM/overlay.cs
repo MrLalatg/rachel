@@ -12,6 +12,7 @@ namespace RacheM
 {
     public partial class overlay : Form
     {
+        
         Random rnd = new Random();
         public overlay()
         {

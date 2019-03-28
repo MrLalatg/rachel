@@ -24,7 +24,7 @@ namespace RacheM
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            db.setPassword(this.donPassword.Text);
+            db.setSettings(this.donPassword.Text, this.channelName.Text, this.botUsername.Text, this.botToken.Text, this.clientId.Text);
         }
     }
 }

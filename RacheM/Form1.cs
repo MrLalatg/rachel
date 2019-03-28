@@ -10,12 +10,14 @@ using Newtonsoft.Json.Linq;
 
 namespace RacheM
 {
+
     public partial class mainForm : Form
     {
         public string backAdress;
         public string currentNick = null;
-        public string donation_password;
+        public TwitchSettings settings;
         DonationListener dl;
+        TwitchBot bot;
         overlay ol = new overlay();
 
         public System.Windows.Forms.PictureBox[,] eliteCards;
@@ -23,11 +25,25 @@ namespace RacheM
         {
             InitializeComponent();
             ol.Show();
+            settings = db.getSettings();
+            if (settings.password != "")
+            {
+                initializeDonation();
+            } else
+            {
+                MessageBox.Show(
+                    "Для корректной работы с DonationAlerts нужен токен, вы можете ввести его в настройках, затем ПЕРЕЗАПУСТИТЕ ПРОГРАММУ", 
+                    "Отсутствует токен DonationAlerts",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+            }
 
-            initializeDonation();
+            bot = new TwitchBot(this.settings);
+            bot.connect();
         }
 
-        public delegate void InvokeDelegate(JObject donation );
+        public delegate void InvokeDelegate(JObject donation);
 
         public void InvokeMethod( JObject donation)
         {
@@ -43,9 +59,8 @@ namespace RacheM
 
 
         public void initializeDonation()
-        {
-            donation_password = db.getPassword();
-            dl = new DonationListener(donation_password);
+        { 
+            dl = new DonationListener(settings.password);
             dl.OnDonation = donation =>
             {
                 this.BeginInvoke(new InvokeDelegate(InvokeMethod), donation);

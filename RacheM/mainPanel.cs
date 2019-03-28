@@ -84,7 +84,11 @@ namespace RacheM
         private void settings_Click(object sender, EventArgs e)
         {
             ((mainForm)Parent).settings_panel1.Visible = true;
-            ((mainForm)Parent).settings_panel1.donPassword.Text = db.getPassword();
+            ((mainForm)Parent).settings_panel1.donPassword.Text = db.getSettings().password;
+            ((mainForm)Parent).settings_panel1.channelName.Text = db.getSettings().channelName;
+            ((mainForm)Parent).settings_panel1.botUsername.Text = db.getSettings().botUsername;
+            ((mainForm)Parent).settings_panel1.botToken.Text = db.getSettings().botToken;
+            ((mainForm)Parent).settings_panel1.clientId.Text = db.getSettings().clientId;
         }
 
         private void mainPanel_Load(object sender, EventArgs e)

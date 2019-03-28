@@ -243,20 +243,24 @@ namespace RacheM
             return null;
         }
 
-        public static string getPassword()
+        public static TwitchSettings getSettings()
         {
-            string result = "";
+            TwitchSettings result = new TwitchSettings();
 
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                SQLiteCommand cmd = new SQLiteCommand("SELECT password FROM pass_table WHERE id=1", cn);
+                SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM settings WHERE id=1", cn);
 
                 using (SQLiteDataReader sdr = cmd.ExecuteReader())
                 {
                     while (sdr.Read())
                     {
-                        result = sdr["password"].ToString();
+                        result.password = sdr["password"].ToString();
+                        result.channelName = sdr["channelName"].ToString();
+                        result.botUsername = sdr["botUsername"].ToString();
+                        result.botToken = sdr["botToken"].ToString();
+                        result.clientId = sdr["clientId"].ToString();
                     }
 
                     return result;
@@ -264,16 +268,16 @@ namespace RacheM
             }
         }
 
-        public static void setPassword(string password)
+        public static void setSettings(string password, string channelName, string botUsername, string botToken, string clientId)
         {
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                SQLiteCommand cmd = new SQLiteCommand("DELETE FROM pass_table WHERE id=1", cn);
+                SQLiteCommand cmd = new SQLiteCommand("DELETE FROM settings WHERE id=1", cn);
 
                 cmd.ExecuteNonQuery();
 
-                cmd = new SQLiteCommand($"INSERT INTO pass_table (id, password) VALUES (1, '{password}');", cn);
+                cmd = new SQLiteCommand($"INSERT INTO settings (id, password, channelName, botUsername, botToken, clientId) VALUES (1, '{password}', '{channelName}', '{botUsername}', '{botToken}', '{clientId}');", cn);
 
                 cmd.ExecuteNonQuery();
             }
