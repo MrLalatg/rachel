@@ -59,7 +59,8 @@ namespace RacheM
 
 
         public void initializeDonation()
-        { 
+        {
+            ol.paintGreen();
             dl = new DonationListener(settings.password);
             dl.OnDonation = donation =>
             {

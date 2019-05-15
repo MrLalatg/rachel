@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -273,6 +274,11 @@
     <Compile Include="roomres.Designer.cs">
       <DependentUpon>roomres.cs</DependentUpon>
     </Compile>
+    <Compile Include="SDL2-CS\LPUtf8StrMarshaler.cs" />
+    <Compile Include="SDL2-CS\SDL2.cs" />
+    <Compile Include="SDL2-CS\SDL2_image.cs" />
+    <Compile Include="SDL2-CS\SDL2_mixer.cs" />
+    <Compile Include="SDL2-CS\SDL2_ttf.cs" />
     <Compile Include="settings_panel.cs">
       <SubType>UserControl</SubType>
     </Compile>

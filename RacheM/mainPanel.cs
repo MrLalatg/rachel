@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace RacheM
 {
@@ -15,6 +16,9 @@ namespace RacheM
         public mainPanel()
         {
             InitializeComponent();
+            nickName.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            nickName.AutoCompleteMode = AutoCompleteMode.Suggest;
+            nickName.AutoCompleteCustomSource.AddRange(db.getUserList().ToArray());
         }
 
         private void commonCase_Click(object sender, EventArgs e)
@@ -46,7 +50,7 @@ namespace RacheM
 
         private void nickName_TextChanged(object sender, EventArgs e)
         {
-            ((mainForm)Parent).currentNick = nickName.Text;
+            ((mainForm)Parent).currentNick = nickName.Text;    
             error.Visible = false;
         }
 

@@ -30,6 +30,7 @@
         {
             this.roller = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.sdlPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.roller)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,6 +54,13 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // sdlPanel
+            // 
+            this.sdlPanel.Location = new System.Drawing.Point(0, 274);
+            this.sdlPanel.Name = "sdlPanel";
+            this.sdlPanel.Size = new System.Drawing.Size(1280, 170);
+            this.sdlPanel.TabIndex = 2;
+            // 
             // commonOpening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -60,6 +68,7 @@
             this.BackgroundImage = global::RacheM.Properties.Resources.roll;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.sdlPanel);
             this.Controls.Add(this.roller);
             this.Name = "commonOpening";
             this.Size = new System.Drawing.Size(1280, 720);
@@ -72,5 +81,6 @@
 
         private System.Windows.Forms.PictureBox roller;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel sdlPanel;
     }
 }

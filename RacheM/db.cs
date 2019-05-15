@@ -59,6 +59,48 @@ namespace RacheM
             return user.Id;
         }
 
+        public static List<String> getUserList()
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand("SELECT name FROM players", cn);
+
+                List<String> result = new List<String>();
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        result.Add(sdr["name"].ToString());
+                    }
+                    return result;
+                }
+
+            }
+        }
+
+        public static List<String> getUsersByLetters(string letters)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"SELECT name FROM players WHERE name LIKE '{letters}%'", cn);
+
+                List<String> result = new List<String>();
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        result.Add(sdr["name"].ToString());
+                    }
+                    return result;
+                }
+
+            }
+        }
+
         public static User getUserByField(object value, string fieldName = "name")
         {
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
