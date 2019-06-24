@@ -16,9 +16,8 @@ namespace RacheM
         public mainPanel()
         {
             InitializeComponent();
-            nickName.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            nickName.AutoCompleteMode = AutoCompleteMode.Suggest;
-            nickName.AutoCompleteCustomSource.AddRange(db.getUserList().ToArray());
+            nickName.AutoCompleteList = db.getUserList();
+            nickName.MinTypedCharacters = 1;
         }
 
         private void commonCase_Click(object sender, EventArgs e)
@@ -31,20 +30,6 @@ namespace RacheM
                 error.Visible = false;
                 Visible = false;
                 ((mainForm)Parent).commonPanel1.Visible = true;
-            }
-        }
-
-        private void eliteBtn_Click(object sender, EventArgs e)
-        {
-            if (((mainForm)Parent).currentNick == null || ((mainForm)Parent).currentNick == "")
-            {
-                error.Visible = true;
-            } else
-            {
-                error.Visible = false;
-                Visible = false;
-                ((mainForm)Parent).eliteCase1.createPrize();
-                ((mainForm)Parent).eliteCase1.Visible = true;
             }
         }
 
@@ -70,7 +55,6 @@ namespace RacheM
                 ((mainForm)Parent).inventoryPanel1.setUser(currentPlayer);
                 ((mainForm)Parent).inventoryPanel1.Visible = !((mainForm)Parent).inventoryPanel1.Visible;
                 commonCase.Enabled = false;
-                eliteBtn.Enabled = false;
                 nickName.Enabled = false;
             }
         }

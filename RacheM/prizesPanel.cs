@@ -25,7 +25,7 @@ namespace RacheM
             {
                 tempPrizes = db.getPrizes();
 
-                buttons = new List<Button> { button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29 };
+                buttons = new List<Button> { button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21};
                 for (int i = 1; i <= buttons.Count; i++)
                 {
                     buttons[i - 1].BackgroundImageLayout = ImageLayout.Stretch;

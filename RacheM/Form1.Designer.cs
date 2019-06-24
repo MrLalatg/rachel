@@ -34,12 +34,10 @@
             this.settings_panel1 = new RacheM.settings_panel();
             this.informPanel1 = new RacheM.informPanel();
             this.roomres1 = new RacheM.roomres();
-            this.commonOpening1 = new RacheM.commonOpening();
             this.room1 = new RacheM.room();
             this.prizesPanel1 = new RacheM.prizesPanel();
             this.inventoryPanel1 = new RacheM.inventoryPanel();
             this.getPrize1 = new RacheM.getPrize();
-            this.eliteCase1 = new RacheM.eliteCase();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
             this.SuspendLayout();
@@ -79,16 +77,6 @@
             this.roomres1.TabIndex = 8;
             this.roomres1.Visible = false;
             // 
-            // commonOpening1
-            // 
-            this.commonOpening1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonOpening1.BackgroundImage")));
-            this.commonOpening1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.commonOpening1.Location = new System.Drawing.Point(0, 0);
-            this.commonOpening1.Name = "commonOpening1";
-            this.commonOpening1.Size = new System.Drawing.Size(1280, 720);
-            this.commonOpening1.TabIndex = 7;
-            this.commonOpening1.Visible = false;
-            // 
             // room1
             // 
             this.room1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("room1.BackgroundImage")));
@@ -101,7 +89,7 @@
             // 
             // prizesPanel1
             // 
-            this.prizesPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("prizesPanel1.BackgroundImage")));
+            this.prizesPanel1.BackgroundImage = global::RacheM.Properties.Resources.str5;
             this.prizesPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.prizesPanel1.Location = new System.Drawing.Point(0, 0);
             this.prizesPanel1.Name = "prizesPanel1";
@@ -131,17 +119,6 @@
             this.getPrize1.TabIndex = 3;
             this.getPrize1.Visible = false;
             // 
-            // eliteCase1
-            // 
-            this.eliteCase1.BackColor = System.Drawing.Color.Transparent;
-            this.eliteCase1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eliteCase1.BackgroundImage")));
-            this.eliteCase1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.eliteCase1.Location = new System.Drawing.Point(0, 0);
-            this.eliteCase1.Name = "eliteCase1";
-            this.eliteCase1.Size = new System.Drawing.Size(1280, 720);
-            this.eliteCase1.TabIndex = 2;
-            this.eliteCase1.Visible = false;
-            // 
             // commonPanel1
             // 
             this.commonPanel1.BackColor = System.Drawing.Color.Transparent;
@@ -161,7 +138,7 @@
             this.mainPanel1.Location = new System.Drawing.Point(0, 0);
             this.mainPanel1.Name = "mainPanel1";
             this.mainPanel1.Size = new System.Drawing.Size(1280, 720);
-            this.mainPanel1.TabIndex = 0;
+            this.mainPanel1.TabIndex = 11;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
             // mainForm
@@ -172,12 +149,10 @@
             this.Controls.Add(this.settings_panel1);
             this.Controls.Add(this.informPanel1);
             this.Controls.Add(this.roomres1);
-            this.Controls.Add(this.commonOpening1);
             this.Controls.Add(this.room1);
             this.Controls.Add(this.prizesPanel1);
             this.Controls.Add(this.inventoryPanel1);
             this.Controls.Add(this.getPrize1);
-            this.Controls.Add(this.eliteCase1);
             this.Controls.Add(this.commonPanel1);
             this.Controls.Add(this.mainPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -192,9 +167,7 @@
 
         #endregion
 
-        public mainPanel mainPanel1;
         public commonPanel commonPanel1;
-        public eliteCase eliteCase1;
         public getPrize getPrize1;
         public inventoryPanel inventoryPanel1;
         public prizesPanel prizesPanel1;
@@ -204,6 +177,7 @@
         public informPanel informPanel1;
         public settings_panel settings_panel1;
         private System.Windows.Forms.NotifyIcon tray;
+        public mainPanel mainPanel1;
     }
 }
 

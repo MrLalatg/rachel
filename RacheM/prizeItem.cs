@@ -10,5 +10,6 @@ namespace RacheM
         public string Name;
         public int IsBad;
         public int Type;
+        public bool Unique;
     }
 }

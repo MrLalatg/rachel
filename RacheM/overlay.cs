@@ -20,6 +20,14 @@ namespace RacheM
         private IntPtr sdlWindow;
         private IntPtr renderer;
 
+        private Dictionary<int, Color> rarityColors = new Dictionary<int, Color>()
+        {
+            {-1, Color.FromArgb(218, 165, 32)},
+            {1, Color.FromArgb(160, 0, 0)},
+            {2, Color.FromArgb(108, 13, 163)},
+            {3, Color.FromArgb(42, 18, 181)}
+        };
+
         [DllImport("user32.dll")]
         private static extern IntPtr SetWindowPos(
             IntPtr handle,
@@ -67,82 +75,292 @@ namespace RacheM
 
             renderer = SDL.SDL_CreateRenderer(sdlWindow, -1, SDL.SDL_RendererFlags.SDL_RENDERER_ACCELERATED | SDL.SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC);
 
+            SDL.SDL_SetRenderDrawBlendMode(renderer, SDL.SDL_BlendMode.SDL_BLENDMODE_BLEND);
+
             SetParent(winHandle, sdlPanel.Handle);
             ShowWindow(winHandle, 1); // SHOWNORMAL
         }
 
-        public void ride(User curUsr, int prizeType = 0)
+        public void fastRide(User curUsr, float price)
+        {
+            IntPtr font = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 48);
+
+            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Solid(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+            SDL.SDL_Rect textRect = new SDL.SDL_Rect { x = 1280 - (40 * curUsr.Name.Length), y = 0, w = 40 * curUsr.Name.Length, h = 77 };
+
+            int ImageCount = 60;
+            int ImageLength = 170;
+
+            List<PrizeItem> displayPrizes = new List<PrizeItem>();
+            Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
+
+            for (int j = 0; j < (int)price / 100; j++)
+            {
+                int endPtr = 0;
+                var randomPrizes = getRandomPrizes(ImageCount);
+                string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+                IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
+
+                if (j == 0)
+                {
+                    textRect.x += 1280;
+
+                    int animationSpeed = 32;
+
+                    for (int k = 1280; k >= 0; k -= animationSpeed)
+                    {
+                        SDL.SDL_RenderClear(renderer);
+                        textRect.x -= animationSpeed;
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                        SDL.SDL_RenderFillRect(renderer, ref textRect);
+                        SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                        SDL.SDL_RenderPresent(renderer);
+                    }
+                }
+                else
+                {
+                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                    SDL.SDL_RenderFillRect(renderer, ref textRect);
+                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    SDL.SDL_RenderPresent(renderer);
+                }
+
+                int randomPixel = rnd.Next(1, endPtr);
+
+                curUsr.prizes.Add(randomPrizes[randomPixel / 170]);
+                displayPrizes.Add(randomPrizes[randomPixel / 170]);
+                db.saveUser(curUsr);
+
+                var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
+                for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
+                {
+                    bool xflag = false;
+                    Color curColor = rarityColors[groupedPrizes[groupI].First().IsBad];
+                    IntPtr prizeFont = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 50);
+                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Solid(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 73 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
+                    IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
+
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    SDL.SDL_Rect clear = prizeTextRect;
+                    clear.x = 0;
+                    clear.w = 1280;
+                    SDL.SDL_RenderFillRect(renderer, ref clear);
+                    SDL.SDL_RenderPresent(renderer);
+
+                    if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
+                    {
+                        if (renderedPrizes[groupedPrizes[groupI].Key] != groupedPrizes[groupI].Count())
+                        {
+                            xflag = true;
+                        }
+                        else
+                        {
+                            SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
+                            SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                            SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                            SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
+                            SDL.SDL_RenderPresent(renderer);
+                            continue;
+                        }
+                    }
+                    int overflow = prizeTextRect.w;
+                    prizeTextRect.x += prizeTextRect.w;
+                    for (int animI = overflow; animI >= 0; animI -= 10)
+                    {
+                        prizeTextRect.x -= 10;
+                        SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
+                        SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                        SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
+                        SDL.SDL_RenderPresent(renderer);
+                    }
+                    if (xflag)
+                    {
+                        renderedPrizes[groupedPrizes[groupI].Key] += 1;
+                    }
+                    else
+                    {
+                        renderedPrizes.Add(groupedPrizes[groupI].Key, 1);
+                    }
+
+                }
+            }
+
+            db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100) * 100);
+
+            System.Threading.Thread.Sleep(3000);
+            SDL.SDL_RenderClear(renderer);
+            SDL.SDL_RenderPresent(renderer);
+        }
+
+        public void ride(User curUsr, float price, int prizeType = 0)
         {
             this.button1.Show();
 
             IntPtr font = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 48);
 
-            IntPtr textSurface = SDL_ttf.TTF_RenderText_Solid(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 140, b = 0});
-
+            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Solid(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255});
+            SDL.SDL_Rect textRect = new SDL.SDL_Rect { x = 1280 - (40 * curUsr.Name.Length), y = 0, w = 40 * curUsr.Name.Length, h = 77 };
 
             int ImageCount = 60;
             int ImageLength = 170;
 
-            int endPtr = 0;
-            var randomPrizes = getRandomPrizes(ImageCount);
-            string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
-            IntPtr bmp = SDL.SDL_LoadBMP(LongImage);
-            IntPtr texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
-            IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
+            List<PrizeItem> displayPrizes = new List<PrizeItem>();
+            Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
 
-            int speed = 40;
-
-            bool beginStop = false;
-
-            SDL.SDL_Rect srcRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170};
-            SDL.SDL_Rect dstRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170};
-            SDL.SDL_Rect textRect = new SDL.SDL_Rect { x = 640 - (40 * curUsr.Name.Length/2), y = 176, w = 40 * curUsr.Name.Length, h = 77};
-
-            int i = 0;
-            for (i = 0; i < endPtr; i += speed)
+            for (int j = 0; j < (int)price / 100; j++)
             {
-                SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
-                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
-                srcRect.x = i;
-                SDL.SDL_RenderPresent(renderer);
+                int endPtr = 0;
+                var randomPrizes = getRandomPrizes(ImageCount);
+                string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+                IntPtr bmp = SDL.SDL_LoadBMP(LongImage);
+                IntPtr texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
+                IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
 
-                speed = (int)((Math.Cos((i * Math.PI) / (ImageLength * ImageCount)) + 1) * 15);
-                if (speed == 1 && !beginStop)
+                int speed = 40;
+
+                bool beginStop = false;
+
+                SDL.SDL_Rect srcRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170 };
+                SDL.SDL_Rect dstRect = new SDL.SDL_Rect { x = 0, y = 83, w = 1280, h = 170 };
+                
+                if (j == 0)
                 {
-                    beginStop = true;
-                    int randomEnd = rnd.Next(10, 160);
-                    if (i + randomEnd + 1280 > endPtr)
+                    SDL.SDL_Rect animationRect = dstRect;
+
+                    animationRect.x += 1280;
+                    textRect.x += 1280;
+
+                    int animationSpeed = 32;
+
+                    for (int k = 1280; k >= 0; k -= animationSpeed)
                     {
-                        endPtr = i + ((i + randomEnd) - endPtr);
+                        SDL.SDL_RenderClear(renderer);
+                        animationRect.x -= animationSpeed;
+                        textRect.x -= animationSpeed;
+                        SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref animationRect);
+                        SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                        SDL.SDL_RenderFillRect(renderer, ref textRect);
+                        SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                        SDL.SDL_RenderPresent(renderer);
                     }
-                    else
+                } else
+                {
+                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                    SDL.SDL_RenderFillRect(renderer, ref textRect);
+                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    SDL.SDL_RenderPresent(renderer);
+                }
+
+                int i = 0;
+                for (i = 0; i < endPtr; i += speed)
+                {
+                    SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
+                    srcRect.x = i;
+                    SDL.SDL_RenderPresent(renderer);
+
+                    //SPEED UOP THE ROLL UP TO 8s
+                    speed = (int)((Math.Cos((i * Math.PI * 2) / (ImageLength * ImageCount)) + 1) * 30);
+                    if (speed == 1 && !beginStop)
                     {
-                        endPtr = i + randomEnd;
+                        beginStop = true;
+                        int randomEnd = rnd.Next(10, 160);
+                        if (i + randomEnd + 1280 > endPtr)
+                        {
+                            endPtr = i + ((i + randomEnd) - endPtr);
+                        }
+                        else
+                        {
+                            endPtr = i + randomEnd;
+                        }
                     }
+                }
+
+                System.Threading.Thread.Sleep(300);
+
+                curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+                displayPrizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+                db.saveUser(curUsr);
+
+                var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
+                for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
+                {
+                    bool xflag = false;
+                    Color curColor = rarityColors[groupedPrizes[groupI].First().IsBad];
+                    IntPtr prizeFont = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 50);
+                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Solid(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 263 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
+                    IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
+
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    SDL.SDL_Rect clear = prizeTextRect;
+                    clear.x = 0;
+                    clear.w = 1280;
+                    SDL.SDL_RenderFillRect(renderer, ref clear);
+                    SDL.SDL_RenderPresent(renderer);
+
+                    if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
+                    {
+                        if (renderedPrizes[groupedPrizes[groupI].Key] != groupedPrizes[groupI].Count())
+                        {
+                            xflag = true;
+                        } else
+                        {
+                            SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
+                            SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                            SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                            SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
+                            SDL.SDL_RenderPresent(renderer);
+                            continue;
+                        }
+                    }
+                    int overflow = prizeTextRect.w;
+                    prizeTextRect.x += prizeTextRect.w;
+                    for (int animI = overflow; animI >= 0; animI -= 10)
+                    {
+                        prizeTextRect.x -= 10;
+                        SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
+                        SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                        SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                        SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
+                        SDL.SDL_RenderPresent(renderer);
+                    }
+                    if (xflag)
+                    {
+                        renderedPrizes[groupedPrizes[groupI].Key] += 1;
+                    } else
+                    {
+                        renderedPrizes.Add(groupedPrizes[groupI].Key, 1);
+                    }
+                    
                 }
             }
 
-            System.Threading.Thread.Sleep(3000);
+            db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100)*100);
 
+            System.Threading.Thread.Sleep(3000);
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
 
-            
-
-            curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
-            db.saveUser(curUsr);
             this.button1.Hide();
         }
 
         private List<PrizeItem> getRandomPrizes(int count)
         {
-            //List<PrizeItem> allPrizes = db.getPrizes().Where(p => p.Value.Type != 2).Select(p => p.Value).ToList();
             List<PrizeItem> allPrizes = db.getPrizes().Select(p => p.Value).ToList();
             List<PrizeItem> result = new List<PrizeItem>();
             List<PrizeItem> tempres = new List<PrizeItem>();
-            int r1 = (int)((count / 100M) * 60);
+            int r1 = (int)((count / 100M) * 65);
             int r2 = (int)((count / 100M) * 30);
-            int r3 = (int)((count / 100M) * 8);
+            int r3 = (int)((count / 100M) * 5);
 
             for (int i = 0; i < r1; i++)
             {

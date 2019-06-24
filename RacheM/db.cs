@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -169,6 +170,7 @@ namespace RacheM
                                 IsBad = sdr.GetInt32(4),
                                 Type = sdr.GetInt32(2),
                                 Name = sdr["name"].ToString(),
+                                Unique = sdr.GetBoolean(sdr.GetOrdinal("isUnique"))
                             }
                         );
                         byte[] bytBLOB = new byte[sdr.GetBytes(3, 0, null, 0, int.MaxValue) - 1];
@@ -320,6 +322,60 @@ namespace RacheM
                 cmd.ExecuteNonQuery();
 
                 cmd = new SQLiteCommand($"INSERT INTO settings (id, password, channelName, botUsername, botToken, clientId) VALUES (1, '{password}', '{channelName}', '{botUsername}', '{botToken}', '{clientId}');", cn);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static float getPlayerBalance(object field, string fieldName = "name")
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand(string.Format("SELECT * FROM players WHERE {0}=@value", fieldName), cn);
+                if (fieldName != "name")
+                {
+                    cmd.Parameters.Add("@value", DbType.Int32).Value = (int)field;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@value", DbType.String).Value = field.ToString().ToLower();
+                }
+
+                float result = -1;
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                {
+                    if (sdr.Read())
+                    {
+                        result = sdr.GetFloat(sdr.GetOrdinal("balance"));
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        public static void addPlayerBalance(object field, string fieldName = "name", float addBalance = 0)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                //COMMA PROBLEM HERE!
+                NumberFormatInfo nfi = new NumberFormatInfo();
+                nfi.NumberDecimalSeparator = ".";
+                SQLiteCommand cmd = new SQLiteCommand(string.Format("UPDATE players SET balance = balance + {0} WHERE {1}=@value", addBalance.ToString(nfi), fieldName), cn);
+                if (fieldName != "name")
+                {
+                    cmd.Parameters.Add("@value", DbType.Int32).Value = (int)field;
+                }
+                else
+                {
+                    cmd.Parameters.Add("@value", DbType.String).Value = field.ToString().ToLower();
+                }
 
                 cmd.ExecuteNonQuery();
             }

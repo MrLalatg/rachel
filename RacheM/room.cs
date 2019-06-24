@@ -16,7 +16,7 @@ namespace RacheM
         private string currentNick;
         private int currentRoom;
         private Dictionary<int, int> forWrite = new Dictionary<int, int>();
-        private int prizeId = 27;
+        private int prizeId = 5;
         public room()
         {
             InitializeComponent();
@@ -54,7 +54,7 @@ namespace RacheM
             currentRoom = roomIn;
             if (roomIn == 1)
             {
-                prizeId = 1;
+                prizeId = 2;
                 Dictionary<int, int> newRoom = db.getRoom(currentRoom);
                 this.Controls.OfType<Button>().Where(p => p.Name.Contains("btn")).ToList().ForEach(r =>
                     {
@@ -64,7 +64,7 @@ namespace RacheM
                     });
             } else
             {
-                prizeId = 27;
+                prizeId = 5;
                 List<User> newRoom = db.getPrizePlayers(prizeId).Take(10).ToList();
 
                 nick.Visible = false;

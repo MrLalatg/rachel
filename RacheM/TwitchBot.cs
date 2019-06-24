@@ -47,7 +47,7 @@ namespace RacheM
                     int count = 1;
                     foreach (PrizeItem i in db.getUserByField(e.ChatMessage.Username).prizes)
                     {
-                        client.SendWhisper(e.ChatMessage.Username, $"{count}. {i.Name}");
+                        client.SendWhisper(e.ChatMessage.Username, $"{count}. {i.Name}");                    
                         count++;
                     }
                 }

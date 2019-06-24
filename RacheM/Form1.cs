@@ -2,6 +2,7 @@
 using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace RacheM
 {
-
+    
     public partial class mainForm : Form
     {
         public string backAdress;
@@ -54,7 +55,23 @@ namespace RacheM
                 toRide = new User() { Name = username };
                 db.saveUser(toRide);
             }
-            ol.ride(toRide);
+
+            db.addPlayerBalance(toRide.Name, "name", (float)donation["amount_main"]);
+            float currentBalance = db.getPlayerBalance(toRide.Name);
+
+            if ((int)donation["alert_type"] == 4)
+            {
+                ol.ride(toRide, 100);
+            } else if (currentBalance < 500)
+            {
+                ol.ride(toRide, currentBalance);
+            } else if (currentBalance < 1000)
+            {
+                ol.fastRide(toRide, currentBalance);
+            } else
+            {
+                db.addPlayerBalance(toRide.Name, "name", -(float)donation["amount_main"]);
+            }
         }
 
 
@@ -84,7 +101,6 @@ namespace RacheM
         {
             inventoryPanel1.Visible = false;
             mainPanel1.commonCase.Enabled = true;
-            mainPanel1.eliteBtn.Enabled = true;
             mainPanel1.nickName.Enabled = true;
         }
 
