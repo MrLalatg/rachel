@@ -44,35 +44,38 @@ namespace RacheM
         {
             InitializeComponent();
 
-            if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO) != 0)
+            if (LicenseManager.UsageMode != LicenseUsageMode.Designtime)
             {
-                MessageBox.Show(SDL.SDL_GetError());
+                if (SDL.SDL_Init(SDL.SDL_INIT_VIDEO) != 0)
+                {
+                    MessageBox.Show(SDL.SDL_GetError());
+                }
+
+                if (SDL_ttf.TTF_Init() != 0)
+                {
+                    //MessageBox.Show(SDL.SDL_GetError());
+                }
+                sdlWindow = SDL.SDL_CreateWindow(String.Empty, 0, 0, this.sdlPanel.Size.Width, this.sdlPanel.Size.Height, SDL.SDL_WindowFlags.SDL_WINDOW_BORDERLESS);
+
+                SDL.SDL_SysWMinfo info = new SDL.SDL_SysWMinfo();
+                SDL.SDL_GetWindowWMInfo(sdlWindow, ref info);
+                IntPtr winHandle = info.info.win.window;
+
+                SetWindowPos(
+                    winHandle,
+                    Handle,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0x0401 // NOSIZE | SHOWWINDOW
+                );
+
+                renderer = SDL.SDL_CreateRenderer(sdlWindow, -1, SDL.SDL_RendererFlags.SDL_RENDERER_ACCELERATED | SDL.SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC);
+
+                SetParent(winHandle, sdlPanel.Handle);
+                ShowWindow(winHandle, 1); // SHOWNORMAL
             }
-
-            if (SDL_ttf.TTF_Init() != 0)
-            {
-                //MessageBox.Show(SDL.SDL_GetError());
-            }
-            sdlWindow = SDL.SDL_CreateWindow(String.Empty, 0, 0, this.sdlPanel.Size.Width, this.sdlPanel.Size.Height, SDL.SDL_WindowFlags.SDL_WINDOW_BORDERLESS);
-
-            SDL.SDL_SysWMinfo info = new SDL.SDL_SysWMinfo();
-            SDL.SDL_GetWindowWMInfo(sdlWindow, ref info);
-            IntPtr winHandle = info.info.win.window;
-
-            SetWindowPos(
-                winHandle,
-                Handle,
-                0,
-                0,
-                0,
-                0,
-                0x0401 // NOSIZE | SHOWWINDOW
-            );
-
-            renderer = SDL.SDL_CreateRenderer(sdlWindow, -1, SDL.SDL_RendererFlags.SDL_RENDERER_ACCELERATED | SDL.SDL_RendererFlags.SDL_RENDERER_PRESENTVSYNC);
-
-            SetParent(winHandle, sdlPanel.Handle);
-            ShowWindow(winHandle, 1); // SHOWNORMAL
         }
 
         public void ride(User curUsr, int prizeType = 0)

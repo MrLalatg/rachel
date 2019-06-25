@@ -137,6 +137,7 @@
             this.nickName.Size = new System.Drawing.Size(400, 33);
             this.nickName.TabIndex = 8;
             this.nickName.TextChanged += new System.EventHandler(this.nickName_TextChanged);
+            this.nickName.Enter += new System.EventHandler(this.nickName_Enter);
             // 
             // mainPanel
             // 
@@ -154,7 +155,6 @@
             this.Controls.Add(this.commonCase);
             this.Name = "mainPanel";
             this.Size = new System.Drawing.Size(1280, 720);
-            this.Load += new System.EventHandler(this.mainPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -77,7 +77,7 @@ namespace RacheM
             ((mainForm)Parent).settings_panel1.clientId.Text = db.getSettings().clientId;
         }
 
-        private void mainPanel_Load(object sender, EventArgs e)
+        private void nickName_Enter(object sender, EventArgs e)
         {
             nickName.AutoCompleteList = ((mainForm)Parent).usersList;
             nickName.MinTypedCharacters = 1;

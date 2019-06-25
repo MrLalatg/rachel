@@ -40,6 +40,7 @@
             this.getPrize1 = new RacheM.getPrize();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
+            this.commonOpening1 = new RacheM.commonOpening();
             this.SuspendLayout();
             // 
             // tray
@@ -141,11 +142,22 @@
             this.mainPanel1.TabIndex = 11;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
+            // commonOpening1
+            // 
+            this.commonOpening1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonOpening1.BackgroundImage")));
+            this.commonOpening1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.commonOpening1.Location = new System.Drawing.Point(0, 0);
+            this.commonOpening1.Name = "commonOpening1";
+            this.commonOpening1.Size = new System.Drawing.Size(1280, 720);
+            this.commonOpening1.TabIndex = 12;
+            this.commonOpening1.Visible = false;
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.commonOpening1);
             this.Controls.Add(this.settings_panel1);
             this.Controls.Add(this.informPanel1);
             this.Controls.Add(this.roomres1);
@@ -172,12 +184,12 @@
         public inventoryPanel inventoryPanel1;
         public prizesPanel prizesPanel1;
         public room room1;
-        public commonOpening commonOpening1;
         public roomres roomres1;
         public informPanel informPanel1;
         public settings_panel settings_panel1;
         private System.Windows.Forms.NotifyIcon tray;
         public mainPanel mainPanel1;
+        public commonOpening commonOpening1;
     }
 }
 
