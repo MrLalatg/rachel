@@ -16,8 +16,6 @@ namespace RacheM
         public mainPanel()
         {
             InitializeComponent();
-            nickName.AutoCompleteList = db.getUserList();
-            nickName.MinTypedCharacters = 1;
         }
 
         private void commonCase_Click(object sender, EventArgs e)
@@ -81,7 +79,8 @@ namespace RacheM
 
         private void mainPanel_Load(object sender, EventArgs e)
         {
-
+            nickName.AutoCompleteList = ((mainForm)Parent).usersList;
+            nickName.MinTypedCharacters = 1;
         }
     }
 }

@@ -154,6 +154,7 @@
             this.Controls.Add(this.commonCase);
             this.Name = "mainPanel";
             this.Size = new System.Drawing.Size(1280, 720);
+            this.Load += new System.EventHandler(this.mainPanel_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

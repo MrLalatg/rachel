@@ -36,7 +36,7 @@
             this.hundredBtn = new System.Windows.Forms.Button();
             this.cardBtn = new System.Windows.Forms.Button();
             this.roomBtn = new System.Windows.Forms.Button();
-            this.nick = new System.Windows.Forms.TextBox();
+            this.nick = new AutoCompleteTextBox();
             this.addBtn = new System.Windows.Forms.Button();
             this.completeBtn = new System.Windows.Forms.Button();
             this.players = new System.Windows.Forms.CheckedListBox();
@@ -532,7 +532,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button home;
         private System.Windows.Forms.Panel prize;
-        private System.Windows.Forms.TextBox nick;
+        private AutoCompleteTextBox nick;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Button completeBtn;
         public System.Windows.Forms.CheckedListBox players;

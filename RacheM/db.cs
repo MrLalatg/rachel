@@ -52,8 +52,28 @@ namespace RacheM
 
                 foreach (PrizeItem i in user.prizes)
                 {
-                    cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
-                    cmd.ExecuteNonQuery();
+                    if (i.Unique)
+                    {
+                        bool exist = true;
+                        cmd.CommandText = string.Format("SELECT * FROM cross WHERE playerId = {0} AND prizeId = {1}", user.Id, i.Id);
+                        using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                        {
+                            if (!sdr.HasRows)
+                            {
+                                exist = false;
+                            }
+                        }
+
+                        if (!exist)
+                        {
+                            cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
+                            cmd.ExecuteNonQuery();
+                        }
+                    } else
+                    {
+                        cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
 
             }
@@ -364,7 +384,6 @@ namespace RacheM
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                //COMMA PROBLEM HERE!
                 NumberFormatInfo nfi = new NumberFormatInfo();
                 nfi.NumberDecimalSeparator = ".";
                 SQLiteCommand cmd = new SQLiteCommand(string.Format("UPDATE players SET balance = balance + {0} WHERE {1}=@value", addBalance.ToString(nfi), fieldName), cn);

@@ -16,7 +16,7 @@ namespace RacheM
         private string currentNick;
         private int currentRoom;
         private Dictionary<int, int> forWrite = new Dictionary<int, int>();
-        private int prizeId = 5;
+        private int prizeId = 8;
         public room()
         {
             InitializeComponent();
@@ -64,7 +64,7 @@ namespace RacheM
                     });
             } else
             {
-                prizeId = 5;
+                prizeId = 8;
                 List<User> newRoom = db.getPrizePlayers(prizeId).Take(10).ToList();
 
                 nick.Visible = false;

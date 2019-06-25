@@ -20,6 +20,7 @@ namespace RacheM
         DonationListener dl;
         TwitchBot bot;
         overlay ol = new overlay();
+        public List<string> usersList = db.getUserList();
 
         public System.Windows.Forms.PictureBox[,] eliteCards;
         public mainForm()
@@ -54,6 +55,7 @@ namespace RacheM
             {
                 toRide = new User() { Name = username };
                 db.saveUser(toRide);
+                usersList.Add(username.ToLower());
             }
 
             db.addPlayerBalance(toRide.Name, "name", (float)donation["amount_main"]);

@@ -32,11 +32,13 @@ namespace RacheM
                     buttons[i - 1].BackgroundImage = tempPrizes[i].Image;
                     buttons[i - 1].Tag = tempPrizes[i];
                 }
-            }
+            }     
         }
 
         public void onPrize(object sender, EventArgs e)
         {
+            nick.AutoCompleteList = ((mainForm)Parent).usersList;
+            nick.MinTypedCharacters = 1;
             if (prize.Visible)
             {
                 prize.Visible = false;

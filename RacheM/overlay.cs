@@ -93,13 +93,13 @@ namespace RacheM
 
             List<PrizeItem> displayPrizes = new List<PrizeItem>();
             Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
+            IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
 
             for (int j = 0; j < (int)price / 100; j++)
             {
                 int endPtr = 0;
                 var randomPrizes = getRandomPrizes(ImageCount);
                 string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
-                IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
 
                 if (j == 0)
                 {
@@ -190,9 +190,21 @@ namespace RacheM
                 }
             }
 
+            System.Threading.Thread.Sleep(3000);
+
+            for (int z = 0; z < 1281 / 32; z++)
+            {
+                textRect.x += 32;
+                SDL.SDL_RenderClear(renderer);
+                SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                SDL.SDL_RenderDrawRect(renderer, ref textRect);
+                SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                SDL.SDL_RenderPresent(renderer);
+            }
+
             db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100) * 100);
 
-            System.Threading.Thread.Sleep(3000);
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
         }
@@ -212,21 +224,26 @@ namespace RacheM
             List<PrizeItem> displayPrizes = new List<PrizeItem>();
             Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
 
+            int endPtr = 0;
+            var randomPrizes = getRandomPrizes(ImageCount);
+            string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+            IntPtr bmp = SDL.SDL_LoadBMP(LongImage);
+            IntPtr texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
+            IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
+
+            SDL.SDL_Rect srcRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170 };
+            SDL.SDL_Rect dstRect = new SDL.SDL_Rect { x = 0, y = 83, w = 1280, h = 170 };
+
             for (int j = 0; j < (int)price / 100; j++)
             {
-                int endPtr = 0;
-                var randomPrizes = getRandomPrizes(ImageCount);
-                string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
-                IntPtr bmp = SDL.SDL_LoadBMP(LongImage);
-                IntPtr texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
-                IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
+                randomPrizes = getRandomPrizes(ImageCount);
+                LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+                bmp = SDL.SDL_LoadBMP(LongImage);
+                texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
 
                 int speed = 40;
 
                 bool beginStop = false;
-
-                SDL.SDL_Rect srcRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170 };
-                SDL.SDL_Rect dstRect = new SDL.SDL_Rect { x = 0, y = 83, w = 1280, h = 170 };
                 
                 if (j == 0)
                 {
@@ -267,8 +284,7 @@ namespace RacheM
                     srcRect.x = i;
                     SDL.SDL_RenderPresent(renderer);
 
-                    //SPEED UOP THE ROLL UP TO 8s
-                    speed = (int)((Math.Cos((i * Math.PI * 2) / (ImageLength * ImageCount)) + 1) * 30);
+                    speed = (int)((Math.Cos((i * Math.PI * 1.5) / (ImageLength * ImageCount)) + 1) * 30);
                     if (speed == 1 && !beginStop)
                     {
                         beginStop = true;
@@ -344,9 +360,23 @@ namespace RacheM
                 }
             }
 
+            System.Threading.Thread.Sleep(3000);
+
+            for (int z = 0; z < 1281 / 32; z++)
+            {
+                dstRect.x += 32;
+                textRect.x += 32;
+                SDL.SDL_RenderClear(renderer);
+                SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+                SDL.SDL_RenderDrawRect(renderer, ref textRect);
+                SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
+                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                SDL.SDL_RenderPresent(renderer);
+            }
+
             db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100)*100);
 
-            System.Threading.Thread.Sleep(3000);
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
 
