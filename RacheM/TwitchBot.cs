@@ -35,25 +35,29 @@ namespace RacheM
 
         private void Client_OnJoinedChannel(object sender, OnJoinedChannelArgs e)
         {
-            client.SendMessage(e.Channel, "Привет, я тестирую бота для твича");
+            client.SendMessage(e.Channel, "Привет, я инвентарь-бот! Я умею показывать что у вас в инвентаре для это напишите !инвентарь <ник>");
         }
 
         private void Client_OnMessageReceived(object sender, OnMessageReceivedArgs e)
         {
             if (e.ChatMessage.Message.Contains("!инвентарь"))
             {
-                if (db.getUserByField(e.ChatMessage.Username) != null)
+                string userName = e.ChatMessage.Message.Split(' ').Count() > 1 ? e.ChatMessage.Message.Split(' ')[1] : e.ChatMessage.Username;
+                if (db.getUserByField(userName) != null)
                 {
                     int count = 1;
-                    foreach (PrizeItem i in db.getUserByField(e.ChatMessage.Username).prizes)
+                    string answer = "";
+                    foreach (PrizeItem i in db.getUserByField(userName).prizes)
                     {
-                        client.SendWhisper(e.ChatMessage.Username, $"{count}. {i.Name}");                    
+                        answer += $"{count}. {i.Name} ";
                         count++;
                     }
+
+                    client.SendMessage(e.ChatMessage.Channel, answer);
                 }
                 else
                 {
-                    client.SendWhisper(e.ChatMessage.Username, "Вы еще не открывали ни одного кейса");
+                    client.SendMessage(e.ChatMessage.Channel, $"Пользователя {userName} нет в базе, возможно он еще не открывал кейсов");
                 }
             }
         }

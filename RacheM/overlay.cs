@@ -55,7 +55,7 @@ namespace RacheM
 
             if(SDL_ttf.TTF_Init() != 0)
             {
-                //MessageBox.Show(SDL.SDL_GetError());
+                MessageBox.Show(SDL.SDL_GetError());
             }
             sdlWindow = SDL.SDL_CreateWindow(String.Empty, 0, 0, this.sdlPanel.Size.Width, this.sdlPanel.Size.Height, SDL.SDL_WindowFlags.SDL_WINDOW_BORDERLESS);
 
