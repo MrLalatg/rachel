@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.commonOpening1 = new RacheM.commonOpening();
             this.settings_panel1 = new RacheM.settings_panel();
             this.informPanel1 = new RacheM.informPanel();
             this.roomres1 = new RacheM.roomres();
@@ -40,14 +41,28 @@
             this.getPrize1 = new RacheM.getPrize();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
-            this.commonOpening1 = new RacheM.commonOpening();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.развернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tray
             // 
+            this.tray.ContextMenuStrip = this.contextMenuStrip1;
             this.tray.Icon = ((System.Drawing.Icon)(resources.GetObject("tray.Icon")));
             this.tray.Text = "Rachel Case";
             this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            // 
+            // commonOpening1
+            // 
+            this.commonOpening1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonOpening1.BackgroundImage")));
+            this.commonOpening1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.commonOpening1.Location = new System.Drawing.Point(0, 0);
+            this.commonOpening1.Name = "commonOpening1";
+            this.commonOpening1.Size = new System.Drawing.Size(1280, 720);
+            this.commonOpening1.TabIndex = 12;
+            this.commonOpening1.Visible = false;
             // 
             // settings_panel1
             // 
@@ -142,15 +157,26 @@
             this.mainPanel1.TabIndex = 11;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
-            // commonOpening1
+            // contextMenuStrip1
             // 
-            this.commonOpening1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonOpening1.BackgroundImage")));
-            this.commonOpening1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.commonOpening1.Location = new System.Drawing.Point(0, 0);
-            this.commonOpening1.Name = "commonOpening1";
-            this.commonOpening1.Size = new System.Drawing.Size(1280, 720);
-            this.commonOpening1.TabIndex = 12;
-            this.commonOpening1.Visible = false;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.развернутьToolStripMenuItem,
+            this.выйтиToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 48);
+            // 
+            // развернутьToolStripMenuItem
+            // 
+            this.развернутьToolStripMenuItem.Name = "развернутьToolStripMenuItem";
+            this.развернутьToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.развернутьToolStripMenuItem.Text = "Развернуть";
+            // 
+            // выйтиToolStripMenuItem
+            // 
+            this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.выйтиToolStripMenuItem.Text = "Выход";
+            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -172,7 +198,9 @@
             this.Name = "mainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RachelR Case";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
             this.Resize += new System.EventHandler(this.mainForm_Resize);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -190,6 +218,9 @@
         private System.Windows.Forms.NotifyIcon tray;
         public mainPanel mainPanel1;
         public commonOpening commonOpening1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem развернутьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выйтиToolStripMenuItem;
     }
 }
 

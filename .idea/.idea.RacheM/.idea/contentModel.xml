@@ -7,6 +7,7 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="RacheM" t="IncludeRecursive">
         <e p="App.config" t="Include" />
+        <e p="AutoCompleteTextBox.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="ComboboxItem.cs" t="Include" />
         <e p="commonOpening.cs" t="Include" />
@@ -17,9 +18,6 @@
         <e p="commonPanel.resx" t="Include" />
         <e p="db.cs" t="Include" />
         <e p="DonationListener.cs" t="Include" />
-        <e p="eliteCase.cs" t="Include" />
-        <e p="eliteCase.Designer.cs" t="Include" />
-        <e p="eliteCase.resx" t="Include" />
         <e p="Form1.cs" t="Include" />
         <e p="Form1.Designer.cs" t="Include" />
         <e p="Form1.resx" t="Include" />
@@ -32,10 +30,13 @@
         <e p="inventoryPanel.cs" t="Include" />
         <e p="inventoryPanel.Designer.cs" t="Include" />
         <e p="inventoryPanel.resx" t="Include" />
+        <e p="libfreetype-6.dll" t="Include" />
+        <e p="logoRounded.ico" t="Include" />
         <e p="mainPanel.cs" t="Include" />
         <e p="mainPanel.Designer.cs" t="Include" />
         <e p="mainPanel.resx" t="Include" />
         <e p="myData" t="Include" />
+        <e p="netfx.force.conflicts" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="overlay.cs" t="Include" />
         <e p="overlay.Designer.cs" t="Include" />
@@ -47,6 +48,7 @@
         <e p="prizesPanel.resx" t="Include" />
         <e p="Program.cs" t="Include" />
         <e p="Properties" t="Include">
+          <e p="app.manifest" t="Include" />
           <e p="AssemblyInfo.cs" t="Include" />
           <e p="Resources.Designer.cs" t="Include" />
           <e p="Resources.resx" t="Include" />
@@ -54,6 +56,8 @@
           <e p="Settings.settings" t="Include" />
         </e>
         <e p="RacheM.csproj" t="IncludeRecursive" />
+        <e p="RacheM.pdb" t="Include" />
+        <e p="RacheM_TemporaryKey.pfx" t="Include" />
         <e p="Resources" t="Include">
           <e p="back.png" t="Include" />
           <e p="bank.png" t="Include" />
@@ -75,7 +79,6 @@
           <e p="magnet.png" t="Include" />
           <e p="mainfix.jpg" t="Include" />
           <e p="nametag.png" t="Include" />
-          <e p="prizePanel.jpg" t="Include" />
           <e p="qccg8zaFwRI.png" t="Include" />
           <e p="room.jpg" t="Include" />
           <e p="room.png" t="Include" />
@@ -84,6 +87,8 @@
           <e p="smile.png" t="Include" />
           <e p="soc.png" t="Include" />
           <e p="spons.png" t="Include" />
+          <e p="str-6.png" t="Include" />
+          <e p="str5.png" t="Include" />
           <e p="vs.png" t="Include" />
           <e p="yDw9ixa1ppg.png" t="Include" />
           <e p="znak.png" t="Include" />
@@ -105,14 +110,19 @@
           <e p="SDL2_mixer.cs" t="Include" />
           <e p="SDL2_ttf.cs" t="Include" />
         </e>
+        <e p="SDL2.dll" t="Include" />
+        <e p="SDL2_ttf.dll" t="Include" />
+        <e p="Serilog.pdb" t="Include" />
         <e p="settings_panel.cs" t="Include" />
         <e p="settings_panel.Designer.cs" t="Include" />
         <e p="settings_panel.resx" t="Include" />
+        <e p="Transitions.pdb" t="Include" />
         <e p="TransparentTextBox.cs" t="Include" />
         <e p="TransparentTextBox.Designer.cs" t="Include" />
         <e p="TwitchBot.cs" t="Include" />
         <e p="TwitchSettings.cs" t="Include" />
         <e p="User.cs" t="Include" />
+        <e p="zlib1.dll" t="Include" />
       </e>
       <e p="RacheM.sln" t="IncludeFlat" />
       <e p="Solution Items" t="Include" />

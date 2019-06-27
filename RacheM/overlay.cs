@@ -241,8 +241,6 @@ namespace RacheM
                 bmp = SDL.SDL_LoadBMP(LongImage);
                 texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
 
-                int speed = 40;
-
                 bool beginStop = false;
                 
                 if (j == 0)
@@ -277,33 +275,82 @@ namespace RacheM
                     SDL.SDL_RenderPresent(renderer);
                 }
 
-                int i = 0;
-                for (i = 0; i < endPtr; i += speed)
+                double speed = 1500;
+                const double fps = 60;
+                double i = 0;
+
+                DateTime lastTime = DateTime.Now;
+
+                int debugMs = 0;
+                int debugCount = 0;
+
+                while(true)
                 {
-                    SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
-                    srcRect.x = i;
+                    debugCount++;
+                    DateTime currentTime = DateTime.Now;
+                    double delta_time = (currentTime - lastTime).TotalSeconds;
+                    debugMs += (int)(delta_time * 1000);
+                    i += speed * delta_time;
+
+                    if (i > (ImageLength * ImageCount))
+                    {
+                        i -= (ImageLength * ImageCount);
+                    }
+
+                    srcRect.x = (int)Math.Round(i);
+
+                    if (srcRect.x >= (ImageLength * ImageCount) - 1280)
+                    {
+                        int difference = -((ImageLength * ImageCount) - 1280 - srcRect.x);
+                        SDL.SDL_Rect oldSrc = new SDL.SDL_Rect() { x = (int)Math.Round(i), y = 0, w = 1280 - difference, h = dstRect.h };
+                        SDL.SDL_Rect newSrc = new SDL.SDL_Rect() { x = 0, y = 0, w = difference, h = dstRect.h };
+                        SDL.SDL_Rect oldDst = new SDL.SDL_Rect() { x = 0, y = dstRect.y, w = oldSrc.w, h = dstRect.h };
+                        SDL.SDL_Rect newDst = new SDL.SDL_Rect() { x = 1280 - difference, y = dstRect.y, w = newSrc.w, h = dstRect.h };
+                        SDL.SDL_RenderCopy(renderer, texture, ref oldSrc, ref oldDst);
+                        SDL.SDL_RenderCopy(renderer, texture, ref newSrc, ref newDst);
+                    }
+                    else
+                    {
+                        SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
+                    }
+
                     SDL.SDL_RenderPresent(renderer);
 
-                    speed = (int)((Math.Cos((i * Math.PI * 1.5) / (ImageLength * ImageCount)) + 1) * 30);
-                    if (speed == 1 && !beginStop)
+                    speed -= 80 * delta_time;
+                    if (speed < 0.5)
                     {
-                        beginStop = true;
-                        int randomEnd = rnd.Next(10, 160);
-                        if (i + randomEnd + 1280 > endPtr)
-                        {
-                            endPtr = i + ((i + randomEnd) - endPtr);
-                        }
-                        else
-                        {
-                            endPtr = i + randomEnd;
-                        }
+                        break;
                     }
+
+                    int frameTime = (int)(DateTime.Now - currentTime).TotalMilliseconds;
+
+                    if (frameTime < 1000 / fps)
+                    {
+                        SDL.SDL_Delay((uint)((1000 / fps) - frameTime));
+                    }
+
+                    if(debugCount % 50 == 0)
+                    {
+                        System.Console.WriteLine(((double)debugMs/(double)debugCount).ToString());
+                        debugCount = 0;
+                        debugMs = 0;
+                    }
+                    lastTime = currentTime;
                 }
 
                 System.Threading.Thread.Sleep(300);
 
-                curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
-                displayPrizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
+                int lastI = ((int)Math.Round(i)+ 1280 / 2);
+
+                if (lastI > ImageCount * ImageLength)
+                {
+                    lastI -= ImageCount * ImageLength;
+                }
+
+                int prizeResultX = (lastI / 170);
+
+                curUsr.prizes.Add(randomPrizes[prizeResultX]);
+                displayPrizes.Add(randomPrizes[prizeResultX]);
                 db.saveUser(curUsr);
 
                 var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();

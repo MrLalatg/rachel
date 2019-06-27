@@ -129,5 +129,22 @@ namespace RacheM
             this.WindowState = FormWindowState.Normal;
             this.BringToFront();
         }
+
+        private void выйтиToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void mainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                e.Cancel = false;
+            } else
+            {
+                e.Cancel = true;
+                this.WindowState = FormWindowState.Minimized;
+            }
+        }
     }
 }
