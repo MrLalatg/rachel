@@ -138,34 +138,40 @@ namespace RacheM
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
 
-            curUsr.prizes.Add(randomPrizes[(i + 1280 / 2) / 170]);
             ((mainForm)Parent).getPrize1.setPrize(randomPrizes[(i + 1280 / 2) / 170].Id);
-            db.saveUser(curUsr);
+            db.addPrizeToPlayer(curUsr, randomPrizes[(i + 1280 / 2) / 170]);
             ((mainForm)Parent).getPrize1.Visible = true;
             this.Hide();
         }
 
         private List<PrizeItem> getRandomPrizes(int count)
         {
-            List<PrizeItem> allPrizes= db.getPrizes().Where(p => p.Value.Type != 2).Select(p => p.Value).ToList();
+            List<PrizeItem> allPrizes = db.getPrizes().Select(p => p.Value).ToList();
             List<PrizeItem> result = new List<PrizeItem>();
             List<PrizeItem> tempres = new List<PrizeItem>();
-            int r1 = (int) ((count / 100M) * 60);
+            int r1 = (int)((count / 100M) * 65);
             int r2 = (int)((count / 100M) * 30);
-            int r3 = (int)((count / 100M) * 8);
+            int r3 = (int)((count / 100M) * 5);
+
+            int delta = count - (r1 + r2 + r3);
+
+            if (delta != 0)
+            {
+                r1 += delta;
+            }
 
             for (int i = 0; i < r1; i++)
             {
                 tempres = allPrizes.Where(p => p.IsBad == 3).ToList();
                 result.Add(tempres[rnd.Next(0, tempres.Count)]);
             }
-            
+
             for (int i = 0; i < r2; i++)
             {
                 tempres = allPrizes.Where(p => p.IsBad == 2).ToList();
                 result.Add(tempres[rnd.Next(0, tempres.Count)]);
             }
-            
+
             for (int i = 0; i < r3; i++)
             {
                 tempres = allPrizes.Where(p => p.IsBad == 1).ToList();
@@ -178,7 +184,7 @@ namespace RacheM
             }
 
 
-            return result.Select( r=> new {item = r, ord = rnd.Next()}).OrderBy(r=> r.ord).Select(r => r.item).ToList();
+            return result.Select(r => new { item = r, ord = rnd.Next() }).OrderBy(r => r.ord).Select(r => r.item).ToList();
         }
 
         private string buildSausage(List<PrizeItem> prizes, int imageLength, out int outLength)

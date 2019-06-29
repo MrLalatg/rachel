@@ -14,9 +14,10 @@ namespace RacheM
     public class db
     {
         private static string cnString = "Data Source = " + Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "myData");
-            
-        
+
+
         private static Dictionary<int, PrizeItem> prizes = null;
+        public static Dictionary<string, PrizeItem> prizesByName = new Dictionary<string, PrizeItem>();
 
         public static void deletePrizeForUsers(IEnumerable<User> users, int prizeId)
         {
@@ -30,54 +31,32 @@ namespace RacheM
             }
         }
 
-
-
-        public static int saveUser(User user)
+        public static void addPrizeToPlayer(User user, PrizeItem prize)
         {
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                SQLiteCommand cmd = new SQLiteCommand(string.Format("INSERT INTO players (name) VALUES ('{0}')", user.Name.ToLower()), cn);
-                if (user.Id == 0)
+                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO players (name) VALUES ('@username')", cn);
+                cmd.Parameters.Add("@username", DbType.String).Value = user.Name.ToLower();
+                if(user.Id == 0)
                 {
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "select last_insert_rowid()";
-                    user.Id = (int) (long) cmd.ExecuteScalar();
+                    user.Id = (int)(long)cmd.ExecuteScalar();
                 }
-                else
-                {
-                    cmd.CommandText = string.Format("DELETE FROM cross WHERE playerId='{0}'", user.Id);
-                    cmd.ExecuteNonQuery();
-                }
-
-                foreach (PrizeItem i in user.prizes)
-                {
-                    if (i.Unique)
-                    {
-                        bool exist = true;
-                        cmd.CommandText = string.Format("SELECT * FROM cross WHERE playerId = {0} AND prizeId = {1}", user.Id, i.Id);
-                        using (SQLiteDataReader sdr = cmd.ExecuteReader())
-                        {
-                            if (!sdr.HasRows)
-                            {
-                                exist = false;
-                            }
-                        }
-
-                        if (!exist)
-                        {
-                            cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
-                            cmd.ExecuteNonQuery();
-                        }
-                    } else
-                    {
-                        cmd.CommandText = string.Format("INSERT INTO cross (playerId, prizeId) VALUES ({0}, {1})", user.Id, i.Id);
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-
+                cmd.CommandText = $"INSERT INTO cross (playerId, prizeId) VALUES ({user.Id}, {prize.Id})";
+                cmd.ExecuteNonQuery();
             }
-            return user.Id;
+        }
+
+        public static void deletePrizeFromPlayer(User user, PrizeItem prize)
+        {
+            using (SQLiteConnection cn = new SQLiteConnection(cnString))
+            {
+                cn.Open();
+                SQLiteCommand cmd = new SQLiteCommand($"DELETE FROM cross WHERE id IN (SELECT id FROM cross WHERE playerId = {user.Id} AND prizeId = {prize.Id} LIMIT 1)", cn);
+                cmd.ExecuteNonQuery();
+            }
         }
 
         public static List<String> getUserList()
@@ -86,27 +65,6 @@ namespace RacheM
             {
                 cn.Open();
                 SQLiteCommand cmd = new SQLiteCommand("SELECT name FROM players", cn);
-
-                List<String> result = new List<String>();
-
-                using (SQLiteDataReader sdr = cmd.ExecuteReader())
-                {
-                    while (sdr.Read())
-                    {
-                        result.Add(sdr["name"].ToString());
-                    }
-                    return result;
-                }
-
-            }
-        }
-
-        public static List<String> getUsersByLetters(string letters)
-        {
-            using (SQLiteConnection cn = new SQLiteConnection(cnString))
-            {
-                cn.Open();
-                SQLiteCommand cmd = new SQLiteCommand($"SELECT name FROM players WHERE name LIKE '{letters}%'", cn);
 
                 List<String> result = new List<String>();
 
@@ -183,16 +141,16 @@ namespace RacheM
                 {
                     while (sdr.Read())
                     {
-                        prizes.Add(sdr.GetInt32(0),
-                            new PrizeItem
-                            {
-                                Id = sdr.GetInt32(0),
-                                IsBad = sdr.GetInt32(4),
-                                Type = sdr.GetInt32(2),
-                                Name = sdr["name"].ToString(),
-                                Unique = sdr.GetBoolean(sdr.GetOrdinal("isUnique"))
-                            }
-                        );
+                        PrizeItem newPrize = new PrizeItem
+                        {
+                            Id = sdr.GetInt32(0),
+                            IsBad = sdr.GetInt32(4),
+                            Type = sdr.GetInt32(2),
+                            Name = sdr["name"].ToString(),
+                            Unique = sdr.GetBoolean(sdr.GetOrdinal("isUnique"))
+                        };
+                        prizes.Add(sdr.GetInt32(0), newPrize);
+                        prizesByName.Add(sdr["name"].ToString(), newPrize);
                         byte[] bytBLOB = new byte[sdr.GetBytes(3, 0, null, 0, int.MaxValue) - 1];
                         sdr.GetBytes(3, 0, bytBLOB, 0, bytBLOB.Length);
 

@@ -274,6 +274,13 @@
     <Compile Include="inventoryPanel.Designer.cs">
       <DependentUpon>inventoryPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogEntry.cs" />
+    <Compile Include="Logger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Logger.Designer.cs">
+      <DependentUpon>Logger.cs</DependentUpon>
+    </Compile>
     <Compile Include="mainPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -344,6 +351,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="inventoryPanel.resx">
       <DependentUpon>inventoryPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Logger.resx">
+      <DependentUpon>Logger.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainPanel.resx">
       <DependentUpon>mainPanel.cs</DependentUpon>
@@ -560,6 +570,10 @@
   <ItemGroup>
     <Content Include="libfreetype-6.dll" />
     <Content Include="logoRounded.ico" />
+    <None Include="Resources\trashCan.bmp" />
+    <None Include="Resources\trashCan.png" />
+    <None Include="Resources\actionIcon.png" />
+    <None Include="Resources\checkIcon.png" />
     <Content Include="SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

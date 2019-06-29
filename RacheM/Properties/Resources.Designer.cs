@@ -63,6 +63,16 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap actionIcon {
+            get {
+                object obj = ResourceManager.GetObject("actionIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
@@ -96,6 +106,16 @@ namespace RacheM.Properties {
         internal static System.Drawing.Bitmap chair {
             get {
                 object obj = ResourceManager.GetObject("chair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap checkIcon {
+            get {
+                object obj = ResourceManager.GetObject("checkIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,6 +406,16 @@ namespace RacheM.Properties {
         internal static System.Drawing.Bitmap str5 {
             get {
                 object obj = ResourceManager.GetObject("str5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trashCan {
+            get {
+                object obj = ResourceManager.GetObject("trashCan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

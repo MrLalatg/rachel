@@ -20,6 +20,7 @@ namespace RacheM
         DonationListener dl;
         TwitchBot bot;
         overlay ol = new overlay();
+        public static Logger logger = new Logger();
         public List<string> usersList = db.getUserList();
 
         public System.Windows.Forms.PictureBox[,] eliteCards;
@@ -27,6 +28,7 @@ namespace RacheM
         {
             InitializeComponent();
             ol.Show();
+            logger.Hide();
             settings = db.getSettings();
             if (settings.password != "")
             {
@@ -41,6 +43,7 @@ namespace RacheM
                 );
             }
 
+            db.getPrizes();
             bot = new TwitchBot(this.settings);
             bot.connect();
         }
@@ -54,7 +57,6 @@ namespace RacheM
             if(toRide == null)
             {
                 toRide = new User() { Name = username };
-                db.saveUser(toRide);
                 usersList.Add(username.ToLower());
             }
 
@@ -108,18 +110,10 @@ namespace RacheM
 
         private void mainForm_Resize(object sender, System.EventArgs e)
         {
-            tray.BalloonTipTitle = "App was minimized to tray";
-            tray.BalloonTipText = "Чтобы открыть окно дважды нажмите на иконку";
-
             if (FormWindowState.Minimized == this.WindowState)
             {
                 tray.Visible = true;
-                tray.ShowBalloonTip(500);
                 this.Hide();
-            }
-            else if (FormWindowState.Normal == this.WindowState)
-            {
-                tray.Visible = false;
             }
         }
 
@@ -145,6 +139,11 @@ namespace RacheM
                 e.Cancel = true;
                 this.WindowState = FormWindowState.Minimized;
             }
+        }
+
+        private void логгерToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            logger.Show();
         }
     }
 }

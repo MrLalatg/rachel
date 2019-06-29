@@ -34,7 +34,8 @@ namespace RacheM
 
         private void completeBtn_Click(object sender, EventArgs e)
         {
-            if(db.getPrizes()[prizeId].Name == "Счастливая колода")
+            PrizeItem curPrize = db.getPrizes()[prizeId];
+            if (curPrize.Name == "Счастливая колода")
             {
                 Random rnd = new Random();
                 cardBox.Image = db.getCard(rnd.Next(1, 53));
@@ -47,8 +48,7 @@ namespace RacheM
             }
             User curUsr = db.getUserByField(((mainForm)Parent).currentNick);
 
-            curUsr.prizes.RemoveAt(curUsr.prizes.FindLastIndex(p => p.Id == prizeId));
-            db.saveUser(curUsr);
+            db.deletePrizeFromPlayer(curUsr, curPrize);
 
             ((mainForm)Parent).onHome(this);
         }

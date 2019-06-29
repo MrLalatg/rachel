@@ -130,11 +130,12 @@ namespace RacheM
             ((mainForm)Parent).roomres1.Visible = true;
             this.Hide();
 
+            PrizeItem curPrize = db.getPrizes()[prizeId];
+
             foreach (Button i in btns)
             {
                 curUsr = db.getUserByField(i.Text);
-                curUsr.prizes.RemoveAt(curUsr.prizes.FindLastIndex(p => p.Id == prizeId));
-                db.saveUser(curUsr);
+                db.deletePrizeFromPlayer(curUsr, curPrize);
             }
         }
     }

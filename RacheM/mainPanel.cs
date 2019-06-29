@@ -49,7 +49,6 @@ namespace RacheM
                 {
                     currentPlayer = new User { Name = ((mainForm)Parent).currentNick };
                 }
-                db.saveUser(currentPlayer);
                 ((mainForm)Parent).inventoryPanel1.setUser(currentPlayer);
                 ((mainForm)Parent).inventoryPanel1.Visible = !((mainForm)Parent).inventoryPanel1.Visible;
                 commonCase.Enabled = false;

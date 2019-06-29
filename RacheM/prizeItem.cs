@@ -11,5 +11,6 @@ namespace RacheM
         public int IsBad;
         public int Type;
         public bool Unique;
+        public int crossId;
     }
 }

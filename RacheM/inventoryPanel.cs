@@ -28,8 +28,7 @@ namespace RacheM
         {
             foreach(string i in prizeItems.CheckedItems)
             {
-                curUsr.prizes.RemoveAt(curUsr.prizes.FindLastIndex(p => p.Name == i));
-                db.saveUser(curUsr);
+                db.deletePrizeFromPlayer(curUsr, db.prizesByName[i]);
             }
             setUser(curUsr);
         }
@@ -38,7 +37,9 @@ namespace RacheM
         {
             prizeItems.Items.Clear();
             addPick.Items.Clear();
-            
+
+            usr = db.getUserByField(usr.Name);
+
             foreach (PrizeItem i in usr.prizes)
             {
                 ((mainForm)Parent).inventoryPanel1.prizeItems.Items.Add(i.Name);
@@ -55,8 +56,7 @@ namespace RacheM
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            curUsr.prizes.Add(tempPrizes[(int)((ComboboxItem)addPick.SelectedItem).Value]);
-            db.saveUser(curUsr);
+            db.addPrizeToPlayer(curUsr, tempPrizes[(int)((ComboboxItem)addPick.SelectedItem).Value]);
             setUser(curUsr);
         }
     }

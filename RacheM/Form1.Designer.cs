@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.развернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commonOpening1 = new RacheM.commonOpening();
             this.settings_panel1 = new RacheM.settings_panel();
             this.informPanel1 = new RacheM.informPanel();
@@ -41,9 +44,7 @@
             this.getPrize1 = new RacheM.getPrize();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.развернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логгерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,30 @@
             this.tray.ContextMenuStrip = this.contextMenuStrip1;
             this.tray.Icon = ((System.Drawing.Icon)(resources.GetObject("tray.Icon")));
             this.tray.Text = "Rachel Case";
+            this.tray.Visible = true;
             this.tray.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.tray_MouseDoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.развернутьToolStripMenuItem,
+            this.логгерToolStripMenuItem,
+            this.выйтиToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            // 
+            // развернутьToolStripMenuItem
+            // 
+            this.развернутьToolStripMenuItem.Name = "развернутьToolStripMenuItem";
+            this.развернутьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.развернутьToolStripMenuItem.Text = "Развернуть";
+            // 
+            // выйтиToolStripMenuItem
+            // 
+            this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выйтиToolStripMenuItem.Text = "Выход";
+            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
             // commonOpening1
             // 
@@ -157,26 +181,12 @@
             this.mainPanel1.TabIndex = 11;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
             // 
-            // contextMenuStrip1
+            // логгерToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.развернутьToolStripMenuItem,
-            this.выйтиToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 48);
-            // 
-            // развернутьToolStripMenuItem
-            // 
-            this.развернутьToolStripMenuItem.Name = "развернутьToolStripMenuItem";
-            this.развернутьToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.развернутьToolStripMenuItem.Text = "Развернуть";
-            // 
-            // выйтиToolStripMenuItem
-            // 
-            this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.выйтиToolStripMenuItem.Text = "Выход";
-            this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
+            this.логгерToolStripMenuItem.Name = "логгерToolStripMenuItem";
+            this.логгерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.логгерToolStripMenuItem.Text = "Журнал";
+            this.логгерToolStripMenuItem.Click += new System.EventHandler(this.логгерToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -221,6 +231,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem развернутьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выйтиToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem логгерToolStripMenuItem;
     }
 }
 

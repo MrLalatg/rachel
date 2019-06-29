@@ -130,9 +130,11 @@ namespace RacheM
 
                 int randomPixel = rnd.Next(1, endPtr);
 
-                curUsr.prizes.Add(randomPrizes[randomPixel / 170]);
-                displayPrizes.Add(randomPrizes[randomPixel / 170]);
-                db.saveUser(curUsr);
+                PrizeItem resultPrize = randomPrizes[randomPixel / 170];
+
+                db.addPrizeToPlayer(curUsr, resultPrize);
+                displayPrizes.Add(resultPrize);
+                mainForm.logger.AddEntry(curUsr, resultPrize);
 
                 var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
                 for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
@@ -240,8 +242,6 @@ namespace RacheM
                 LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
                 bmp = SDL.SDL_LoadBMP(LongImage);
                 texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
-
-                bool beginStop = false;
                 
                 if (j == 0)
                 {
@@ -349,9 +349,11 @@ namespace RacheM
 
                 int prizeResultX = (lastI / 170);
 
-                curUsr.prizes.Add(randomPrizes[prizeResultX]);
-                displayPrizes.Add(randomPrizes[prizeResultX]);
-                db.saveUser(curUsr);
+                PrizeItem resultPrize = randomPrizes[prizeResultX];
+
+                db.addPrizeToPlayer(curUsr, resultPrize);
+                displayPrizes.Add(resultPrize);
+                mainForm.logger.AddEntry(curUsr, resultPrize);
 
                 var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
                 for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
@@ -438,6 +440,13 @@ namespace RacheM
             int r1 = (int)((count / 100M) * 65);
             int r2 = (int)((count / 100M) * 30);
             int r3 = (int)((count / 100M) * 5);
+
+            int delta = count - (r1 + r2 + r3);
+
+            if (delta != 0)
+            {
+                r1 += delta;
+            }
 
             for (int i = 0; i < r1; i++)
             {
