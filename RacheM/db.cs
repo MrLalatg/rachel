@@ -265,9 +265,11 @@ namespace RacheM
             return null;
         }
 
-        public static TwitchSettings getSettings()
+        public static Settings getSettings()
         {
-            TwitchSettings result = new TwitchSettings();
+            Settings result = new Settings();
+
+            result.twitchSettings = new TwitchSettings();
 
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
@@ -278,11 +280,12 @@ namespace RacheM
                 {
                     while (sdr.Read())
                     {
-                        result.password = sdr["password"].ToString();
-                        result.channelName = sdr["channelName"].ToString();
-                        result.botUsername = sdr["botUsername"].ToString();
-                        result.botToken = sdr["botToken"].ToString();
-                        result.clientId = sdr["clientId"].ToString();
+                        result.twitchSettings.password = sdr["password"].ToString();
+                        result.twitchSettings.channelName = sdr["channelName"].ToString();
+                        result.twitchSettings.botUsername = sdr["botUsername"].ToString();
+                        result.twitchSettings.botToken = sdr["botToken"].ToString();
+                        result.twitchSettings.clientId = sdr["clientId"].ToString();
+                        result.fpsLimit = sdr.GetInt32(sdr.GetOrdinal("fps_limit"));
                     }
 
                     return result;
@@ -290,7 +293,7 @@ namespace RacheM
             }
         }
 
-        public static void setSettings(string password, string channelName, string botUsername, string botToken, string clientId)
+        public static void setSettings(Settings settings)
         {
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
@@ -299,7 +302,7 @@ namespace RacheM
 
                 cmd.ExecuteNonQuery();
 
-                cmd = new SQLiteCommand($"INSERT INTO settings (id, password, channelName, botUsername, botToken, clientId) VALUES (1, '{password}', '{channelName}', '{botUsername}', '{botToken}', '{clientId}');", cn);
+                cmd = new SQLiteCommand($"INSERT INTO settings (id, password, channelName, botUsername, botToken, clientId, fps_limit) VALUES (1, '{settings.twitchSettings.password}', '{settings.twitchSettings.channelName}', '{settings.twitchSettings.botUsername}', '{settings.twitchSettings.botToken}', '{settings.twitchSettings.clientId}', {settings.fpsLimit});", cn);
 
                 cmd.ExecuteNonQuery();
             }
@@ -329,7 +332,7 @@ namespace RacheM
                     }
                     else
                     {
-                        return -1;
+                        return 0;
                     }
                 }
 
@@ -337,24 +340,41 @@ namespace RacheM
             }
         }
 
-        public static void addPlayerBalance(object field, string fieldName = "name", float addBalance = 0)
+        public static void addPlayerBalance(string field, float addBalance = 0)
         {
+            bool isExist = false;
+            NumberFormatInfo nfi = new NumberFormatInfo();
+            nfi.NumberDecimalSeparator = ".";
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                NumberFormatInfo nfi = new NumberFormatInfo();
-                nfi.NumberDecimalSeparator = ".";
-                SQLiteCommand cmd = new SQLiteCommand(string.Format("UPDATE players SET balance = balance + {0} WHERE {1}=@value", addBalance.ToString(nfi), fieldName), cn);
-                if (fieldName != "name")
+                SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM players WHERE name=@value", cn);
+
+                cmd.Parameters.Add("@value", DbType.String).Value = field.ToString().ToLower();
+
+                using (SQLiteDataReader sdr = cmd.ExecuteReader())
                 {
-                    cmd.Parameters.Add("@value", DbType.Int32).Value = (int)field;
-                }
-                else
-                {
-                    cmd.Parameters.Add("@value", DbType.String).Value = field.ToString().ToLower();
+                    if (sdr.Read())
+                    {
+                        isExist = true;
+                    }
                 }
 
-                cmd.ExecuteNonQuery();
+                if (isExist)
+                {
+                    SQLiteCommand cmd1 = new SQLiteCommand(string.Format("UPDATE players SET balance = balance + {0} WHERE name=@value", addBalance.ToString(nfi)), cn);
+
+                    cmd1.Parameters.Add("@value", DbType.String).Value = field.ToLower();
+
+                    cmd1.ExecuteNonQuery();
+                } else
+                {
+                    SQLiteCommand cmd1 = new SQLiteCommand(string.Format("INSERT INTO players (name, balance) VALUES (@name, {0})", addBalance.ToString(nfi)), cn);
+
+                    cmd1.Parameters.Add("@name", DbType.String).Value = field.ToLower();
+
+                    cmd1.ExecuteNonQuery();
+                }
             }
         }
     }

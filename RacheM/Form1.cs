@@ -16,7 +16,7 @@ namespace RacheM
     {
         public string backAdress;
         public string currentNick = null;
-        public TwitchSettings settings;
+        public static Settings settings;
         DonationListener dl;
         TwitchBot bot;
         overlay ol = new overlay();
@@ -30,7 +30,7 @@ namespace RacheM
             ol.Show();
             logger.Hide();
             settings = db.getSettings();
-            if (settings.password != "")
+            if (settings.twitchSettings.password != "")
             {
                 initializeDonation();
             } else
@@ -44,7 +44,7 @@ namespace RacheM
             }
 
             db.getPrizes();
-            bot = new TwitchBot(this.settings);
+            bot = new TwitchBot(mainForm.settings.twitchSettings);
             bot.connect();
         }
 
@@ -60,13 +60,17 @@ namespace RacheM
                 usersList.Add(username.ToLower());
             }
 
-            db.addPlayerBalance(toRide.Name, "name", (float)donation["amount_main"]);
+            db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
             float currentBalance = db.getPlayerBalance(toRide.Name);
 
             if ((int)donation["alert_type"] == 4)
             {
                 ol.ride(toRide, 100);
-            } else if (currentBalance < 500)
+            } else if (currentBalance < 100)
+            {
+                return;
+            }
+            else if (currentBalance < 500)
             {
                 ol.ride(toRide, currentBalance);
             } else if (currentBalance < 1000)
@@ -74,7 +78,7 @@ namespace RacheM
                 ol.fastRide(toRide, currentBalance);
             } else
             {
-                db.addPlayerBalance(toRide.Name, "name", -(float)donation["amount_main"]);
+                db.addPlayerBalance(toRide.Name, -(float)donation["amount_main"]);
             }
         }
 
@@ -82,7 +86,7 @@ namespace RacheM
         public void initializeDonation()
         {
             ol.paintGreen();
-            dl = new DonationListener(settings.password);
+            dl = new DonationListener(settings.twitchSettings.password);
             dl.OnDonation = donation =>
             {
                 this.BeginInvoke(new InvokeDelegate(InvokeMethod), donation);

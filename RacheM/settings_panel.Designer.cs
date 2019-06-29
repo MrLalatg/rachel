@@ -40,6 +40,8 @@
             this.botToken = new System.Windows.Forms.TextBox();
             this.clientIdLabel = new System.Windows.Forms.TextBox();
             this.clientId = new System.Windows.Forms.TextBox();
+            this.fps_limit = new System.Windows.Forms.TextBox();
+            this.fps_value = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // home
@@ -76,7 +78,7 @@
             this.saveBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveBtn.Font = new System.Drawing.Font("Bahnschrift Condensed", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveBtn.ForeColor = System.Drawing.Color.Lime;
-            this.saveBtn.Location = new System.Drawing.Point(626, 382);
+            this.saveBtn.Location = new System.Drawing.Point(446, 430);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(145, 38);
             this.saveBtn.TabIndex = 33;
@@ -191,11 +193,40 @@
             this.clientId.Size = new System.Drawing.Size(507, 34);
             this.clientId.TabIndex = 41;
             // 
+            // fps_limit
+            // 
+            this.fps_limit.BackColor = System.Drawing.Color.Black;
+            this.fps_limit.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.fps_limit.Font = new System.Drawing.Font("Unispace", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fps_limit.ForeColor = System.Drawing.Color.White;
+            this.fps_limit.Location = new System.Drawing.Point(260, 373);
+            this.fps_limit.Name = "fps_limit";
+            this.fps_limit.ReadOnly = true;
+            this.fps_limit.Size = new System.Drawing.Size(153, 29);
+            this.fps_limit.TabIndex = 44;
+            this.fps_limit.Text = "FPS Limit:";
+            // 
+            // fps_value
+            // 
+            this.fps_value.Font = new System.Drawing.Font("Arial Black", 18F, System.Drawing.FontStyle.Bold);
+            this.fps_value.FormattingEnabled = true;
+            this.fps_value.ItemHeight = 33;
+            this.fps_value.Items.AddRange(new object[] {
+            "None",
+            "30",
+            "60"});
+            this.fps_value.Location = new System.Drawing.Point(446, 367);
+            this.fps_value.Name = "fps_value";
+            this.fps_value.Size = new System.Drawing.Size(111, 41);
+            this.fps_value.TabIndex = 45;
+            // 
             // settings_panel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.Controls.Add(this.fps_value);
+            this.Controls.Add(this.fps_limit);
             this.Controls.Add(this.clientIdLabel);
             this.Controls.Add(this.clientId);
             this.Controls.Add(this.botTokLabel);
@@ -229,5 +260,7 @@
         public System.Windows.Forms.TextBox botToken;
         private System.Windows.Forms.TextBox clientIdLabel;
         public System.Windows.Forms.TextBox clientId;
+        private System.Windows.Forms.TextBox fps_limit;
+        public System.Windows.Forms.ComboBox fps_value;
     }
 }

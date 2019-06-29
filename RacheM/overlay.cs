@@ -99,7 +99,7 @@ namespace RacheM
             {
                 int endPtr = 0;
                 var randomPrizes = getRandomPrizes(ImageCount);
-                string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+                IntPtr LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
 
                 if (j == 0)
                 {
@@ -111,8 +111,11 @@ namespace RacheM
                     {
                         SDL.SDL_RenderClear(renderer);
                         textRect.x -= animationSpeed;
+                        SDL.SDL_Rect marginRect = textRect;
+                        marginRect.x -= 10;
+                        marginRect.w += 20;
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                        SDL.SDL_RenderFillRect(renderer, ref textRect);
+                        SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderPresent(renderer);
@@ -120,9 +123,11 @@ namespace RacheM
                 }
                 else
                 {
-                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_Rect marginRect = textRect;
+                    marginRect.x -= 10;
+                    marginRect.w += 20;
                     SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                    SDL.SDL_RenderFillRect(renderer, ref textRect);
+                    SDL.SDL_RenderFillRect(renderer, ref marginRect);
                     SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                     SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                     SDL.SDL_RenderPresent(renderer);
@@ -143,7 +148,7 @@ namespace RacheM
                     Color curColor = rarityColors[groupedPrizes[groupI].First().IsBad];
                     IntPtr prizeFont = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 50);
                     IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Solid(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
-                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 73 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
+                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 83 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
                     IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
 
                     SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
@@ -161,8 +166,11 @@ namespace RacheM
                         }
                         else
                         {
+                            SDL.SDL_Rect marginRect = prizeTextRect;
+                            marginRect.x -= 10;
+                            marginRect.w += 20;
                             SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
-                            SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                            SDL.SDL_RenderFillRect(renderer, ref marginRect);
                             SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                             SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                             SDL.SDL_RenderPresent(renderer);
@@ -174,8 +182,11 @@ namespace RacheM
                     for (int animI = overflow; animI >= 0; animI -= 10)
                     {
                         prizeTextRect.x -= 10;
+                        SDL.SDL_Rect marginRect = prizeTextRect;
+                        marginRect.x -= 10;
+                        marginRect.w += 20;
                         SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
-                        SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                        SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                         SDL.SDL_RenderPresent(renderer);
@@ -205,7 +216,7 @@ namespace RacheM
                 SDL.SDL_RenderPresent(renderer);
             }
 
-            db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100) * 100);
+            db.addPlayerBalance(curUsr.Name, -((int)price / 100) * 100);
 
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
@@ -227,20 +238,22 @@ namespace RacheM
             Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
 
             int endPtr = 0;
-            var randomPrizes = getRandomPrizes(ImageCount);
-            string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
-            IntPtr bmp = SDL.SDL_LoadBMP(LongImage);
-            IntPtr texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
+            List<PrizeItem> randomPrizes;
+            //string LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+            IntPtr bmp;
+            IntPtr texture = IntPtr.Zero;
             IntPtr text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
 
             SDL.SDL_Rect srcRect = new SDL.SDL_Rect { x = 0, y = 0, w = 1280, h = 170 };
             SDL.SDL_Rect dstRect = new SDL.SDL_Rect { x = 0, y = 83, w = 1280, h = 170 };
 
+            double delta_time = 0;
+
             for (int j = 0; j < (int)price / 100; j++)
             {
                 randomPrizes = getRandomPrizes(ImageCount);
-                LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
-                bmp = SDL.SDL_LoadBMP(LongImage);
+                //LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
+                bmp = buildSausage(randomPrizes, ImageLength, out endPtr);
                 texture = SDL.SDL_CreateTextureFromSurface(renderer, bmp);
                 
                 if (j == 0)
@@ -257,26 +270,29 @@ namespace RacheM
                         SDL.SDL_RenderClear(renderer);
                         animationRect.x -= animationSpeed;
                         textRect.x -= animationSpeed;
+                        SDL.SDL_Rect marginRect = textRect;
+                        marginRect.x -= 10;
+                        marginRect.w += 20;
                         SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref animationRect);
-                        SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                        SDL.SDL_RenderFillRect(renderer, ref textRect);
+                        SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderPresent(renderer);
                     }
                 } else
                 {
-                    SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                    SDL.SDL_Rect marginRect = textRect;
+                    marginRect.x -= 10;
+                    marginRect.w += 20;
                     SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                    SDL.SDL_RenderFillRect(renderer, ref textRect);
+                    SDL.SDL_RenderFillRect(renderer, ref marginRect);
                     SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                     SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                     SDL.SDL_RenderPresent(renderer);
                 }
 
-                double speed = 1500;
-                const double fps = 60;
+                double speed = rnd.Next(1000, 1501);
                 double i = 0;
 
                 DateTime lastTime = DateTime.Now;
@@ -284,11 +300,12 @@ namespace RacheM
                 int debugMs = 0;
                 int debugCount = 0;
 
+
                 while(true)
                 {
                     debugCount++;
                     DateTime currentTime = DateTime.Now;
-                    double delta_time = (currentTime - lastTime).TotalSeconds;
+                    delta_time = (currentTime - lastTime).TotalSeconds;
                     debugMs += (int)(delta_time * 1000);
                     i += speed * delta_time;
 
@@ -324,17 +341,26 @@ namespace RacheM
 
                     int frameTime = (int)(DateTime.Now - currentTime).TotalMilliseconds;
 
-                    if (frameTime < 1000 / fps)
+                    if (mainForm.settings.fpsLimit > 0)
                     {
-                        SDL.SDL_Delay((uint)((1000 / fps) - frameTime));
+                        if (frameTime < (1000 / mainForm.settings.fpsLimit) - 5)
+                        {
+                            SDL.SDL_Delay((uint)((1000 / mainForm.settings.fpsLimit) - frameTime));
+                        }
                     }
 
-                    if(debugCount % 50 == 0)
-                    {
-                        System.Console.WriteLine(((double)debugMs/(double)debugCount).ToString());
-                        debugCount = 0;
-                        debugMs = 0;
-                    }
+                    //if (debugCount % 100 == 0)
+                    //{
+                    //    SDL.SDL_Rect fpsRect = new SDL.SDL_Rect { x = 0, y = 0, h = 50, w = 50 };
+                    //    IntPtr fps = SDL_ttf.TTF_RenderUNICODE_Solid(font, ((int)(1000/((double)debugMs / (double)debugCount))).ToString(), new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    //    IntPtr fpsTexture = SDL.SDL_CreateTextureFromSurface(renderer, fps);
+                    //    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    //    SDL.SDL_RenderFillRect(renderer, ref fpsRect);
+                    //    SDL.SDL_RenderCopy(renderer, fpsTexture, IntPtr.Zero, ref fpsRect);
+                    //    SDL.SDL_RenderPresent(renderer);
+                    //    debugCount = 0;
+                    //    debugMs = 0;
+                    //}
                     lastTime = currentTime;
                 }
 
@@ -379,8 +405,11 @@ namespace RacheM
                             xflag = true;
                         } else
                         {
+                            SDL.SDL_Rect marginRect = prizeTextRect;
+                            marginRect.x -= 10;
+                            marginRect.w += 20;
                             SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
-                            SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                            SDL.SDL_RenderFillRect(renderer, ref marginRect);
                             SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                             SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                             SDL.SDL_RenderPresent(renderer);
@@ -392,8 +421,11 @@ namespace RacheM
                     for (int animI = overflow; animI >= 0; animI -= 10)
                     {
                         prizeTextRect.x -= 10;
+                        SDL.SDL_Rect marginRect = prizeTextRect;
+                        marginRect.x -= 10;
+                        marginRect.w += 20;
                         SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
-                        SDL.SDL_RenderFillRect(renderer, ref prizeTextRect);
+                        SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                         SDL.SDL_RenderPresent(renderer);
@@ -411,20 +443,50 @@ namespace RacheM
 
             System.Threading.Thread.Sleep(3000);
 
-            for (int z = 0; z < 1281 / 32; z++)
+            int animationX = 0;
+
+            while (animationX < 1280)
             {
-                dstRect.x += 32;
-                textRect.x += 32;
+                DateTime currentTime = DateTime.Now;
+
                 SDL.SDL_RenderClear(renderer);
+                animationX += (int) (1000 * delta_time);
+                if (srcRect.x >= (ImageLength * ImageCount) - 1280)
+                {
+                    int difference = -((ImageLength * ImageCount) - 1280 - srcRect.x);
+                    SDL.SDL_Rect oldSrc = new SDL.SDL_Rect() { x = srcRect.x, y = 0, w = 1280 - difference, h = dstRect.h };
+                    SDL.SDL_Rect newSrc = new SDL.SDL_Rect() { x = 0, y = 0, w = difference, h = dstRect.h };
+                    SDL.SDL_Rect oldDst = new SDL.SDL_Rect() { x = animationX, y = dstRect.y, w = oldSrc.w, h = dstRect.h };
+                    SDL.SDL_Rect newDst = new SDL.SDL_Rect() { x = 1280 - difference + animationX, y = dstRect.y, w = newSrc.w, h = dstRect.h };
+                    SDL.SDL_RenderCopy(renderer, texture, ref oldSrc, ref oldDst);
+                    SDL.SDL_RenderCopy(renderer, texture, ref newSrc, ref newDst);
+                }
+                else
+                {
+                    dstRect.x = animationX;
+                    SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
+                }
+
+                SDL.SDL_Rect animationTextRect = textRect;
+                animationTextRect.x += animationX;
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                SDL.SDL_RenderDrawRect(renderer, ref textRect);
+                SDL.SDL_RenderDrawRect(renderer, ref animationTextRect);
+                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref animationTextRect);
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-                SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
-                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
                 SDL.SDL_RenderPresent(renderer);
+
+                int frameTime = (int)(DateTime.Now - currentTime).TotalMilliseconds;
+
+                if (mainForm.settings.fpsLimit > 0)
+                {
+                    if (frameTime < (1000 / mainForm.settings.fpsLimit) - 5)
+                    {
+                        SDL.SDL_Delay((uint)((1000 / mainForm.settings.fpsLimit) - frameTime));
+                    }
+                }
             }
 
-            db.addPlayerBalance(curUsr.Name, "name", -((int)price / 100)*100);
+            db.addPlayerBalance(curUsr.Name, -((int)price / 100)*100);
 
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
@@ -475,7 +537,7 @@ namespace RacheM
             return result.Select(r => new { item = r, ord = rnd.Next() }).OrderBy(r => r.ord).Select(r => r.item).ToList();
         }
 
-        private string buildSausage(List<PrizeItem> prizes, int imageLength, out int outLength)
+        private IntPtr buildSausage(List<PrizeItem> prizes, int imageLength, out int outLength)
         {
             Bitmap sausage = new Bitmap(170 * prizes.Count, imageLength);
             outLength = sausage.Size.Width;
@@ -484,10 +546,14 @@ namespace RacheM
             {
                 g.DrawImage(prizes[i].Image, new Rectangle(imageLength * i, 0, imageLength, imageLength));
             }
-            var fileName = Path.Combine(Directory.GetCurrentDirectory(), "rollImg");
-            sausage.Save(fileName, ImageFormat.Bmp);
 
-            return fileName;
+            BitmapData iconData = sausage.LockBits(new Rectangle(0, 0, sausage.Width, sausage.Height),
+              System.Drawing.Imaging.ImageLockMode.ReadOnly,
+              System.Drawing.Imaging.PixelFormat.Format32bppArgb); // lock data
+            IntPtr iconSurface = SDL.SDL_CreateRGBSurfaceFrom(iconData.Scan0, sausage.Width, sausage.Height, 32, iconData.Stride,
+              0x00FF0000, 0x0000FF00, 0x000000FF, 0xFF000000); // upload to sdl
+
+            return iconSurface;
         }
 
         public void paintGreen()

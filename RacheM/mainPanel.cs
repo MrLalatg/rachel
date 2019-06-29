@@ -69,17 +69,25 @@ namespace RacheM
         private void settings_Click(object sender, EventArgs e)
         {
             ((mainForm)Parent).settings_panel1.Visible = true;
-            ((mainForm)Parent).settings_panel1.donPassword.Text = db.getSettings().password;
-            ((mainForm)Parent).settings_panel1.channelName.Text = db.getSettings().channelName;
-            ((mainForm)Parent).settings_panel1.botUsername.Text = db.getSettings().botUsername;
-            ((mainForm)Parent).settings_panel1.botToken.Text = db.getSettings().botToken;
-            ((mainForm)Parent).settings_panel1.clientId.Text = db.getSettings().clientId;
+            mainForm.settings = db.getSettings();
+            string curFps = mainForm.settings.fpsLimit == 0 ? "None" : mainForm.settings.fpsLimit.ToString();
+            ((mainForm)Parent).settings_panel1.donPassword.Text = mainForm.settings.twitchSettings.password;
+            ((mainForm)Parent).settings_panel1.channelName.Text = mainForm.settings.twitchSettings.channelName;
+            ((mainForm)Parent).settings_panel1.botUsername.Text = mainForm.settings.twitchSettings.botUsername;
+            ((mainForm)Parent).settings_panel1.botToken.Text = mainForm.settings.twitchSettings.botToken;
+            ((mainForm)Parent).settings_panel1.clientId.Text = mainForm.settings.twitchSettings.clientId;
+            ((mainForm)Parent).settings_panel1.fps_value.SelectedIndex = ((mainForm)Parent).settings_panel1.fps_value.FindStringExact(curFps);
         }
 
         private void nickName_Enter(object sender, EventArgs e)
         {
             nickName.AutoCompleteList = ((mainForm)Parent).usersList;
             nickName.MinTypedCharacters = 1;
+        }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            mainForm.logger.Show();
         }
     }
 }

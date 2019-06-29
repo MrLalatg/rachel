@@ -319,6 +319,7 @@
     <Compile Include="SDL2-CS\SDL2_image.cs" />
     <Compile Include="SDL2-CS\SDL2_mixer.cs" />
     <Compile Include="SDL2-CS\SDL2_ttf.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="settings_panel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -574,6 +575,7 @@
     <None Include="Resources\trashCan.png" />
     <None Include="Resources\actionIcon.png" />
     <None Include="Resources\checkIcon.png" />
+    <None Include="Resources\logIcon.png" />
     <Content Include="SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

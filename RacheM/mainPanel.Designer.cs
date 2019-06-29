@@ -36,6 +36,7 @@
             this.infoBtn = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
             this.nickName = new RacheM.AutoCompleteTextBox();
+            this.logBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // commonCase
@@ -139,6 +140,21 @@
             this.nickName.TextChanged += new System.EventHandler(this.nickName_TextChanged);
             this.nickName.Enter += new System.EventHandler(this.nickName_Enter);
             // 
+            // logBtn
+            // 
+            this.logBtn.BackgroundImage = global::RacheM.Properties.Resources.logIcon;
+            this.logBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.logBtn.FlatAppearance.BorderSize = 0;
+            this.logBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.logBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logBtn.Location = new System.Drawing.Point(1130, 648);
+            this.logBtn.Name = "logBtn";
+            this.logBtn.Size = new System.Drawing.Size(72, 72);
+            this.logBtn.TabIndex = 9;
+            this.logBtn.UseVisualStyleBackColor = true;
+            this.logBtn.Click += new System.EventHandler(this.logBtn_Click);
+            // 
             // mainPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +162,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.BackgroundImage = global::RacheM.Properties.Resources.mainfix;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.logBtn);
             this.Controls.Add(this.nickName);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.infoBtn);
@@ -168,5 +185,6 @@
         private System.Windows.Forms.Button infoBtn;
         private System.Windows.Forms.Button settings;
         public AutoCompleteTextBox nickName;
+        private System.Windows.Forms.Button logBtn;
     }
 }

@@ -24,7 +24,12 @@ namespace RacheM
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            db.setSettings(this.donPassword.Text, this.channelName.Text, this.botUsername.Text, this.botToken.Text, this.clientId.Text);
+            mainForm.settings.twitchSettings.botToken = this.botToken.Text;
+            mainForm.settings.twitchSettings.botUsername = this.botUsername.Text;
+            mainForm.settings.twitchSettings.password = this.donPassword.Text;
+            mainForm.settings.twitchSettings.clientId = this.clientId.Text;
+            mainForm.settings.fpsLimit = this.fps_value.SelectedItem.ToString() == "None" ? 0 : Convert.ToInt32(this.fps_value.SelectedItem);
+            db.setSettings(mainForm.settings);
         }
     }
 }

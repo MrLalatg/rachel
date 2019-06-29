@@ -53,11 +53,17 @@ namespace RacheM
                         count++;
                     }
 
-                    client.SendMessage(e.ChatMessage.Channel, answer);
+                    if (answer == "")
+                    {
+                        client.SendMessage(e.ChatMessage.Channel, $"Инвентарь пользователя {userName} - пуст!");
+                    } else
+                    {
+                        client.SendMessage(e.ChatMessage.Channel, answer);
+                    }
                 }
                 else
                 {
-                    client.SendMessage(e.ChatMessage.Channel, $"Пользователя {userName} нет в базе, возможно он еще не открывал кейсов");
+                    client.SendWhisper(userName, $"Пользователя {userName} нет в базе, возможно он еще не открывал кейсов");
                 }
             }
         }
