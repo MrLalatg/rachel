@@ -413,6 +413,16 @@ namespace RacheM.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap str2 {
+            get {
+                object obj = ResourceManager.GetObject("str2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap str5 {
             get {
                 object obj = ResourceManager.GetObject("str5", resourceCulture);

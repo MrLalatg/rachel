@@ -576,6 +576,7 @@
     <None Include="Resources\actionIcon.png" />
     <None Include="Resources\checkIcon.png" />
     <None Include="Resources\logIcon.png" />
+    <None Include="Resources\str_2.jpg" />
     <Content Include="SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -33,6 +33,7 @@
             this.tray = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.развернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.логгерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выйтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commonOpening1 = new RacheM.commonOpening();
             this.settings_panel1 = new RacheM.settings_panel();
@@ -44,7 +45,6 @@
             this.getPrize1 = new RacheM.getPrize();
             this.commonPanel1 = new RacheM.commonPanel();
             this.mainPanel1 = new RacheM.mainPanel();
-            this.логгерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,18 +63,25 @@
             this.логгерToolStripMenuItem,
             this.выйтиToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 70);
             // 
             // развернутьToolStripMenuItem
             // 
             this.развернутьToolStripMenuItem.Name = "развернутьToolStripMenuItem";
-            this.развернутьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.развернутьToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.развернутьToolStripMenuItem.Text = "Развернуть";
+            // 
+            // логгерToolStripMenuItem
+            // 
+            this.логгерToolStripMenuItem.Name = "логгерToolStripMenuItem";
+            this.логгерToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.логгерToolStripMenuItem.Text = "Журнал";
+            this.логгерToolStripMenuItem.Click += new System.EventHandler(this.логгерToolStripMenuItem_Click);
             // 
             // выйтиToolStripMenuItem
             // 
             this.выйтиToolStripMenuItem.Name = "выйтиToolStripMenuItem";
-            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.выйтиToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.выйтиToolStripMenuItem.Text = "Выход";
             this.выйтиToolStripMenuItem.Click += new System.EventHandler(this.выйтиToolStripMenuItem_Click);
             // 
@@ -162,7 +169,7 @@
             // commonPanel1
             // 
             this.commonPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.commonPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("commonPanel1.BackgroundImage")));
+            this.commonPanel1.BackgroundImage = global::RacheM.Properties.Resources.str2;
             this.commonPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.commonPanel1.Location = new System.Drawing.Point(0, 0);
             this.commonPanel1.Name = "commonPanel1";
@@ -180,13 +187,6 @@
             this.mainPanel1.Size = new System.Drawing.Size(1280, 720);
             this.mainPanel1.TabIndex = 11;
             this.mainPanel1.Click += new System.EventHandler(this.mainPanel1_Click1);
-            // 
-            // логгерToolStripMenuItem
-            // 
-            this.логгерToolStripMenuItem.Name = "логгерToolStripMenuItem";
-            this.логгерToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.логгерToolStripMenuItem.Text = "Журнал";
-            this.логгерToolStripMenuItem.Click += new System.EventHandler(this.логгерToolStripMenuItem_Click);
             // 
             // mainForm
             // 
