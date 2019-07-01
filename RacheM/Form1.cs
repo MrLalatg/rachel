@@ -76,12 +76,12 @@ namespace RacheM
             else if (currentBalance < 500)
             {
                 ol.ride(toRide, currentBalance);
-            } else if (currentBalance < 1000)
+            } else if (currentBalance <= 1000)
             {
                 ol.fastRide(toRide, currentBalance);
             } else
             {
-                db.addPlayerBalance(toRide.Name, -(float)donation["amount_main"]);
+                ol.fastRide(toRide, 1000);
             }
         }
 

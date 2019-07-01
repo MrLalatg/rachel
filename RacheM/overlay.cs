@@ -206,7 +206,7 @@ namespace RacheM
                 }
             }
 
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
 
             for (int z = 0; z < 1281 / 32; z++)
             {
@@ -455,7 +455,7 @@ namespace RacheM
                 }
             }
 
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(5000);
 
             int animationX = 0;
 
