@@ -580,6 +580,8 @@
     <None Include="Resources\checkIcon.png" />
     <None Include="Resources\logIcon.png" />
     <None Include="Resources\str_2.jpg" />
+    <None Include="Resources\main1.png" />
+    <None Include="Resources\About.png" />
     <Content Include="SDL2.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

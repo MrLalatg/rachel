@@ -46,7 +46,7 @@
             this.commonCase.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.commonCase.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.commonCase.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.commonCase.Location = new System.Drawing.Point(747, 425);
+            this.commonCase.Location = new System.Drawing.Point(426, 418);
             this.commonCase.Name = "commonCase";
             this.commonCase.Size = new System.Drawing.Size(212, 154);
             this.commonCase.TabIndex = 0;
@@ -160,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.BackgroundImage = global::RacheM.Properties.Resources.mainfix;
+            this.BackgroundImage = global::RacheM.Properties.Resources.main1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.logBtn);
             this.Controls.Add(this.nickName);
@@ -170,6 +170,7 @@
             this.Controls.Add(this.error);
             this.Controls.Add(this.inventory);
             this.Controls.Add(this.commonCase);
+            this.DoubleBuffered = true;
             this.Name = "mainPanel";
             this.Size = new System.Drawing.Size(1280, 720);
             this.ResumeLayout(false);

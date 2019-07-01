@@ -106,7 +106,7 @@
             // 
             // informPanel1
             // 
-            this.informPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("informPanel1.BackgroundImage")));
+            this.informPanel1.BackgroundImage = global::RacheM.Properties.Resources.About;
             this.informPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.informPanel1.Location = new System.Drawing.Point(0, 0);
             this.informPanel1.Name = "informPanel1";
@@ -180,7 +180,7 @@
             // mainPanel1
             // 
             this.mainPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.mainPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mainPanel1.BackgroundImage")));
+            this.mainPanel1.BackgroundImage = global::RacheM.Properties.Resources.main1;
             this.mainPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainPanel1.Location = new System.Drawing.Point(0, 0);
             this.mainPanel1.Name = "mainPanel1";

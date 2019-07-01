@@ -542,11 +542,15 @@ namespace RacheM
                 result.Add(tempres[rnd.Next(0, tempres.Count)]);
             }
 
-            if (rnd.Next(1, 1001) == 7)
+            if (rnd.Next(1, 101) == 7)
+            {
+                result[rnd.Next(0, result.Count)] = db.getPrizes().Where(p => p.Value.IsBad == 0).Select(p => p.Value).FirstOrDefault();
+            }
+
+            if (rnd.Next(1, 201) == 7)
             {
                 result[rnd.Next(0, result.Count)] = db.getPrizes().Where(p => p.Value.Type == -1).Select(p => p.Value).FirstOrDefault();
             }
-
 
             return result.Select(r => new { item = r, ord = rnd.Next() }).OrderBy(r => r.ord).Select(r => r.item).ToList();
         }

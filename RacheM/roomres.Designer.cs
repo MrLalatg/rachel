@@ -36,11 +36,11 @@
             // 
             this.nickBox.BackColor = System.Drawing.Color.Black;
             this.nickBox.Enabled = false;
-            this.nickBox.Font = new System.Drawing.Font("Edo SZ", 115F);
+            this.nickBox.Font = new System.Drawing.Font("Caviar Dreams", 111.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.nickBox.ForeColor = System.Drawing.Color.Firebrick;
-            this.nickBox.Location = new System.Drawing.Point(273, 212);
+            this.nickBox.Location = new System.Drawing.Point(275, 213);
             this.nickBox.Name = "nickBox";
-            this.nickBox.Size = new System.Drawing.Size(732, 184);
+            this.nickBox.Size = new System.Drawing.Size(732, 179);
             this.nickBox.TabIndex = 0;
             this.nickBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
