@@ -46,7 +46,7 @@ namespace RacheM
                 if (db.getUserByField(userName) != null)
                 {
                     int count = 1;
-                    string answer = "";
+                    string answer = $"Инвентарь пользователя {userName}: ";
                     foreach (PrizeItem i in db.getUserByField(userName).prizes)
                     {
                         answer += $"{count}. {i.Name} ";
@@ -55,10 +55,10 @@ namespace RacheM
 
                     if (answer == "")
                     {
-                        client.SendMessage(e.ChatMessage.Channel, $"Инвентарь пользователя {userName} - пуст!");
+                        client.SendWhisper(e.ChatMessage.Username, $"Инвентарь пользователя {userName} - пуст!");
                     } else
                     {
-                        client.SendMessage(e.ChatMessage.Channel, answer);
+                        client.SendWhisper(e.ChatMessage.Username, answer);
                     }
                 }
                 else

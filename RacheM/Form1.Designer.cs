@@ -209,7 +209,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RachelR Case";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.mainForm_FormClosing);
-            this.Resize += new System.EventHandler(this.mainForm_Resize);
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

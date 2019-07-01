@@ -58,9 +58,12 @@ namespace RacheM
             {
                 toRide = new User() { Name = username };
                 usersList.Add(username.ToLower());
+                toRide.Id = db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
+            } else
+            {
+                db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
             }
 
-            db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
             float currentBalance = db.getPlayerBalance(toRide.Name);
 
             if ((int)donation["alert_type"] == 4)
@@ -112,15 +115,6 @@ namespace RacheM
             mainPanel1.nickName.Enabled = true;
         }
 
-        private void mainForm_Resize(object sender, System.EventArgs e)
-        {
-            if (FormWindowState.Minimized == this.WindowState)
-            {
-                tray.Visible = true;
-                this.Hide();
-            }
-        }
-
         private void tray_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
@@ -141,7 +135,8 @@ namespace RacheM
             } else
             {
                 e.Cancel = true;
-                this.WindowState = FormWindowState.Minimized;
+                tray.Visible = true;
+                this.Hide();
             }
         }
 

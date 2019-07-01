@@ -33,19 +33,34 @@ namespace RacheM
 
         public static void addPrizeToPlayer(User user, PrizeItem prize)
         {
+            bool isExist = false;
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
-                SQLiteCommand cmd = new SQLiteCommand("INSERT INTO players (name) VALUES ('@username')", cn);
-                cmd.Parameters.Add("@username", DbType.String).Value = user.Name.ToLower();
-                if(user.Id == 0)
+                if (user.Id == 0)
                 {
+                    SQLiteCommand cmd = new SQLiteCommand("INSERT INTO players (name) VALUES (@username)", cn);
+                    cmd.Parameters.Add("@username", DbType.String).Value = user.Name.ToLower();
                     cmd.ExecuteNonQuery();
                     cmd.CommandText = "select last_insert_rowid()";
                     user.Id = (int)(long)cmd.ExecuteScalar();
                 }
-                cmd.CommandText = $"INSERT INTO cross (playerId, prizeId) VALUES ({user.Id}, {prize.Id})";
-                cmd.ExecuteNonQuery();
+                if (prize.Unique)
+                {
+                    SQLiteCommand cmd = new SQLiteCommand($"SELECT * FROM cross WHERE playerId = {user.Id} AND prizeId = {prize.Id}", cn);
+                    using (SQLiteDataReader sdr = cmd.ExecuteReader())
+                    {
+                        if (sdr.Read())
+                        {
+                            isExist = true;
+                        }
+                    }
+                }
+                if (!isExist || !prize.Unique)
+                {
+                    SQLiteCommand cmd = new SQLiteCommand($"INSERT INTO cross (playerId, prizeId) VALUES ({user.Id}, {prize.Id})", cn);
+                    cmd.ExecuteNonQuery();
+                }
             }
         }
 
@@ -340,17 +355,18 @@ namespace RacheM
             }
         }
 
-        public static void addPlayerBalance(string field, float addBalance = 0)
+        public static int addPlayerBalance(string field, float addBalance = 0)
         {
             bool isExist = false;
             NumberFormatInfo nfi = new NumberFormatInfo();
             nfi.NumberDecimalSeparator = ".";
+            int newId = 0;
             using (SQLiteConnection cn = new SQLiteConnection(cnString))
             {
                 cn.Open();
                 SQLiteCommand cmd = new SQLiteCommand("SELECT * FROM players WHERE name=@value", cn);
 
-                cmd.Parameters.Add("@value", DbType.String).Value = field.ToString().ToLower();
+                cmd.Parameters.Add("@value", DbType.String).Value = field.ToLower();
 
                 using (SQLiteDataReader sdr = cmd.ExecuteReader())
                 {
@@ -374,8 +390,13 @@ namespace RacheM
                     cmd1.Parameters.Add("@name", DbType.String).Value = field.ToLower();
 
                     cmd1.ExecuteNonQuery();
+
+                    cmd1.CommandText = "select last_insert_rowid()";
+                    newId = (int)(long)cmd1.ExecuteScalar();
                 }
             }
+
+            return newId;
         }
     }
 }

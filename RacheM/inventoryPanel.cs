@@ -38,7 +38,13 @@ namespace RacheM
             prizeItems.Items.Clear();
             addPick.Items.Clear();
 
+            string tempName = usr.Name;
             usr = db.getUserByField(usr.Name);
+
+            if(usr == null)
+            {
+                usr = new User() { Name = tempName, prizes = new List<PrizeItem>() };
+            }
 
             foreach (PrizeItem i in usr.prizes)
             {

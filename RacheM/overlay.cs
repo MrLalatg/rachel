@@ -85,7 +85,7 @@ namespace RacheM
         {
             IntPtr font = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 48);
 
-            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Solid(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Blended(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255 });
             SDL.SDL_Rect textRect = new SDL.SDL_Rect { x = 1280 - (40 * curUsr.Name.Length), y = 0, w = 40 * curUsr.Name.Length, h = 77 };
 
             int ImageCount = 60;
@@ -147,16 +147,11 @@ namespace RacheM
                     bool xflag = false;
                     Color curColor = rarityColors[groupedPrizes[groupI].First().IsBad];
                     IntPtr prizeFont = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 50);
-                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Solid(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
-                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 83 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
+                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Blended(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280, y = 83 + groupI * 50, w = ((SDL.SDL_Surface)Marshal.PtrToStructure(prizeSurface, typeof(SDL.SDL_Surface))).w, h = 50 };
                     IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
 
-                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-                    SDL.SDL_Rect clear = prizeTextRect;
-                    clear.x = 0;
-                    clear.w = 1280;
-                    SDL.SDL_RenderFillRect(renderer, ref clear);
-                    SDL.SDL_RenderPresent(renderer);
+                    int margin = 10;
 
                     if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
                     {
@@ -166,9 +161,10 @@ namespace RacheM
                         }
                         else
                         {
+                            prizeTextRect.x -= prizeTextRect.w + margin;
                             SDL.SDL_Rect marginRect = prizeTextRect;
-                            marginRect.x -= 10;
-                            marginRect.w += 20;
+                            marginRect.x -= margin;
+                            marginRect.w += margin * 2;
                             SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
                             SDL.SDL_RenderFillRect(renderer, ref marginRect);
                             SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
@@ -177,19 +173,26 @@ namespace RacheM
                             continue;
                         }
                     }
-                    int overflow = prizeTextRect.w;
-                    prizeTextRect.x += prizeTextRect.w;
-                    for (int animI = overflow; animI >= 0; animI -= 10)
+                    int overflow = prizeTextRect.w + margin;
+                    while (true)
                     {
                         prizeTextRect.x -= 10;
+                        if (prizeTextRect.x < 1280 - overflow)
+                        {
+                            prizeTextRect.x = 1280 - overflow;
+                        }
                         SDL.SDL_Rect marginRect = prizeTextRect;
-                        marginRect.x -= 10;
-                        marginRect.w += 20;
+                        marginRect.x -= margin;
+                        marginRect.w += margin * 2;
                         SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
                         SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                         SDL.SDL_RenderPresent(renderer);
+                        if (prizeTextRect.x == 1280 - overflow)
+                        {
+                            break;
+                        }
                     }
                     if (xflag)
                     {
@@ -228,7 +231,7 @@ namespace RacheM
 
             IntPtr font = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 48);
 
-            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Solid(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255});
+            IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Blended(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255});
             SDL.SDL_Rect textRect = new SDL.SDL_Rect { x = 1280 - (40 * curUsr.Name.Length), y = 0, w = 40 * curUsr.Name.Length, h = 77 };
 
             int ImageCount = 60;
@@ -352,7 +355,7 @@ namespace RacheM
                     //if (debugCount % 100 == 0)
                     //{
                     //    SDL.SDL_Rect fpsRect = new SDL.SDL_Rect { x = 0, y = 0, h = 50, w = 50 };
-                    //    IntPtr fps = SDL_ttf.TTF_RenderUNICODE_Solid(font, ((int)(1000/((double)debugMs / (double)debugCount))).ToString(), new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    //    IntPtr fps = SDL_ttf.TTF_RenderUNICODE_Blended(font, ((int)(1000/((double)debugMs / (double)debugCount))).ToString(), new SDL.SDL_Color { r = 255, g = 255, b = 255 });
                     //    IntPtr fpsTexture = SDL.SDL_CreateTextureFromSurface(renderer, fps);
                     //    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                     //    SDL.SDL_RenderFillRect(renderer, ref fpsRect);
@@ -387,16 +390,18 @@ namespace RacheM
                     bool xflag = false;
                     Color curColor = rarityColors[groupedPrizes[groupI].First().IsBad];
                     IntPtr prizeFont = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 50);
-                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Solid(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
-                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280 - (25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length), y = 263 + groupI * 50, w = 25 * $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}".Length, h = 50 };
+                    IntPtr prizeSurface = SDL_ttf.TTF_RenderUNICODE_Blended(prizeFont, $"{groupedPrizes[groupI].Key} x{groupedPrizes[groupI].Count()}", new SDL.SDL_Color { r = 255, g = 255, b = 255 });
+                    SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280, y = 263 + groupI * 50, w = ((SDL.SDL_Surface)Marshal.PtrToStructure(prizeSurface, typeof(SDL.SDL_Surface))).w, h = 50 };
                     IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
 
-                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-                    SDL.SDL_Rect clear = prizeTextRect;
-                    clear.x = 0;
-                    clear.w = 1280;
-                    SDL.SDL_RenderFillRect(renderer, ref clear);
-                    SDL.SDL_RenderPresent(renderer);
+                    //SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    //SDL.SDL_Rect clear = prizeTextRect;
+                    //clear.x = 0;
+                    //clear.w = 1280;
+                    //SDL.SDL_RenderFillRect(renderer, ref clear);
+                    //SDL.SDL_RenderPresent(renderer);
+
+                    int margin = 10;
 
                     if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
                     {
@@ -405,9 +410,10 @@ namespace RacheM
                             xflag = true;
                         } else
                         {
+                            prizeTextRect.x -= prizeTextRect.w + margin;
                             SDL.SDL_Rect marginRect = prizeTextRect;
-                            marginRect.x -= 10;
-                            marginRect.w += 20;
+                            marginRect.x -= margin;
+                            marginRect.w += margin*2;
                             SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
                             SDL.SDL_RenderFillRect(renderer, ref marginRect);
                             SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
@@ -416,20 +422,28 @@ namespace RacheM
                             continue;
                         }
                     }
-                    int overflow = prizeTextRect.w;
-                    prizeTextRect.x += prizeTextRect.w;
-                    for (int animI = overflow; animI >= 0; animI -= 10)
+                    int overflow = prizeTextRect.w + margin;
+                    while (true)
                     {
                         prizeTextRect.x -= 10;
+                        if(prizeTextRect.x < 1280 - overflow)
+                        {
+                            prizeTextRect.x = 1280 - overflow;
+                        }
                         SDL.SDL_Rect marginRect = prizeTextRect;
-                        marginRect.x -= 10;
-                        marginRect.w += 20;
+                        marginRect.x -= margin;
+                        marginRect.w += margin*2;
                         SDL.SDL_SetRenderDrawColor(renderer, curColor.R, curColor.G, curColor.B, 255);
                         SDL.SDL_RenderFillRect(renderer, ref marginRect);
                         SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                         SDL.SDL_RenderCopy(renderer, prizeText, IntPtr.Zero, ref prizeTextRect);
                         SDL.SDL_RenderPresent(renderer);
+                        if (prizeTextRect.x == 1280 - overflow)
+                        {
+                            break;
+                        }
                     }
+
                     if (xflag)
                     {
                         renderedPrizes[groupedPrizes[groupI].Key] += 1;

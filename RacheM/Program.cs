@@ -14,9 +14,20 @@ namespace RacheM
         [STAThread]
         static void Main()
         {
+            bool result;
+            var mutex = new System.Threading.Mutex(true, "UniqueAppId", out result);
+
+            if (!result)
+            {
+                MessageBox.Show("Программа уже запущена, ебаний свiт", "ОЛЕГ БЛЯТЬБ !!0!)!0!011");
+                return;
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new mainForm());
+
+            GC.KeepAlive(mutex);
         }
     }
 }
