@@ -22,6 +22,8 @@ namespace RacheM
         overlay ol = new overlay();
         public static Logger logger = new Logger();
         public List<string> usersList = db.getUserList();
+        bool isRolling = false;
+        Queue<JObject> donationQueue = new Queue<JObject>();
 
         public System.Windows.Forms.PictureBox[,] eliteCards;
         public mainForm()
@@ -52,37 +54,46 @@ namespace RacheM
 
         public void InvokeMethod( JObject donation)
         {
-            string username = donation["username"].ToString();
-            User toRide = db.getUserByField(username);
-            if(toRide == null)
-            {
-                toRide = new User() { Name = username };
-                usersList.Add(username.ToLower());
-                toRide.Id = db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
-            } else
-            {
-                db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
-            }
+            new Thread(() => {
+                string username = donation["username"].ToString();
+                User toRide = db.getUserByField(username);
+                if (toRide == null)
+                {
+                    toRide = new User() { Name = username };
+                    usersList.Add(username.ToLower());
+                    toRide.Id = db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
+                }
+                else
+                {
+                    db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
+                }
 
-            float currentBalance = db.getPlayerBalance(toRide.Name);
+                float currentBalance = db.getPlayerBalance(toRide.Name);
 
-            if ((int)donation["alert_type"] == 4)
-            {
-                ol.ride(toRide, 100);
-            } else if (currentBalance < 100)
-            {
-                return;
-            }
-            else if (currentBalance < 500)
-            {
-                ol.ride(toRide, currentBalance);
-            } else if (currentBalance <= 1000)
-            {
-                ol.fastRide(toRide, currentBalance);
-            } else
-            {
-                ol.fastRide(toRide, 1000);
-            }
+                if ((int)donation["alert_type"] == 4)
+                {
+                    ol.ride(toRide, 100);
+                }
+                else if (currentBalance < 100)
+                {
+                    
+                }
+                else if (currentBalance < 500)
+                {
+                    ol.ride(toRide, currentBalance);
+                }
+                else
+                {
+                    ol.fastRide(toRide, currentBalance);
+                }
+
+                isRolling = false;
+                if (donationQueue.Count != 0)
+                {
+                    JObject newDonation = donationQueue.Dequeue();
+                    InvokeMethod(newDonation);
+                }
+            }).Start();
         }
 
 
@@ -92,8 +103,14 @@ namespace RacheM
             dl = new DonationListener(settings.twitchSettings.password);
             dl.OnDonation = donation =>
             {
-                this.BeginInvoke(new InvokeDelegate(InvokeMethod), donation);
-
+                if (isRolling)
+                {
+                    donationQueue.Enqueue(donation);
+                } else
+                {
+                    isRolling = true;
+                    this.BeginInvoke(new InvokeDelegate(InvokeMethod), donation);
+                } 
             };
 
             Task t = new Task(() => {

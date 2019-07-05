@@ -90,6 +90,7 @@ namespace RacheM
 
             int ImageCount = 60;
             int ImageLength = 170;
+            int margin = 10;
 
             List<PrizeItem> displayPrizes = new List<PrizeItem>();
             Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
@@ -97,9 +98,8 @@ namespace RacheM
 
             for (int j = 0; j < (int)price / 100; j++)
             {
-                int endPtr = 0;
+                int endPtr = ImageCount * ImageLength;
                 var randomPrizes = getRandomPrizes(ImageCount);
-                IntPtr LongImage = buildSausage(randomPrizes, ImageLength, out endPtr);
 
                 if (j == 0)
                 {
@@ -139,7 +139,10 @@ namespace RacheM
 
                 db.addPrizeToPlayer(curUsr, resultPrize);
                 displayPrizes.Add(resultPrize);
-                mainForm.logger.AddEntry(curUsr, resultPrize);
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    mainForm.logger.AddEntry(curUsr, resultPrize);
+                }));
 
                 var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
                 for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
@@ -151,7 +154,7 @@ namespace RacheM
                     SDL.SDL_Rect prizeTextRect = new SDL.SDL_Rect { x = 1280, y = 83 + groupI * 50, w = ((SDL.SDL_Surface)Marshal.PtrToStructure(prizeSurface, typeof(SDL.SDL_Surface))).w, h = 50 };
                     IntPtr prizeText = SDL.SDL_CreateTextureFromSurface(renderer, prizeSurface);
 
-                    int margin = 10;
+                    
 
                     if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
                     {
@@ -208,15 +211,39 @@ namespace RacheM
 
             System.Threading.Thread.Sleep(5000);
 
-            for (int z = 0; z < 1281 / 32; z++)
+            int animationX = 0;
+
+            DateTime lastTime = DateTime.Now;
+            while (animationX < 1280)
             {
-                textRect.x += 32;
+                DateTime currentTime = DateTime.Now;
+                double delta_time = (currentTime - lastTime).TotalSeconds;
+
+                SDL.SDL_Rect marginRect = textRect;
+                marginRect.x -= margin;
+                marginRect.w += margin * 2;
                 SDL.SDL_RenderClear(renderer);
+                animationX += (int)(1000 * 0.016);
+                SDL.SDL_Rect animationTextRect = textRect;
+                animationTextRect.x += animationX;
+                marginRect.x += animationX;
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                SDL.SDL_RenderDrawRect(renderer, ref textRect);
+                SDL.SDL_RenderFillRect(renderer, ref marginRect);
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref textRect);
+                SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref animationTextRect);
                 SDL.SDL_RenderPresent(renderer);
+
+                int frameTime = (int)(DateTime.Now - currentTime).TotalMilliseconds;
+
+                if (mainForm.settings.fpsLimit > 0)
+                {
+                    if (frameTime < (1000 / mainForm.settings.fpsLimit) - 5)
+                    {
+                        SDL.SDL_Delay((uint)((1000 / mainForm.settings.fpsLimit) - frameTime));
+                    }
+                }
+
+                lastTime = currentTime;
             }
 
             db.addPlayerBalance(curUsr.Name, -((int)price / 100) * 100);
@@ -227,8 +254,6 @@ namespace RacheM
 
         public void ride(User curUsr, float price, int prizeType = 0)
         {
-            this.button1.Show();
-
             IntPtr font = SDL_ttf.TTF_OpenFont(Path.Combine(Directory.GetCurrentDirectory(), "unispace.ttf"), 48);
 
             IntPtr textSurface = SDL_ttf.TTF_RenderUNICODE_Blended(font, curUsr.Name, new SDL.SDL_Color { r = 255, g = 255, b = 255});
@@ -236,6 +261,7 @@ namespace RacheM
 
             int ImageCount = 60;
             int ImageLength = 170;
+            int margin = 10;
 
             List<PrizeItem> displayPrizes = new List<PrizeItem>();
             Dictionary<string, int> renderedPrizes = new Dictionary<string, int>();
@@ -303,6 +329,7 @@ namespace RacheM
                 int debugMs = 0;
                 int debugCount = 0;
 
+                SDL.SDL_Rect prizeLineRect = new SDL.SDL_Rect() { x = 1280/2 - 2, y = dstRect.y, h = dstRect.h, w = 4};
 
                 while(true)
                 {
@@ -334,6 +361,8 @@ namespace RacheM
                         SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
                     }
 
+                    SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+                    SDL.SDL_RenderFillRect(renderer, ref prizeLineRect);
                     SDL.SDL_RenderPresent(renderer);
 
                     speed -= 80 * delta_time;
@@ -382,7 +411,10 @@ namespace RacheM
 
                 db.addPrizeToPlayer(curUsr, resultPrize);
                 displayPrizes.Add(resultPrize);
-                mainForm.logger.AddEntry(curUsr, resultPrize);
+                this.BeginInvoke(new MethodInvoker(delegate
+                {
+                    mainForm.logger.AddEntry(curUsr, resultPrize);
+                }));        
 
                 var groupedPrizes = displayPrizes.GroupBy(prize => prize.Name).ToList();
                 for (int groupI = 0; groupI < groupedPrizes.Count; groupI++)
@@ -400,8 +432,6 @@ namespace RacheM
                     //clear.w = 1280;
                     //SDL.SDL_RenderFillRect(renderer, ref clear);
                     //SDL.SDL_RenderPresent(renderer);
-
-                    int margin = 10;
 
                     if (renderedPrizes.Keys.Contains(groupedPrizes[groupI].Key))
                     {
@@ -480,11 +510,14 @@ namespace RacheM
                     dstRect.x = animationX;
                     SDL.SDL_RenderCopy(renderer, texture, ref srcRect, ref dstRect);
                 }
-
+                SDL.SDL_Rect marginRect = textRect;
+                marginRect.x -= margin;
+                marginRect.w += margin * 2;
                 SDL.SDL_Rect animationTextRect = textRect;
                 animationTextRect.x += animationX;
+                marginRect.x += animationX;
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                SDL.SDL_RenderDrawRect(renderer, ref animationTextRect);
+                SDL.SDL_RenderFillRect(renderer, ref marginRect);
                 SDL.SDL_RenderCopy(renderer, text, IntPtr.Zero, ref animationTextRect);
                 SDL.SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
                 SDL.SDL_RenderPresent(renderer);
@@ -504,8 +537,6 @@ namespace RacheM
 
             SDL.SDL_RenderClear(renderer);
             SDL.SDL_RenderPresent(renderer);
-
-            this.button1.Hide();
         }
 
         private List<PrizeItem> getRandomPrizes(int count)

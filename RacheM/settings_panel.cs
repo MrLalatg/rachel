@@ -28,6 +28,7 @@ namespace RacheM
             mainForm.settings.twitchSettings.botUsername = this.botUsername.Text;
             mainForm.settings.twitchSettings.password = this.donPassword.Text;
             mainForm.settings.twitchSettings.clientId = this.clientId.Text;
+            mainForm.settings.twitchSettings.channelName = this.channelName.Text;
             mainForm.settings.fpsLimit = this.fps_value.SelectedItem.ToString() == "None" ? 0 : Convert.ToInt32(this.fps_value.SelectedItem);
             db.setSettings(mainForm.settings);
         }

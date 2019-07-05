@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.roller = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.nickname = new System.Windows.Forms.TextBox();
             this.sdlPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.roller)).BeginInit();
             this.SuspendLayout();
@@ -45,33 +43,6 @@
             this.roller.TabStop = false;
             this.roller.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Enabled = false;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(640, 83);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(5, 170);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            // 
-            // nickname
-            // 
-            this.nickname.BackColor = System.Drawing.Color.Lime;
-            this.nickname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nickname.Font = new System.Drawing.Font("Unispace", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nickname.ForeColor = System.Drawing.Color.Orange;
-            this.nickname.Location = new System.Drawing.Point(0, 176);
-            this.nickname.Name = "nickname";
-            this.nickname.ReadOnly = true;
-            this.nickname.Size = new System.Drawing.Size(1280, 77);
-            this.nickname.TabIndex = 3;
-            this.nickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.nickname.Visible = false;
-            // 
             // sdlPanel
             // 
             this.sdlPanel.Location = new System.Drawing.Point(0, 0);
@@ -85,8 +56,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
             this.ClientSize = new System.Drawing.Size(1280, 756);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.nickname);
             this.Controls.Add(this.sdlPanel);
             this.Controls.Add(this.roller);
             this.Cursor = System.Windows.Forms.Cursors.Default;
@@ -96,15 +65,12 @@
             this.TransparencyKey = System.Drawing.Color.Lime;
             ((System.ComponentModel.ISupportInitialize)(this.roller)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox roller;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox nickname;
         private System.Windows.Forms.Panel sdlPanel;
     }
 }

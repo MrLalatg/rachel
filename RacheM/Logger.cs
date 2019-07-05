@@ -88,7 +88,6 @@ namespace RacheM
             this.tableLayoutPanel1.Controls.Add(prizeLabel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(confirm, 0, 1);
             this.tableLayoutPanel1.ResumeLayout();
-            this.tableLayoutPanel1.Refresh();
             this.AutoScrollPosition = lastScrollPosition;
         }
 
