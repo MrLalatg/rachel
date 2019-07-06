@@ -62,6 +62,10 @@ namespace RacheM
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            if (curUsr.Id == 0)
+            {
+                ((mainForm)Parent).usersList.Add(curUsr.Name.ToLower());
+            }
             db.addPrizeToPlayer(curUsr, tempPrizes[(int)((ComboboxItem)addPick.SelectedItem).Value]);
             setUser(curUsr);
         }

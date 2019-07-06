@@ -54,13 +54,14 @@ namespace RacheM
 
         public void InvokeMethod( JObject donation)
         {
+            isRolling = true;
             new Thread(() => {
-                string username = donation["username"].ToString();
+                string username = donation["username"].ToString().ToLower();
                 User toRide = db.getUserByField(username);
                 if (toRide == null)
                 {
                     toRide = new User() { Name = username };
-                    usersList.Add(username.ToLower());
+                    usersList.Add(username);
                     toRide.Id = db.addPlayerBalance(toRide.Name, (float)donation["amount_main"]);
                 }
                 else
@@ -108,7 +109,6 @@ namespace RacheM
                     donationQueue.Enqueue(donation);
                 } else
                 {
-                    isRolling = true;
                     this.BeginInvoke(new InvokeDelegate(InvokeMethod), donation);
                 } 
             };

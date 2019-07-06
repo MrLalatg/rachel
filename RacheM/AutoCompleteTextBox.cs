@@ -22,6 +22,8 @@ namespace RacheM
         // a Panel for displaying
         private Panel panel;
 
+        private Font font = new Font("Bahnschrift", 18);
+
         #endregion Fields
 
         #region Constructors
@@ -42,13 +44,13 @@ namespace RacheM
             // the listbox used for suggestions
             this.listBox = new ListBox();
             this.listBox.Name = "SuggestionListBox";
-            this.listBox.Font = this.Font;
+            this.listBox.Font = this.font;
             this.listBox.Visible = true;
 
             // the panel to hold the listbox later on
             this.panel = new Panel();
             this.panel.Visible = false;
-            this.panel.Font = this.Font;
+            this.panel.Font = this.font;
             // to be able to fit to changing sizes of the parent form
             this.panel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             // initialize with minimum size to avoid overlaping or flickering problems
